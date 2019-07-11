@@ -1,1 +1,8 @@
-export default Game
+class Game {
+  constructor() {
+
+  }
+}
+
+
+export default Game;

@@ -1,1 +1,7 @@
-export default Clue
+class Clue {
+  constructor() {
+
+  }
+}
+
+export default Clue;

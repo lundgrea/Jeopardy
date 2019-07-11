@@ -1,1 +1,7 @@
-export default Round
+class Round {
+  constructor() {
+
+  }
+}
+
+export default Round;

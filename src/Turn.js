@@ -1,1 +1,7 @@
-export default Turn 
+class Turn {
+  constructor() {
+
+  }
+}
+
+export default Turn; 
