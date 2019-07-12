@@ -18,3 +18,15 @@ import Player from './Player';
 import Round from './Round';
 import Turn from './Turn';
 
+$(document).ready(function() {
+
+  $('#player1-name__submit').click( () => {
+ getPlayerName('#player1-name__input', '#player1-name__display')
+})
+
+  function getPlayerName(playerInput, playerDisplay) {
+    console.log('Hey :');
+    let playerName = $(`${playerInput}`).val();
+    $(`${playerDisplay}`).text(playerName)
+  }
+})
