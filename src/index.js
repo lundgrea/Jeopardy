@@ -11,3 +11,10 @@ import './css/base.scss';
 import './images/turing-logo.png'
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+import Game from './Game';
+import Clue from './Clue';
+import Player from './Player';
+import Round from './Round';
+import Turn from './Turn';
+
