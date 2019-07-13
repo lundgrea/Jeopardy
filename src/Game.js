@@ -6,29 +6,52 @@ class Game {
   constructor() {
     this.currentRound = {};
     this.roundTracker = 0;
-    this.players = []
+    this.players = [];
   }
 
   generateRound() {
-    this.currentRound = new Round();
+    if (this.roundTracker <= 2) {
+      this.currentRound = new Round();
+      this.roundTracker ++;
+    }
+
+    // if(this.roundTracker === 3 {
+      //create super/extends round class
+    // }
+
   }
 
-  generatePlayers(player1Name, player2Name, player3Name) {
-    this.player1 = new Player(player1Name);
-    this.players.push(this.player1);
-    this.player2 = new Player(player2Name);
-    this.players.push(this.player2);
-    this.player3 = new Player(player3Name);
-    this.players.push(this.player3);
-    return this.players
+  generatePlayers(player1Object, player2Object, player3Object) {
+    this.player1 = new Player(player1Object);
+    this.players.push(this.player1.name);
+    this.player2 = new Player(player2Object);
+    this.players.push(this.player2.name);
+    this.player3 = new Player(player3Object);
+    this.players.push(this.player3.name);
+    return this.players;
   }
   
   startGame() {
-    this.generateRound()
-    this.generatePlayers()
-    this.roundTracker ++
+    this.generateRound();
+    this.generatePlayers();
   }
-  
+
+
+  determineGameWinner() {
+    let sortedScores = this.players.sort((a,b) => a.score - b.score);
+    let winner = sortedScores[sortedScores.length -1].name
+    return winner
+  }
+
+
+  displayRequestToPlayAgain() {
+    
+  }
+
+  endGame() {
+    this.determineWinner();
+    this.displayRequestToPlayAgain();
+  }    
 }
 
 

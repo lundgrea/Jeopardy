@@ -28,26 +28,43 @@ describe('Game', function() {
     expect(game.players).to.be.a('array');
   });
 
-it('should create be able to create new rounds', function(){
-    game.generateRound()
+  it('should create be able to create new rounds', function(){
+    game.generateRound();
     expect(game.currentRound).to.be.a('object');
   }); 
 
+  it('should not create more than three rounds', function(){
+    game.startGame();
+    expect(game.roundTracker).to.equal(1);
+    game.generateRound();
+    expect(game.roundTracker).to.equal(2);
+    game.generateRound();
+    expect(game.roundTracker).to.equal(3);
+    game.generateRound();
+    expect(game.roundTracker).to.equal(3);
+  });
+
   it('should create three new Players from the player input fields', function(){
     game.generatePlayers('Jon', 'Chris', 'Alyssa');
-    expect(game.players).to.deep.equal([{name: 'Jon', score: 0} , {name: 'Chris', score: 0 } , { name: 'Alyssa', score: 0 }]);
+    expect(game.players).to.be.a('array');
   });
 
   it('should be able to start the game', function(){
     game.startGame();
     expect(game.currentRound).to.be.a('object');
     expect(game.roundTracker).to.equal(1);
-    expect(game.players).to.be.a('array')
+    expect(game.players).to.be.a('array');
   });
 
   it('should keep track of the current round', function(){
-    game.startGame()
+    game.startGame();
     expect(game.roundTracker).to.equal(1);
-  });   
+  }); 
+
+  it('should be able to determine the winner of the game at the end of the third round', function(){
+    game.generatePlayers({name: 'Jon', score: 10} , {name: 'Chris', score: 0 } , { name: 'Alyssa', score: 0 });
+    expect(game.determineGameWinner()).to.deep.equal('Jon');
+
+  })  
 
 });
