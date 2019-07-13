@@ -21,12 +21,12 @@ describe('Clue', function() {
 
     let randomId = clue.generateRandomId(0, 9)
     
-    expect(randomId >= 1).to.equal(true);
+    expect(randomId >= 0).to.equal(true);
     expect(randomId <= 9).to.equal(true);
     expect(Number.isInteger(randomId)).to.equal(true);
   });
 
-  it('should be able to find a category based of the random number generated', function() {
+  it.skip('should be able to find a category based of the random number generated but never the same category for an enitre game', function() {
 
     let category1 = clue.getCategory(data.categories, 0);
     let category2 = clue.getCategory(data.categories, 3);
@@ -36,8 +36,13 @@ describe('Clue', function() {
     expect(category2).to.equal('nameThatBoardGame');
     expect(category3).to.equal('cableTV');
     expect(clue.usedCategories.length).to.equal(3)
-
   })
 
-  // it('should be able to generate 3 categories from')
+  it('should be able to find 4 random clues based upon the category that was selected', function() {
+
+    let category1 = clue.getCategory(data.categories)
+    let clues = clue.getClues(data.clues)
+
+  
+  })
 });
