@@ -1,6 +1,41 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+
+* {
+  box-sizing: border-box;
+  font-family: Oxygen, sans-serif;
+  font-weight: 300;
+}
+$primary-background: rgb(99, 147, 250);
 
 body {
   background-color: $primary-background;
 }
+
+.welcome-message,
+.user-name-inputs {
+  border: solid 1px black;
+  background-color: rgb(174, 243, 240);
+  display: flex; 
+  margin-top: 200px;
+  margin-left:300px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  width: 600px;
+}
+
+.puzzle-table {
+  margin-left: 33%;
+  height: 60%;
+}
+
+  .tg {
+    height: 400px;
+    width: 600px;
+    border-collapse:collapse;border-spacing:0;}
+
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+
