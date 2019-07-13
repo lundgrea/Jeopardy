@@ -7,6 +7,7 @@ class Game {
     this.currentRound = {};
     this.roundTracker = 0;
     this.players = [];
+    this.winner
   }
 
   generateRound() {
@@ -39,8 +40,9 @@ class Game {
 
   determineGameWinner() {
     let sortedScores = this.players.sort((a,b) => a.score - b.score);
-    let winner = sortedScores[sortedScores.length -1].name
-    return winner
+    let highestScorer = sortedScores[sortedScores.length -1].name
+    this.winner = highestScorer
+    return this.winner
   }
 
 
@@ -49,7 +51,7 @@ class Game {
   }
 
   endGame() {
-    this.determineWinner();
+    this.determineGameWinner();
     this.displayRequestToPlayAgain();
   }    
 }

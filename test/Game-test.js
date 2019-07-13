@@ -61,10 +61,22 @@ describe('Game', function() {
     expect(game.roundTracker).to.equal(1);
   }); 
 
-  it('should be able to determine the winner of the game at the end of the third round', function(){
+  it('should declare a winner at the end of the third round', function(){
     game.generatePlayers({name: 'Jon', score: 10} , {name: 'Chris', score: 0 } , { name: 'Alyssa', score: 0 });
     expect(game.determineGameWinner()).to.deep.equal('Jon');
 
   })  
+
+  it('should invite player to play again at the end of the 3rd round', function(){
+  })
+
+  it('should end the game at the end of the third round', function(){
+    game.generatePlayers({name: 'Jon', score: 10} , {name: 'Chris', score: 0 } , { name: 'Alyssa', score: 0 });
+    game.generateRound();
+    game.generateRound();
+    game.generateRound();
+    game.endGame()
+    expect(game.winner).to.equal('Jon')
+  })
 
 });
