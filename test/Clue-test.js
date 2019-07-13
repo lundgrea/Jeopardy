@@ -7,7 +7,7 @@ import data from '../src/data';
 var clue
 
 beforeEach(() => {
-  clue = new Clue()
+  clue = new Clue(data)
 });
 
 describe('Clue', function() {
@@ -28,9 +28,9 @@ describe('Clue', function() {
 
   it.skip('should be able to find a category based of the random number generated but never the same category for an enitre game', function() {
 
-    let category1 = clue.getCategory(data.categories, 0);
-    let category2 = clue.getCategory(data.categories, 3);
-    let category3 = clue.getCategory(data.categories, 7);
+    let category1 = clue.getCategory(clue.data.categories, 0);
+    let category2 = clue.getCategory(clue.data.categories, 3);
+    let category3 = clue.getCategory(clue.data.categories, 7);
 
     expect(category1).to.equal('unitedStatesHistory');
     expect(category2).to.equal('nameThatBoardGame');
@@ -40,9 +40,8 @@ describe('Clue', function() {
 
   it('should be able to find 4 random clues based upon the category that was selected', function() {
 
-    let category1 = clue.getCategory(data.categories)
-    let clues = clue.getClues(data.clues)
+    let clues = clue.createBoardColumnObj()
 
-  
+    expect(clues).to.equal(0)
   })
 });

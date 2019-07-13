@@ -1,8 +1,9 @@
-import data from "./data";
+
 
 
 class Clue {
-  constructor() {
+  constructor(data) {
+    this.data = data
     this.usedCategories = [];
     this.id = 0
     
@@ -28,10 +29,17 @@ class Clue {
   }
   
   getClues(dataArray) {
-    let categoryClues = dataArray.filter(clue => {
+    let clues = dataArray.filter(clue => {
       return clue.categoryId === this.id
     })
-    console.log(categoryClues)
+  ///filter and include in array based off of point values///
+  }
+  createBoardColumnObj() {
+    let obj = {
+      category: this.getCategory(this.data.categories),
+      clues: this.getClues(this.data.clues)
+    }
+console.log(JSON.stringify(obj, null, 2))
   }
 }
 
