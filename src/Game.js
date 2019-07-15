@@ -8,6 +8,7 @@ class Game {
     this.roundTracker = 0;
     this.players = [];
     this.winner
+    this.boards = []
   }
 
   generateRound() {
@@ -16,10 +17,16 @@ class Game {
       this.roundTracker ++;
     }
 
+
     // if(this.roundTracker === 3 {
       //create super/extends round class
     // }
 
+  }
+
+  generateClues() {
+    let clue = new Clue();
+    this.boards = clue.createBoardArray()
   }
 
   generatePlayers(player1Object, player2Object, player3Object) {
@@ -33,26 +40,23 @@ class Game {
   }
   
   startGame() {
-    this.generateRound();
     this.generatePlayers();
+    this.generateClues();
+    this.generateRound();
   }
-
 
   determineGameWinner() {
     let sortedScores = this.players.sort((a,b) => a.score - b.score);
-    let highestScorer = sortedScores[sortedScores.length -1].name
+    let highestScorer = sortedScores[sortedScores.length - 1].name
     this.winner = highestScorer
     return this.winner
   }
 
 
-  displayRequestToPlayAgain() {
-    
-  }
-
   endGame() {
     this.determineGameWinner();
     this.displayRequestToPlayAgain();
+    domUpdates.displayRequestToPlayAgain();
   }    
 }
 

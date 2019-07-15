@@ -1,3 +1,16 @@
 import $ from 'jquery'
 
-$('player1-name__display').text()
+
+export default {
+  displayRequestToPlayAgain() {  
+  }
+
+  populateJeopardyBoard(boardIndex) {
+    game.boards[boardIndex]
+  }
+
+  popUpLeaderBoard() {
+  }
+
+
+}

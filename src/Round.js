@@ -3,18 +3,23 @@ import Turn from '../src/Turn';
 
 
 class Round {
-  constructor() {
+  constructor(arrayOfColumnObjects) {
     this.currentTurn = null;
     this.turnTracker = 0;
     this.currentClue = null;
-    this.discardPile = []
+    this.discardPile = [];
+    this.board = arrayOfColumnObjects;
   }
 
   generateClues() {
-    this.currentClue = new Clue()
   }
 
-  populateJeopardyBoard() {
+  updateScores() {
+  }
+
+
+  increasePointValue() {
+
   }
 
   beginTurn() {
@@ -25,8 +30,6 @@ class Round {
     this.turnTracker ++
   }  
 
-  popUpLeaderBoard() {
-  }
 
 }
 
