@@ -25,6 +25,17 @@ body {
   width: 600px;
 }
 
+.grid-item {
+  background-color: rgba(138, 221, 234, 0.53);
+  border: solid 4px rgba(138, 221, 234, 0.97);
+  border-radius: 5% 5% 5% 5%;
+  float: left;
+  grid-auto-columns: 4;
+  grid-auto-rows: auto; 
+  padding: 15px;
+  width: 27%;
+}
+
 #puzzle-table {
   margin-left: 33%;
   height: 60%;
