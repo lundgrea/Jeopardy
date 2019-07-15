@@ -5,7 +5,7 @@ class Clue {
   constructor(data) {
     this.data = data
     this.usedCategories = [];
-    // this.id = 0
+    this.id = null
   }
   generateRandomId(min, max) {
     return Math.floor(Math.random() * max) + min
@@ -18,17 +18,18 @@ class Clue {
       }
       return acc
     }, [])
-    let category = dataArray.splice(this.id, 1)[0];
-    
     this.id = this.generateRandomId(1, dataArray.length)
-    this.usedCategories.push(category)
+
+    let category = dataArray.splice( this.id,
+      1)[0];
     
+    this.usedCategories.push(category)
     return category
   }
   
   getClues(dataArray) {
     let clues = dataArray.filter(clue => {
-      return clue.categoryId === this.id
+      return clue.categoryId === this.id + 1
     })
     return [this.getQuestion(clues, 100), this.getQuestion(clues, 200), this.getQuestion(clues, 300), this.getQuestion(clues, 400)]
   }
@@ -40,10 +41,12 @@ class Clue {
   }
 
   createBoardColumnObj() {
-    return {
+    let x = {
       category: this.getCategory(this.data.categories),
       clues: this.getClues(this.data.clues).flat()
     }
+    console.log(x)
+    return x
   }
 }
 
