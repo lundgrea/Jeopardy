@@ -17,6 +17,7 @@ import Clue from './Clue';
 import Player from './Player';
 import Round from './Round';
 import Turn from './Turn';
+import domUpdates from './domUpdates.js';
 
 function createPlayers(playerInput) {
   let player1 = new Player(playerInput[0], 100)
@@ -46,11 +47,11 @@ $(document).ready(function() {
   <p></p>
   <input type="text"id="player3-name__input"> Player 3:</input>
   <p></p>
-  <button id="player3-name__submit">Game on!</button>`).delay(3000).fadeIn('slow');
+  <button id="player3-name__submit" type="button" class="buttonStyled">Game on!</button>`).delay(3000).fadeIn('slow');
   //$('.user-name-inputs').delay(3000).fadeIn("slow");
   //let $grid = $('.grid').packery({itemSelector: '.grid-item', columnWidth: 100});
   //$('.grid').packery({itemSelector: '.grid-item', gutter: 15, percentPosition: true, columnWidth: 100, });
-
+  domUpdates.disableUserInputButton();
 
   $('#player3-name__submit').click( () => {
     console.log($('#player1-name__input').val());
@@ -61,4 +62,20 @@ $(document).ready(function() {
     $('#puzzle-table').delay(1000).fadeIn();
   })
 
-})
+  $('#player3-name__submit').hover( () => {
+    console.log('button hover!')
+   $( this ).css('color',"red");
+    // $( this ).fadeOut( 100 );
+    // $( this ).fadeIn( 500 );
+  });
+
+  $('player3-name__input').blur(() => {
+    console.log('Player3 input blur');
+    //if($( this ).val() != '') domUpdates.enableUserInputButton();
+  })
+
+});
+
+
+
+
