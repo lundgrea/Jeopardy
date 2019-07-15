@@ -28,6 +28,10 @@ describe('Game', function() {
     expect(game.players).to.be.a('array');
   });
 
+  it('should have a spot for the winner', function(){
+    expect(game.winner).to.equal(null);
+  });
+
   it('should start with an empty board', function(){
     expect(game.boards).to.deep.equal([])
   });
@@ -36,6 +40,11 @@ describe('Game', function() {
     game.generateRound();
     expect(game.currentRound).to.be.a('object');
   }); 
+
+  it('should create the board from the clues', function(){
+    game.generateClues();
+    expect(game.boards).to.be.a('array')
+  })
 
   it('should not create more than three rounds', function(){
     game.startGame();
@@ -71,9 +80,6 @@ describe('Game', function() {
     expect(game.determineGameWinner()).to.deep.equal('Jon');
 
   })  
-
-  it('should invite player to play again at the end of the 3rd round', function(){
-  })
 
   it('should end the game at the end of the third round', function(){
     game.generatePlayers({name: 'Jon', score: 10} , {name: 'Chris', score: 0 } , { name: 'Alyssa', score: 0 });

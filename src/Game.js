@@ -8,7 +8,7 @@ class Game {
     this.currentRound = {};
     this.roundTracker = 0;
     this.players = [];
-    this.winner
+    this.winner = null;
     this.boards = []
   }
 
@@ -55,7 +55,6 @@ class Game {
 
   endGame() {
     this.determineGameWinner();
-    // domUpdates.displayRequestToPlayAgain();
     // domUpdates.displayRequestToPlayAgain();
   }    
 }
