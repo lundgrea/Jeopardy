@@ -34,12 +34,6 @@ function createPlayers(playerInput) {
   return [player1, player2, player3]
 }
 
-// $(window).load(function() {
-//   // will first fade out the loading animation
-// $('.welcome-message').delay(1500).fadeOut("slow");
-//   // will fade out the whole DIV that covers the website.
-// //$("#preloader").delay(2000).fadeOut("slow");
-// })
 $(document).ready(function() {
   $('#main-score-cards').hide();
   $('#user-name-inputs').hide();
