@@ -61,17 +61,10 @@ $(document).ready(function() {
   $('#player3-name__submit').click( () => {
     console.log($('#player1-name__input').val());
     let playerNames = [$('#player1-name__input').val(), $('#player2-name__input').val(),$('#player3-name__input').val()]
- createPlayers(playerNames);
- $('#user-name-inputs').fadeOut();
- $('#main-score-cards').delay(1000).fadeIn();
- $('#puzzle-table').delay(1000).fadeIn();
-})
+    createPlayers(playerNames);
+    $('#user-name-inputs').fadeOut();
+    $('#main-score-cards').delay(1000).fadeIn();
+    $('#puzzle-table').delay(1000).fadeIn();
+  })
 
-  function getPlayerName(playerInput) {
-    console.log('Hey :');
-    console.log(playerInput)
-    let playerName1 = playerInput[0];
-    console.log(playerName1);
-    //$(`${playerDisplay}`).text(playerName)
-  }
 })
