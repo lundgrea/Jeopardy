@@ -17,7 +17,7 @@ describe('Game', function() {
   });
 
   it('should hold a place for the current round', function(){
-    expect(game.currentRound).to.be.a('object');
+    expect(game.currentRound).to.deep.equal({});
   });
 
   it('should start with current round as 0', function(){
@@ -26,6 +26,10 @@ describe('Game', function() {
 
   it('should hold a spot for the players', function(){
     expect(game.players).to.be.a('array');
+  });
+
+  it('should start with an empty board', function(){
+    expect(game.boards).to.deep.equal([])
   });
 
   it('should create be able to create new rounds', function(){
@@ -42,6 +46,7 @@ describe('Game', function() {
     expect(game.roundTracker).to.equal(3);
     game.generateRound();
     expect(game.roundTracker).to.equal(3);
+
   });
 
   it('should create three new Players from the player input fields', function(){

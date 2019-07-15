@@ -11,8 +11,6 @@ class Round {
     this.board = arrayOfColumnObjects;
   }
 
-  generateClues() {
-  }
 
   updateScores() {
   }

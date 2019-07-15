@@ -1,5 +1,6 @@
 import Player from '../src/Player';
 import Round from '../src/Round';
+import Clue from '../src/Clue';
 
 
 class Game {
@@ -17,7 +18,6 @@ class Game {
       this.roundTracker ++;
     }
 
-
     // if(this.roundTracker === 3 {
       //create super/extends round class
     // }
@@ -26,7 +26,7 @@ class Game {
 
   generateClues() {
     let clue = new Clue();
-    this.boards = clue.createBoardArray()
+    // this.boards = clue.createBoardArray();
   }
 
   generatePlayers(player1Object, player2Object, player3Object) {
@@ -47,16 +47,16 @@ class Game {
 
   determineGameWinner() {
     let sortedScores = this.players.sort((a,b) => a.score - b.score);
-    let highestScorer = sortedScores[sortedScores.length - 1].name
-    this.winner = highestScorer
-    return this.winner
+    let highestScorer = sortedScores[sortedScores.length - 1].name;
+    this.winner = highestScorer;
+    return this.winner;
   }
 
 
   endGame() {
     this.determineGameWinner();
-    this.displayRequestToPlayAgain();
-    domUpdates.displayRequestToPlayAgain();
+    // domUpdates.displayRequestToPlayAgain();
+    // domUpdates.displayRequestToPlayAgain();
   }    
 }
 

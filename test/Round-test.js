@@ -33,10 +33,6 @@ describe('Round', function() {
   expect(round.discardPile).to.deep.equal([]);
   });
 
-  it('should generate clues', function() {
-  round.generateClues()
-  expect(round.currentClue).to.be.a('object');
-  });
 
   it('should be able to begin the turn', function(){
   round.beginTurn();
