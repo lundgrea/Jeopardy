@@ -1,19 +1,24 @@
+import Clue from '../src/Clue';
+
+
 class Round {
   constructor() {
-    this.currentClues;
+    this.turnTracker = 0;
+    this.currentClue = null;
   }
 
   generateClues() {
-    this.currentClues = new Clue()
-  }
-
-  beginTurn() {
+    this.currentClue = new Clue()
   }
 
   populateJeopardyBoard() {
   }
 
+  beginTurn() {
+  }  
+
   popUpLeaderBoard() {
+
   }
 
 }
