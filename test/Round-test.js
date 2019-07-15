@@ -25,18 +25,30 @@ describe('Round', function() {
   expect(round.currentClue).to.equal(null)
   });
 
+  it('should have a place to hold used cards', function() {
+  expect(round.discardPile).to.deep.equal([]);
+  });
+
   it('should generate clues', function() {
   round.generateClues()
   expect(round.currentClue).to.be.a('object');
   });
 
-  // it('should be able to begin the turn', function(){
-  // expect(round.beginTurn()).to.equal();
-  // });
+  it('should be able to begin the turn', function(){
+  round.beginTurn();
+  expect(round.currentTurn).to.be.a('object')
+  expect(round.turnTracker).to.equal(1);
+  });
 
-  // it('should generate clues', function(){
-  // expect(round.generateRound()).to.equal();
-  // });
+  it('should keep all used cards', function(){
+  expect(round.discardPile).to.deep.equal([])
+  round.beginTurn();
+  expect(round.turnTracker).to.equal(1);
+  round.beginTurn();
+  expect(round.turnTracker).to.equal(2);
+  expect(round.discardPile).to.deep.equal([{}])
+  });
+
 
 
 });
