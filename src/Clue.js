@@ -3,9 +3,9 @@
 
 class Clue {
   constructor(data) {
-    this.data = data
+    this.data = data;
     this.usedCategories = [];
-    this.id = null
+    this.id = null;
   }
   generateRandomId(min, max) {
     return Math.floor(Math.random() * max) + min
@@ -41,12 +41,10 @@ class Clue {
   }
 
   createBoardColumnObj() {
-    let x = {
+    return {
       category: this.getCategory(this.data.categories),
       clues: this.getClues(this.data.clues).flat()
     }
-    console.log(x)
-    return x
   }
 }
 
