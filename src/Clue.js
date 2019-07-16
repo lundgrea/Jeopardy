@@ -155,7 +155,6 @@ class Clue {
     })
     return [roundOne, roundTwo, roundThree]
   }
-
 }
 
 export default Clue;
