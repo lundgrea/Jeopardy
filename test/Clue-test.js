@@ -31,27 +31,38 @@ describe('Clue', function() {
     expect(categories.length).to.equal(4);
     expect(clue.roundCategories.length).to.equal(6);
   }),
-  it("should be able to find 4 random clues based upon the category that was selected", function() {
-    let column = clue.createBoardColumnObj();
 
-    expect(column.clues.length).to.equal(4);
+  it.only("should be able to find 4 random clues based upon the category that was selected", function() {
+    let board = clue.getRoundOneClues();
+
+    expect(board.length).to.equal(4);
+    expect(board[0].clues.length).to.equal(4);
+    expect(board[1].clues.length).to.equal(4);
+    expect(board[2].clues.length).to.equal(4);
+    expect(board[3].clues.length).to.equal(4);
   });
     
-  it('should order clues based upon the the point value', function() {
-    let column = clue.createBoardColumnObj();
+  it.only('should order clues based upon the the point value', function() {
+    let board = clue.makeBoardObject();
 
-    expect(column.clues[0].pointValue).to.equal(100);
-    expect(column.clues[1].pointValue).to.equal(200);
-    expect(column.clues[2].pointValue).to.equal(300);
-    expect(column.clues[3].pointValue).to.equal(400);
+    expect(board[0][0].clues[0].pointValue).to.equal(100);
+    expect(board[0][0].clues[1].pointValue).to.equal(200);
+    expect(board[0][0].clues[2].pointValue).to.equal(300);
+    expect(board[0][0].clues[3].pointValue).to.equal(400);
   });
 
-  it('should', function() {
+  it.only('should double scores for the second round board', function() {
+    let board = clue.makeBoardObject();
 
-    // clue.getRoundOneClues()
-    // clue.getRoundTwoClues()
-    // clue.getRoundThreeClue()
-    // clue.makeBoardObject();
-    
+    expect(board[1][1].clues[0].pointValue).to.equal(200);
+    expect(board[1][1].clues[1].pointValue).to.equal(400);
+    expect(board[1][2].clues[2].pointValue).to.equal(600);
+    expect(board[1][3].clues[3].pointValue).to.equal(800);
   })
+
+  it.only('should return one question for the third round', function() {
+    let board = clue.makeBoardObject();
+
+    expect(board[2].length).to.equal(1);
+  });
 });

@@ -4,17 +4,10 @@ class Clue {
     this.roundCategories = [];
   }
   shuffleArray() {
-    let idArray = Object.values(this.data.categories);
+    let idArray = Object.values(this.data.categories).sort(
+      () => Math.random() - 0.5
+    );
     this.roundCategories = idArray
-    let currentIndex = idArray.length, tempValue, randomIndex;
-    while (0 !== currentIndex && currentIndex !== undefined) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      tempValue = idArray[currentIndex];
-      idArray[currentIndex] = idArray[randomIndex];
-      idArray[randomIndex] = tempValue;
-    }
     return idArray
   }
     
@@ -73,7 +66,7 @@ class Clue {
     let categoryNames = Object.keys(this.data.categories);
     let test = roundClues.reduce((acc, id) => {
       categoryNames.forEach((el, index) => {
-        if (index + 1 == id) {
+        if (index + 1 === id) {
           acc.push({
             category: el,
             categoryId: id
@@ -151,6 +144,7 @@ class Clue {
   makeBoardObject() {
     let roundOne = this.getRoundOneClues();
     let roundTwo = this.getRoundTwoClues();
+    // console.log(roundTwo)
     let roundThree = this.getRoundThreeClue();
     roundTwo = roundTwo.map(obj => {
       let array = obj.clues
@@ -159,6 +153,7 @@ class Clue {
       })
       return obj
     })
+    // console.log(JSON.stringify(roundTwo, null, 2))
     return [roundOne, roundTwo, roundThree]
   }
 
