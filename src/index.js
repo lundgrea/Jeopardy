@@ -41,13 +41,13 @@ $(document).ready(function() {
   $('#puzzle-table').hide();
   $('#welcome-message').delay(2500).fadeOut("slow");
   $('#user-name-inputs').append(`
-  <input type="text"id="player1-name__input"> Player 1 </input>
+  <input type="text" id="player1-name__input" class="player-input"> Player 1 </input>
   <p></p>
-  <input type="text"id="player2-name__input"> Player 2 </input>
+  <input type="text" id="player2-name__input" class="player-input"> Player 2 </input>
   <p></p>
-  <input type="text"id="player3-name__input"> Player 3:</input>
+  <input type="text" id="player3-name__input" class="player-input"> Player 3:</input>
   <p></p>
-  <button id="player3-name__submit" type="button" class="buttonStyled">Game on!</button>`).delay(3000).fadeIn('slow');
+  <button type="button" id="players-name__submit" name="submitUserNames" class="buttonStyled">Game on!</button>`).delay(3000).fadeIn('slow');
   //$('.user-name-inputs').delay(3000).fadeIn("slow");
   //let $grid = $('.grid').packery({itemSelector: '.grid-item', columnWidth: 100});
   //$('.grid').packery({itemSelector: '.grid-item', gutter: 15, percentPosition: true, columnWidth: 100, });
@@ -62,16 +62,13 @@ $(document).ready(function() {
     $('#puzzle-table').delay(1000).fadeIn();
   })
 
-  $('#player3-name__submit').hover( () => {
-    console.log('button hover!')
-   $( this ).css('color',"red");
-    // $( this ).fadeOut( 100 );
-    // $( this ).fadeIn( 500 );
-  });
-
-  $('player3-name__input').blur(() => {
-    console.log('Player3 input blur');
-    //if($( this ).val() != '') domUpdates.enableUserInputButton();
+  $('.player-input').blur(() => {
+    console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
+    if($( '#player1-name__input' ).val() != '' && $( '#player2-name__input' ).val() != '' && $( '#player3-name__input' ).val() != ''){
+      domUpdates.enableUserInputButton();
+    } else {
+      domUpdates.disableUserInputButton();
+    }
   })
 
 });
