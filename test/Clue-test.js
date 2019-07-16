@@ -12,42 +12,57 @@ beforeEach(() => {
 
 describe('Clue', function() {
 
-  it('should be a function', function() {
+  it.only('should be a function', function() {
    
     expect(Clue).to.be.a('function');
   });
 
-  it('should be able to generate a random number between a min and max. The number should be a whole number', function() {
+  it.only('should be able to shuffle the array of category ids', function() {
 
-    let randomId = clue.generateRandomId(0, 9)
+    let randomArray = clue.shuffleArray()
     
-    expect(randomId >= 0).to.equal(true);
-    expect(randomId <= 9).to.equal(true);
-    expect(Number.isInteger(randomId)).to.equal(true);
+    expect(randomArray.length).to.equal(10);
+    expect(randomArray.sort()).to.eql(clue.roundCategories.sort());
   });
 
-  it.skip("should be able to find a category based of the random number generated but never the same category for an enitre game", function() {
-    let category1 = clue.getCategory(clue.data.categories, 0);
-    let category2 = clue.getCategory(clue.data.categories, 3);
-    let category3 = clue.getCategory(clue.data.categories, 7);
+  it.only("should be able to find a category based on the randomized array and never repeat a category for an enitre game", function() {
+    let categories = clue.getCategory();
 
-    expect(category1).to.equal("unitedStatesHistory");
-    expect(category2).to.equal("nameThatBoardGame");
-    expect(category3).to.equal("cableTV");
-    expect(clue.usedCategories.length).to.equal(3);
+    expect(categories.length).to.equal(4);
+    expect(clue.roundCategories.length).to.equal(6);
   }),
-  it("should be able to find 4 random clues based upon the category that was selected", function() {
-    let column = clue.createBoardColumnObj();
 
-    expect(column.clues.length).to.equal(4);
+  it.only("should be able to find 4 random clues based upon the category that was selected", function() {
+    let board = clue.getRoundOneClues();
+
+    expect(board.length).to.equal(4);
+    expect(board[0].clues.length).to.equal(4);
+    expect(board[1].clues.length).to.equal(4);
+    expect(board[2].clues.length).to.equal(4);
+    expect(board[3].clues.length).to.equal(4);
   });
     
-  it('should order clues based upon the the point value', function() {
-    let column = clue.createBoardColumnObj();
+  it.only('should order clues based upon the the point value', function() {
+    let board = clue.makeBoardObject();
 
-    expect(column.clues[0].pointValue).to.equal(100);
-    expect(column.clues[1].pointValue).to.equal(200);
-    expect(column.clues[2].pointValue).to.equal(300);
-    expect(column.clues[3].pointValue).to.equal(400);
+    expect(board[0][0].clues[0].pointValue).to.equal(100);
+    expect(board[0][0].clues[1].pointValue).to.equal(200);
+    expect(board[0][0].clues[2].pointValue).to.equal(300);
+    expect(board[0][0].clues[3].pointValue).to.equal(400);
+  });
+
+  it.only('should double scores for the second round board', function() {
+    let board = clue.makeBoardObject();
+
+    expect(board[1][1].clues[0].pointValue).to.equal(200);
+    expect(board[1][1].clues[1].pointValue).to.equal(400);
+    expect(board[1][2].clues[2].pointValue).to.equal(600);
+    expect(board[1][3].clues[3].pointValue).to.equal(800);
+  })
+
+  it.only('should return one question for the third round', function() {
+    let board = clue.makeBoardObject();
+
+    expect(board[2].length).to.equal(1);
   });
 });
