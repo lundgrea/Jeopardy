@@ -8,7 +8,7 @@ import $ from 'jquery';
 import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+//import './images/turing-logo.png'
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -19,21 +19,6 @@ import Round from './Round';
 import Turn from './Turn';
 import domUpdates from './domUpdates.js';
 
-function createPlayers(playerInput) {
-  let player1 = new Player(playerInput[0], 100)
-  let player2 = new Player(playerInput[1], 200)
-  let player3 = new Player(playerInput[2], 300)
-  console.log(`Player1 name: ${player1.name}`);
-  console.log(`Player2 name: ${player2.name}`);
-  console.log(`Player3 name: ${player3.name}`);
-  $('#js-player1-name').text(player1.name || 'Player 1');
-  $('#player-1-score').text(player1.score || 0);
-  $('#js-player2-name').text(player2.name || 'Player 2');
-  $('#player-2-score').text(player2.score || 0);
-  $('#js-player3-name').text(player3.name || 'Player 3');
-  $('#player-3-score').text(player3.score || 0);
-  return [player1, player2, player3]
-}
 
 $(document).ready(function() {
   $('#main-score-cards').hide();
@@ -53,10 +38,12 @@ $(document).ready(function() {
   //$('.grid').packery({itemSelector: '.grid-item', gutter: 15, percentPosition: true, columnWidth: 100, });
   domUpdates.disableUserInputButton();
 
-  $('#player3-name__submit').click( () => {
+  $('#players-name__submit').click( () => {
     console.log($('#player1-name__input').val());
     let playerNames = [$('#player1-name__input').val(), $('#player2-name__input').val(),$('#player3-name__input').val()]
-    createPlayers(playerNames);
+    domUpdates.populatePlayerDashboard(playerNames)
+    let game = new Game();
+    //game.startGame(playerNames);
     $('#user-name-inputs').fadeOut();
     $('#main-score-cards').delay(1000).fadeIn();
     $('#puzzle-table').delay(1000).fadeIn();
