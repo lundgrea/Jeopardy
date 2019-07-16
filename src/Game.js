@@ -15,6 +15,7 @@ class Game {
   generateRound() {
     if (this.roundTracker <= 2) {
       this.currentRound = new Round();
+      // domUpdates.populateGameBoard(this.boards[this.roundTracker])
       this.roundTracker ++;
     }
 
@@ -26,21 +27,22 @@ class Game {
 
   generateClues() {
     let clue = new Clue();
-    // this.boards = clue.createBoardArray();
+    // this.boards = clue.createBoardObject();
   }
 
-  generatePlayers(player1Object, player2Object, player3Object) {
-    this.player1 = new Player(player1Object);
-    this.players.push(this.player1.name);
-    this.player2 = new Player(player2Object);
-    this.players.push(this.player2.name);
-    this.player3 = new Player(player3Object);
-    this.players.push(this.player3.name);
+  generatePlayers(playerInput) {
+    this.player1 = new Player(playerInput[0]);
+    this.players.push(this.player1);
+    this.player2 = new Player(playerInput[1]);
+    this.players.push(this.player2);
+    this.player3 = new Player(playerInput[2]);
+    this.players.push(this.player3);
     return this.players;
   }
   
-  startGame() {
-    this.generatePlayers();
+  startGame(playerNames) {
+    this.generatePlayers(playerNames);
+    // domUpdates.populatePlayerDashboard();
     this.generateClues();
     this.generateRound();
   }
@@ -49,6 +51,7 @@ class Game {
     let sortedScores = this.players.sort((a,b) => a.score - b.score);
     let highestScorer = sortedScores[sortedScores.length - 1].name;
     this.winner = highestScorer;
+    console.log(this.winner)
     return this.winner;
   }
 
