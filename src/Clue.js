@@ -7,6 +7,7 @@ class Clue {
     let idArray = Object.values(this.data.categories).sort(
       () => Math.random() - 0.5
     );
+
     this.roundCategories = idArray
     return idArray
   }
@@ -153,7 +154,6 @@ class Clue {
       })
       return obj
     })
-    // console.log(JSON.stringify(roundTwo, null, 2))
     return [roundOne, roundTwo, roundThree]
   }
 
