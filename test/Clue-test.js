@@ -12,29 +12,24 @@ beforeEach(() => {
 
 describe('Clue', function() {
 
-  it('should be a function', function() {
+  it.only('should be a function', function() {
    
     expect(Clue).to.be.a('function');
   });
 
-  it('should be able to generate a random number between a min and max. The number should be a whole number', function() {
+  it.only('should be able to shuffle the array of category ids', function() {
 
-    let randomId = clue.generateRandomId(0, 9)
+    let randomArray = clue.shuffleArray()
     
-    expect(randomId >= 0).to.equal(true);
-    expect(randomId <= 9).to.equal(true);
-    expect(Number.isInteger(randomId)).to.equal(true);
+    expect(randomArray.length).to.equal(10);
+    expect(randomArray.sort()).to.eql(clue.roundCategories.sort());
   });
 
-  it.skip("should be able to find a category based of the random number generated but never the same category for an enitre game", function() {
-    let category1 = clue.getCategory(clue.data.categories, 0);
-    let category2 = clue.getCategory(clue.data.categories, 3);
-    let category3 = clue.getCategory(clue.data.categories, 7);
+  it.only("should be able to find a category based on the randomized array and never repeat a category for an enitre game", function() {
+    let categories = clue.getCategory();
 
-    expect(category1).to.equal("unitedStatesHistory");
-    expect(category2).to.equal("nameThatBoardGame");
-    expect(category3).to.equal("cableTV");
-    expect(clue.usedCategories.length).to.equal(3);
+    expect(categories.length).to.equal(4);
+    expect(clue.roundCategories.length).to.equal(6);
   }),
   it("should be able to find 4 random clues based upon the category that was selected", function() {
     let column = clue.createBoardColumnObj();
@@ -51,12 +46,12 @@ describe('Clue', function() {
     expect(column.clues[3].pointValue).to.equal(400);
   });
 
-  it.only('should', function() {
+  it('should', function() {
 
     // clue.getRoundOneClues()
     // clue.getRoundTwoClues()
     // clue.getRoundThreeClue()
-    clue.makeBoardObject();
+    // clue.makeBoardObject();
     
   })
 });
