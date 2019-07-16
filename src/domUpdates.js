@@ -23,5 +23,17 @@ export default {
 
   populateGameBoard(currentBoard){
 
+  },
+
+  displayRequestToPlayAgain() {  
+  },
+
+  populateJeopardyBoard(boardIndex) {
+    game.boards[boardIndex]
+  },
+
+  popUpLeaderBoard() {
   }
+
 }
+

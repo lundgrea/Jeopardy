@@ -3,6 +3,7 @@ class Turn {
   }
 
   generateDailyDouble() {
+    //daily double extends turn
   }
 
   evaluateGuess() {
