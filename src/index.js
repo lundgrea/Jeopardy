@@ -53,9 +53,9 @@ $(document).ready(function() {
   $('#players-name__submit').click( () => {
     console.log($('#player1-name__input').val());
     let playerNames = [$('#player1-name__input').val(), $('#player2-name__input').val(),$('#player3-name__input').val()]
-    domUpdates.populatePlayerDashboard(playerNames)
+   // domUpdates.populatePlayerDashboard(playerNames)
     let game = new Game();
-    //game.startGame(playerNames);
+    game.startGame(playerNames);
     $('#user-name-inputs').fadeOut();
     $('#main-score-cards').delay(1000).fadeIn();
     $('#puzzle-table').delay(1000).fadeIn();
