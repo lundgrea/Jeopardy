@@ -25,9 +25,10 @@ class Game {
 
   }
 
-  generateClues() {
-    let clue = new Clue();
-    // this.boards = clue.createBoardObject();
+  generateClues(data) {
+    let clue = new Clue(data);
+     this.boards = clue.makeBoardObject();
+    console.log(this.boards)
   }
 
   generatePlayers(playerInput) {
@@ -41,10 +42,10 @@ class Game {
     return this.players;
   }
   
-  startGame(playerNames) {
+  startGame(playerNames, data) {
     this.generatePlayers(playerNames);
     domUpdates.populatePlayerDashboard(this.players);
-    this.generateClues();
+    this.generateClues(data);
     this.generateRound();
   }
 
