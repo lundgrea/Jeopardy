@@ -25,6 +25,43 @@ body {
   width: 600px;
 }
 
+.grid-item {
+  background-color: rgba(138, 221, 234, 0.53);
+  border: solid 4px rgba(138, 221, 234, 0.97);
+  border-radius: 5% 5% 5% 5%;
+  float: left;
+  grid-auto-columns: 4;
+  grid-auto-rows: auto; 
+  padding: 15px;
+  width: 27%;
+}
+
+.buttonStyled {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  background-color: rgb(212, 134, 248);
+  border-radius: 8px;
+  background-image: linear-gradient(to top left,
+  rgba(0, 0, 0, .2),
+  rgba(0, 0, 0, .2) 30%,
+  rgba(0, 0, 0, 0));
+box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+.buttonStyled:hover {
+  background-color: rgb(108, 222, 250);
+  border-radius: 8px;
+}
+.buttonStyled:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+              inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
 #puzzle-table {
   margin-left: 33%;
   height: 60%;

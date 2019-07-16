@@ -3,16 +3,18 @@ const expect = chai.expect;
 const spies = ('chai-spies');
 chai.use(spies);
 
-import Player from '../src/Player';
+import Player from '../src/domUpdates';
 
-let player1, player2
+global.document = {};
+
+chai.spy.on(document, ['displayUserNameInput'], () => {});
 
 beforeEach(() => {
   player1 = new Player('John');
   player2 = new Player('John', 101);
 });
 
-describe('Player', function() {
+describe('domUpdates', function() {
 
   it('should be a function', function() {
     expect(Player).to.be.a('function');
