@@ -44,7 +44,7 @@ class Clue {
       })
       return acc
     }, [])
-    
+
     let boardObjects = []
     categoryIds.forEach(category => {
       let questionArray = [
@@ -152,16 +152,13 @@ class Clue {
     let roundOne = this.getRoundOneClues();
     let roundTwo = this.getRoundTwoClues();
     let roundThree = this.getRoundThreeClue();
-     roundTwo = roundTwo.map(obj => {
+    roundTwo = roundTwo.map(obj => {
       let array = obj.clues
       array.forEach(clue => {
         clue.pointValue += clue.pointValue
       })
       return obj
     })
-    // console.log(JSON.stringify([roundThree], null, 2));
-    // console.table(roundOne)
-    // console.table(roundTwo)
     return [roundOne, roundTwo, roundThree]
   }
 
