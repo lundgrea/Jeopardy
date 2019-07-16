@@ -50,4 +50,13 @@ describe('Clue', function() {
     expect(column.clues[2].pointValue).to.equal(300);
     expect(column.clues[3].pointValue).to.equal(400);
   });
+
+  it.only('should', function() {
+
+    // clue.getRoundOneClues()
+    // clue.getRoundTwoClues()
+    // clue.getRoundThreeClue()
+    clue.makeBoardObject();
+    
+  })
 });

@@ -1,51 +1,170 @@
-
-
-
 class Clue {
   constructor(data) {
     this.data = data;
-    this.usedCategories = [];
-    this.id = null;
+    this.roundCategories = [];
   }
-  generateRandomId(min, max) {
-    return Math.floor(Math.random() * max) + min
+  shuffleArray() {
+    let idArray = Object.values(this.data.categories);
+    this.roundCategories = idArray
+    let currentIndex = idArray.length, tempValue, randomIndex;
+    while (0 !== currentIndex && currentIndex !== undefined) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      tempValue = idArray[currentIndex];
+      idArray[currentIndex] = idArray[randomIndex];
+      idArray[randomIndex] = tempValue;
+    }
+    return idArray
   }
-  
-  getCategory(dataObj) {
-    let dataArray = Object.keys(dataObj).reduce((acc, category) => {
-      if (this.usedCategories.includes(category) !== true) {
-        acc.push(category)
-      }
+    
+  getCategory() {
+    let mutatedArray = this.shuffleArray().splice(0, 4);
+    let categoryNames = Object.keys(this.data.categories);
+    return mutatedArray.reduce((acc, id) => {
+      categoryNames.forEach((el, index) => {
+        if (index + 1 == id) {
+          acc.push({
+            category: el,
+            categoryId: id
+          })
+        }
+      })
       return acc
     }, [])
-    this.id = this.generateRandomId(1, dataArray.length)
-
-    let category = dataArray.splice( this.id,
-      1)[0];
-    
-    this.usedCategories.push(category)
-    return category
   }
   
-  getClues(dataArray) {
-    let clues = dataArray.filter(clue => {
-      return clue.categoryId === this.id + 1
+  getRoundOneClues() {
+    let categoryIds = this.getCategory();
+    let clues = categoryIds.reduce((acc, category) => {
+      this.data.clues.forEach(el => {
+        if (el.categoryId === category.categoryId) {
+          acc.push(el);
+        }
+      })
+      return acc
+    }, [])
+    
+    let boardObjects = []
+    categoryIds.forEach(category => {
+      let questionArray = [
+        this.getQuestion(clues, 100, category.categoryId),
+        this.getQuestion(clues, 200, category.categoryId),
+        this.getQuestion(clues, 300, category.categoryId),
+        this.getQuestion(clues, 400, category.categoryId)
+      ];
+      boardObjects.push({
+        category: category.category,
+        clues: questionArray.flat()
+      })
     })
-    return [this.getQuestion(clues, 100), this.getQuestion(clues, 200), this.getQuestion(clues, 300), this.getQuestion(clues, 400)]
+    return boardObjects
   }
 
-  getQuestion(cluesArray, value) {
-    let cluePointArray = cluesArray.filter(clue => clue.pointValue === value)
-    let index = this.generateRandomId(0, cluePointArray.length)
-    return cluePointArray.splice(index, 1)
+  getQuestion(cluesArray, value, id) {
+    
+    let cluePointArray = cluesArray.filter(clue => clue.pointValue === value && clue.categoryId === id)
+    return cluePointArray.splice(0, 1)
   }
 
-  createBoardColumnObj() {
-    return {
-      category: this.getCategory(this.data.categories),
-      clues: this.getClues(this.data.clues).flat()
-    }
+  getRoundTwoClues() {
+    let mutatedArray = this.roundCategories
+    let roundClues = mutatedArray.splice(0, 4)
+    let categoryNames = Object.keys(this.data.categories);
+    let test = roundClues.reduce((acc, id) => {
+      categoryNames.forEach((el, index) => {
+        if (index + 1 == id) {
+          acc.push({
+            category: el,
+            categoryId: id
+          });
+        }
+      });
+      return acc;
+    }, []);
+
+    let clues = test.reduce((acc, category) => {
+      this.data.clues.forEach(el => {
+        if (el.categoryId === category.categoryId) {
+          acc.push(el);
+        }
+      });
+      return acc;
+    }, []);
+    
+
+    let boardObjects = [];
+    test.forEach(category => {
+      let questionArray = [
+        this.getQuestion(clues, 100, category.categoryId),
+        this.getQuestion(clues, 200, category.categoryId),
+        this.getQuestion(clues, 300, category.categoryId),
+        this.getQuestion(clues, 400, category.categoryId)
+      ];
+      boardObjects.push({
+        category: category.category,
+        clues: questionArray.flat()
+      });
+    });
+    return boardObjects;
+
   }
+
+  getRoundThreeClue() {
+    let mutatedArray = this.roundCategories;
+    let roundClues = mutatedArray.splice(0, 1);
+    let categoryNames = Object.keys(this.data.categories);
+    let test = roundClues.reduce((acc, id) => {
+      categoryNames.forEach((el, index) => {
+        if (index + 1 == id) {
+          acc.push({
+            category: el,
+            categoryId: id
+          });
+        }
+      });
+      return acc;
+    }, []);
+
+    let clues = test.reduce((acc, category) => {
+      this.data.clues.forEach(el => {
+        if (el.categoryId === category.categoryId) {
+          acc.push(el);
+        }
+      });
+      return acc;
+    }, []);
+    
+    let boardObjects = [];
+    test.forEach(category => {
+      let questionArray = [
+        this.getQuestion(clues, 400, category.categoryId)
+      ];
+      boardObjects.push({
+        category: category.category,
+        clues: questionArray.flat()
+      });
+    });
+    return boardObjects
+  }
+  
+  makeBoardObject() {
+    let roundOne = this.getRoundOneClues();
+    let roundTwo = this.getRoundTwoClues();
+    let roundThree = this.getRoundThreeClue();
+     roundTwo = roundTwo.map(obj => {
+      let array = obj.clues
+      array.forEach(clue => {
+        clue.pointValue += clue.pointValue
+      })
+      return obj
+    })
+    // console.log(JSON.stringify([roundThree], null, 2));
+    // console.table(roundOne)
+    // console.table(roundTwo)
+    return [roundOne, roundTwo, roundThree]
+  }
+
 }
 
 export default Clue;
