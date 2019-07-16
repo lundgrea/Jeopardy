@@ -19,6 +19,18 @@ import Round from './Round';
 import Turn from './Turn';
 import domUpdates from './domUpdates.js';
 
+var data;
+fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
+  .then(function(response) {
+    return response.json()
+  })
+  .then(function(parsedData) {
+    data = parsedData.data
+    console.log(data)
+  })
+  .catch(err => console.error(err));
+
+
 
 $(document).ready(function() {
   $('#main-score-cards').hide();
