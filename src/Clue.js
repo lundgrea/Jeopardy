@@ -145,7 +145,6 @@ class Clue {
   makeBoardObject() {
     let roundOne = this.getRoundOneClues();
     let roundTwo = this.getRoundTwoClues();
-    // console.log(roundTwo)
     let roundThree = this.getRoundThreeClue();
     roundTwo = roundTwo.map(obj => {
       let array = obj.clues
