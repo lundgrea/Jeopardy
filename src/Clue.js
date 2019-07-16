@@ -41,10 +41,12 @@ class Clue {
   }
 
   createBoardColumnObj() {
-    return {
+    let object = {
       category: this.getCategory(this.data.categories),
       clues: this.getClues(this.data.clues).flat()
     }
+    console.log(JSON.stringify(object, null, 2))
+    return object
   }
 }
 
