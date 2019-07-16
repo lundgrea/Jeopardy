@@ -17,7 +17,7 @@ class Clue {
     let categoryNames = Object.keys(this.data.categories);
     return mutatedArray.reduce((acc, id) => {
       categoryNames.forEach((el, index) => {
-        if (index + 1 == id) {
+        if (index + 1 === id) {
           acc.push({
             category: el,
             categoryId: id
