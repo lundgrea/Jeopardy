@@ -1,7 +1,6 @@
 import $ from 'jquery';
 
-
-// export default {
+let domUpdates = {
 
   disableUserInputButton () {
     console.log(`disableUserInputButton called on ${$('#players-name__submit').name}`)
@@ -14,12 +13,13 @@ import $ from 'jquery';
   },
 
   populatePlayerDashboard(playerNames) {
-    $('#js-player1-name').text(playerNames[0] || 'Player 1');
-   // $('#player-1-score').text(game.player1.score || 0);
-    $('#js-player2-name').text(playerNames[1] || 'Player 2');
-   // $('#player-2-score').text(game.player2.score || 0);
-    $('#js-player3-name').text(playerNames[2] || 'Player 3');
-   // $('#player-3-score').text(game.player3.score || 0)
+    console.log(playerNames)
+    $('#js-player1-name').text(playerNames[0].name || 'Player 1');
+    $('#player-1-score').text(playerNames[0].score || 0);
+    $('#js-player2-name').text(playerNames[1].name  || 'Player 2');
+    $('#player-2-score').text(playerNames[1].score|| 0);
+    $('#js-player3-name').text(playerNames[2].name  || 'Player 3');
+    $('#player-3-score').text(playerNames[2].score|| 0)
   },
 
   populateGameBoard(currentBoard){
@@ -35,6 +35,7 @@ import $ from 'jquery';
 
   popUpLeaderBoard() {
   }
+}
 
-// }
+export default domUpdates
 

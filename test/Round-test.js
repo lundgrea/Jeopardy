@@ -17,9 +17,6 @@ describe('Round', function() {
     expect(Round).to.be.a('function');
   });
 
-  it('should start with 0 rounds', function() {
-  expect(round.turnTracker).to.equal(0);
-  });
 
   it('should start with no clues', function() {
   expect(round.currentClue).to.equal(null)
