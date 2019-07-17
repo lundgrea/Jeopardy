@@ -1,7 +1,7 @@
 import Player from '../src/Player';
 import Round from '../src/Round';
 import Clue from '../src/Clue';
-
+import domUpdates from './domUpdates.js';
 
 class Game {
   constructor() {
@@ -25,9 +25,10 @@ class Game {
 
   }
 
-  generateClues() {
-    let clue = new Clue();
-    // this.boards = clue.createBoardObject();
+  generateClues(data) {
+    let clue = new Clue(data);
+     this.boards = clue.makeBoardObject();
+    console.log(this.boards)
   }
 
   generatePlayers(playerInput) {
@@ -37,13 +38,14 @@ class Game {
     this.players.push(this.player2);
     this.player3 = new Player(playerInput[2]);
     this.players.push(this.player3);
+    console.log(this.players);
     return this.players;
   }
   
-  startGame(playerNames) {
+  startGame(playerNames, data) {
     this.generatePlayers(playerNames);
-    // domUpdates.populatePlayerDashboard();
-    this.generateClues();
+    domUpdates.populatePlayerDashboard(this.players);
+    this.generateClues(data);
     this.generateRound();
   }
 
