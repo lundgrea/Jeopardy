@@ -1,13 +1,12 @@
 import chai from 'chai';
 const expect = chai.expect;
-const spies = ('chai-spies');
-chai.use(spies);
 
-import Player from '../src/domUpdates';
+
+import Player from '../src/Player';
 
 global.document = {};
 
-chai.spy.on(document, ['displayUserNameInput'], () => {});
+let player1, player2
 
 beforeEach(() => {
   player1 = new Player('John');
@@ -16,9 +15,9 @@ beforeEach(() => {
 
 describe('domUpdates', function() {
 
-  it('should be a function', function() {
-    expect(Player).to.be.a('function');
-  });
+  // it('should be a function', function() {
+  //   expect(Player).to.be.a('function');
+  // });
 
   it('should have a name', function() {
     expect(player1.name).to.equal('John')

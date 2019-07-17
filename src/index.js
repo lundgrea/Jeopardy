@@ -31,6 +31,9 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
   .catch(err => console.error(err));
 
 
+let clue = new Clue(data)
+console.log(clue)
+var x = clue.makeBoardObject()
 
 $(document).ready(function() {
   $('#main-score-cards').hide();

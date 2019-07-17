@@ -2,6 +2,8 @@ import Player from '../src/Player';
 import Round from '../src/Round';
 import Clue from '../src/Clue';
 import domUpdates from './domUpdates.js';
+import data from '../src/data';
+
 
 class Game {
   constructor() {
@@ -25,10 +27,9 @@ class Game {
 
   }
 
-  generateClues(data) {
-    let clue = new Clue(data);
-     this.boards = clue.makeBoardObject();
-    console.log(this.boards)
+  generateClues() {
+    let clue = new Clue();
+     // this.boards = clue.makeBoardObject();
   }
 
   generatePlayers(playerInput) {
@@ -38,14 +39,13 @@ class Game {
     this.players.push(this.player2);
     this.player3 = new Player(playerInput[2]);
     this.players.push(this.player3);
-    console.log(this.players);
     return this.players;
   }
   
   startGame(playerNames, data) {
     this.generatePlayers(playerNames);
-    domUpdates.populatePlayerDashboard(this.players);
-    this.generateClues(data);
+    // domUpdates.populatePlayerDashboard(this.players);
+    // this.generateClues(data);
     this.generateRound();
   }
 
@@ -53,7 +53,6 @@ class Game {
     let sortedScores = this.players.sort((a,b) => a.score - b.score);
     let highestScorer = sortedScores[sortedScores.length - 1].name;
     this.winner = highestScorer;
-    console.log(this.winner)
     return this.winner;
   }
 
