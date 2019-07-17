@@ -6,31 +6,36 @@ import data from '../src/data';
 
 
 class Game {
-  constructor() {
+  constructor(boards) {
     this.currentRound = {};
     this.roundTracker = 0;
     this.players = [];
     this.winner = null;
-    this.boards = []
+    this.boards = boards
   }
 
   generateRound() {
     if (this.roundTracker <= 2) {
-      this.currentRound = new Round();
-      // domUpdates.populateGameBoard(this.boards[this.roundTracker])
+      this.currentRound = new Round(this.boards[this.roundTracker]);
+      domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
+      console.log('THE ROUND', this.roundTracker)
+      this.currentRound.beginTurn() 
     }
+  }
+
+
+
 
     // if(this.roundTracker === 3 {
       //create super/extends round class
     // }
 
-  }
-
-  generateClues() {
-    let clue = new Clue();
-     // this.boards = clue.makeBoardObject();
-  }
+  // generateClues() {
+  // maybecome another fetch call
+  //   let clue = new Clue();
+  //    // this.boards = clue.makeBoardObject();
+  // }
 
   generatePlayers(playerInput) {
     this.player1 = new Player(playerInput[0]);
@@ -42,9 +47,9 @@ class Game {
     return this.players;
   }
   
-  startGame(playerNames, data) {
+  startGame(playerNames) {
     this.generatePlayers(playerNames);
-    // domUpdates.populatePlayerDashboard(this.players);
+    domUpdates.populatePlayerDashboard(this.players);
     // this.generateClues(data);
     this.generateRound();
   }
