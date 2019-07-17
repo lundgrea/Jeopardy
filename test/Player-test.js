@@ -1,7 +1,6 @@
 import chai from 'chai';
 const expect = chai.expect;
-const spies = ('chai-spies');
-chai.use(spies);
+
 
 import Player from '../src/Player';
 

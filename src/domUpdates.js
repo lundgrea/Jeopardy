@@ -1,6 +1,7 @@
-import $ from 'jquery'
+import $ from 'jquery';
 
-export default {
+
+// export default {
 
   disableUserInputButton () {
     console.log(`disableUserInputButton called on ${$('#players-name__submit').name}`)
@@ -35,5 +36,5 @@ export default {
   popUpLeaderBoard() {
   }
 
-}
+// }
 

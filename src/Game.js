@@ -37,6 +37,7 @@ class Game {
     this.players.push(this.player2);
     this.player3 = new Player(playerInput[2]);
     this.players.push(this.player3);
+    console.log(this.players)
     return this.players;
   }
   
