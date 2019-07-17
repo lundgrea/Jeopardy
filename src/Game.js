@@ -29,7 +29,7 @@ class Game {
 
   generateClues() {
     let clue = new Clue();
-     this.boards = clue.makeBoardObject();
+     // this.boards = clue.makeBoardObject();
   }
 
   generatePlayers(playerInput) {
