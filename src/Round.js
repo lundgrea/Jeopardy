@@ -1,33 +1,54 @@
 import Clue from '../src/Clue';
 import Turn from '../src/Turn';
-
+import Game from '../src/Game';
 
 class Round {
-  constructor(arrayOfColumnObjects) {
+  constructor(board) {
     this.currentTurn = null;
     this.turnTracker = 0;
     this.currentClue = null;
-    this.discardPile = [];
-    this.board = arrayOfColumnObjects;
+    this.board = board;
+    this.currentPlayer = 1;
+    this.dailyDoubleTurn = null || Math.random();
   }
 
+
+  changePlayer() {
+    if (this.player < 3) {
+      this.currentPlayer ++; 
+    } else {
+    this.currentPlayer = 1;
+    }
+  }
+
+  beginTurn() {
+    //instantiate a new turn
+
+    if(this.currentTurn === this.dailyDoubleTurn) {
+    //instantiate daily double extends class//
+    }
+
+    // if(this.turnTracker === 16) {
+    //   this.endRound()
+    // }
+    
+    this.currentTurn = new Turn(this.currentPlayer)
+    this.turnTracker ++
+    console.log(this.turnTracker)
+  }  
 
   updateScores() {
   }
 
+  generateDailyDoubleTurn() {
+    //random number generator and assign that to dailyDouble
+    //daily double extends turn
+  }
 
   increasePointValue() {
 
   }
-
-  beginTurn() {
-    if (this.turnTracker > 0) { 
-      this.discardPile.push(this.currentTurn)
-    }
-    this.currentTurn = new Turn()
-    this.turnTracker ++
-  }  
-
+ 
 
 }
 

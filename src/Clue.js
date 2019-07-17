@@ -1,6 +1,6 @@
 class Clue {
   constructor(data) {
-    this.data = data;
+    this.data = data.data;
     this.roundCategories = [];
   }
   shuffleArray() {

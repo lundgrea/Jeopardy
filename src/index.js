@@ -19,21 +19,24 @@ import Round from './Round';
 import Turn from './Turn';
 import domUpdates from './domUpdates.js';
 
-var data;
+var boards;
 fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
-  .then(function(response) {
-    return response.json()
-  })
-  .then(function(parsedData) {
-    data = parsedData.data
-    console.log(data)
-  })
+  .then(response => response.json())
+  .then(parsedData => getData(parsedData))
   .catch(err => console.error(err));
 
 
-let clue = new Clue(data)
-console.log(clue)
-var x = clue.makeBoardObject()
+function getData(info) {
+    let clue = new Clue(info);
+    boards = clue.makeBoardObject();
+    console.log(boards)
+}
+
+let game
+
+// let clue = new Clue(data)
+// console.log(clue)
+// var x = clue.makeBoardObject()
 
 $(document).ready(function() {
   $('#main-score-cards').hide();
@@ -53,16 +56,25 @@ $(document).ready(function() {
   //$('.grid').packery({itemSelector: '.grid-item', gutter: 15, percentPosition: true, columnWidth: 100, });
   domUpdates.disableUserInputButton();
 
-  $('#players-name__submit').click( () => {
+  $('#players-name__submit').click(() => {
     console.log($('#player1-name__input').val());
     let playerNames = [$('#player1-name__input').val(), $('#player2-name__input').val(),$('#player3-name__input').val()]
-   // domUpdates.populatePlayerDashboard(playerNames)
-    let game = new Game();
-    game.startGame(playerNames, data);
+    game = new Game(boards);
+    game.startGame(playerNames);
     $('#user-name-inputs').fadeOut();
     $('#main-score-cards').delay(1000).fadeIn();
     $('#puzzle-table').delay(1000).fadeIn();
   })
+
+  $('#submit-button').click(() => {
+    if(game.currentRound.turnTracker === 16) {
+      game.generateRound()
+    } else {
+     game.currentRound.beginTurn()
+    }
+  })
+
+
 
   $('.player-input').blur(() => {
     console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
@@ -72,6 +84,7 @@ $(document).ready(function() {
       domUpdates.disableUserInputButton();
     }
   })
+
 
 });
 
