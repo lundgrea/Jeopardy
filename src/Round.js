@@ -1,23 +1,25 @@
 import Clue from '../src/Clue';
 import Turn from '../src/Turn';
 import Game from '../src/Game';
+import domUpdates from './domUpdates';
 
 class Round {
-  constructor(board) {
+  constructor(board, players) {
     this.currentTurn = null;
     this.turnTracker = 0;
     this.currentClue = null;
     this.board = board;
-    this.currentPlayer = 1;
+    this.currentPlayer = 0;
     this.dailyDoubleTurn = null || Math.random();
+    this.players = players;
   }
 
 
   changePlayer() {
-    if (this.player < 3) {
+    if (this.currentPlayer < 2) {
       this.currentPlayer ++; 
     } else {
-    this.currentPlayer = 1;
+    this.currentPlayer = 0;
     }
   }
 
@@ -34,10 +36,19 @@ class Round {
     
     this.currentTurn = new Turn(this.currentPlayer)
     this.turnTracker ++
-    console.log(this.turnTracker)
+  
   }  
 
+  takeTurn() {
+    this.turnTracker++;
+    console.log('Current player is: ', this.currentPlayer);
+    this.updateScores(this.currentPlayer);
+    this.changePlayer();
+  }
   updateScores() {
+    this.players[this.currentPlayer].score += parseInt(100);
+    console.log(this.players)
+    domUpdates.populatePlayerDashboard(this.players);
   }
 
   generateDailyDoubleTurn() {

@@ -81,8 +81,7 @@ $(document).ready(function() {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     } else {
-      game.currentRound.beginTurn()
-   
+     game.currentRound.takeTurn();
     }
   })
 
