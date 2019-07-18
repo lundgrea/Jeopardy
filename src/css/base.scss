@@ -5,36 +5,119 @@
   font-family: Oxygen, sans-serif;
   font-weight: 300;
 }
-$primary-background: rgb(99, 147, 250);
+
 
 body {
-  background-color: $primary-background;
+  background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/jeopardy-background-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-#welcome-message,
-#user-name-inputs {
-  border: solid 1px black;
-  background-color: rgb(174, 243, 240);
-  display: flex; 
-  margin-top: 200px;
-  margin-left:300px;
+h2 {
+  margin: 5%;
+}
+
+p {
+  font-weight: 700;
+  font-size: 17px;
+  margin: 0% 0% 2% 0%;
+}
+// main{
+//   display: flex;
+//   justify-content: center;
+// }
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.2);
+    z-index: 5;
+}
+
+.hvr-trim {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+}
+.hvr-trim:before {
+  content: '';
+  position: absolute;
+  border: white solid 4px;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  opacity: 0;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+}
+.hvr-trim:hover:before, .hvr-trim:focus:before, .hvr-trim:active:before {
+  opacity: 1;
+}
+
+.splash-screen__welcome,
+.splash-screen__inputs {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  width: 100%;
+}
+
+.player-input {
+  width: 25%;
+  height: 30px;
+  border-radius: 4%;
+  border: none;
+  margin-bottom: 5px;
+}
+
+.splash-input__field,
+.splash-welcome__image {
+  display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  height: 300px;
-  width: 600px;
+  width: 50%;
 }
 
-.grid-item {
-  background-color: rgba(138, 221, 234, 0.53);
-  border: solid 4px rgba(138, 221, 234, 0.97);
-  border-radius: 5% 5% 5% 5%;
-  float: left;
-  grid-auto-columns: 4;
-  grid-auto-rows: auto; 
-  padding: 15px;
-  width: 27%;
+
+.score-cards__display {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
+
+div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 580px;
+}
+// .grid-item {
+//   background-color: rgba(138, 221, 234, 0.53);
+//   border: solid 4px rgba(138, 221, 234, 0.97);
+//   border-radius: 5% 5% 5% 5%;
+//   float: left;
+//   grid-auto-columns: 4;
+//   grid-auto-rows: auto; 
+//   padding: 15px;
+//   width: 27%;
+// }
 
 .buttonStyled {
   border: 0;
@@ -62,17 +145,106 @@ inset -2px -2px 3px rgba(0, 0, 0, .6);
               inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-#puzzle-table {
-  margin-left: 33%;
-  height: 60%;
+.puzzle-table__display {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 
-  #tg {
-    height: 400px;
-    width: 600px;
-    border-collapse:collapse;border-spacing:0;}
+.board-column__section 
+{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  width: 20%;
+}
 
-#tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-#tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-#tg .tg-0lax{text-align:left;vertical-align:top}
+.column-row__display
+{
+  margin: 0% 0% 1% 1%;
+  height: 25%;
+  border-radius: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: end;
+  font-size: 42px;
+  font-weight: 800;
+  color: goldenrod;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  background-color: navy;
+  opacity: 0.95;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.column-header__category {
+  margin: 0% 0% 1% 1%;
+  height: 12%;
+  border-radius: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: end;
+  font-size: 23px;
+  font-weight: 800;
+  color: white;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  background-color: navy;
+  opacity: 0.95;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.player-scorecard {
+  height: 12%;
+  width: 16%;
+  border-radius: 7%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // align-content: end;
+  font-size: 23px;
+  font-weight: 800;
+  color: white;
+  border: black solid 5px;
+  // border-style: solid;
+  // border-width: 5px;
+  // border-color: black;
+  background-color: navy;
+  opacity: 0.95;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.alert-question__display {
+  width: 90%;
+  height: 850px;
+  border-radius: 7%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 750px;
+  border-radius: 7%;
+  flex-direction: column;
+  display: flex;
+  /* justify-content: center; */
+  align-content: center;
+  font-size: 42px;
+  font-weight: 800;
+  color: goldenrod;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  background-color: navy;
+  opacity: 0.95;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+
 
