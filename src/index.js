@@ -40,16 +40,16 @@ let game
 
 $(document).ready(function() {
   $('#main-scorecard__display').hide();
-  $('#user-name-inputs').hide();
+  $('#user-name__inputs').hide();
   $('#puzzle-table__display').hide();
   $('#welcome-message').delay(2500).fadeOut("slow");
-  $('#user-name-inputs').append(`
-  <input type="text" id="player1-name__input" class="player-input"> Player 1 </input>
-  <p></p>
-  <input type="text" id="player2-name__input" class="player-input"> Player 2 </input>
-  <p></p>
-  <input type="text" id="player3-name__input" class="player-input"> Player 3:</input>
-  <p></p>
+  $('#user-name__inputs').append(`
+  <input type="text" id="player1-name__input" class="player-input"></input>
+  <p>Player 1</p>
+  <input type="text" id="player2-name__input" class="player-input"></input>
+  <p>Player 2</p>
+  <input type="text" id="player3-name__input" class="player-input"></input>
+  <p>Player 3</p>
   <button type="button" id="players-name__submit" name="submitUserNames" class="buttonStyled">Game on!</button>`).delay(3000).fadeIn('slow');
   //$('.user-name-inputs').delay(3000).fadeIn("slow");
   //let $grid = $('.grid').packery({itemSelector: '.grid-item', columnWidth: 100});
@@ -61,7 +61,7 @@ $(document).ready(function() {
     let playerNames = [$('#player1-name__input').val(), $('#player2-name__input').val(),$('#player3-name__input').val()]
     game = new Game(boards);
     game.startGame(playerNames);
-    $('#user-name-inputs').fadeOut();
+    $('#user-name__inputs').fadeOut();
     $('#main-scorecard__display').delay(1000).fadeIn();
     $('#puzzle-table__display').delay(1000).fadeIn();
   })

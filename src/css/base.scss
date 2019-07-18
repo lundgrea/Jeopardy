@@ -8,27 +8,49 @@
 $primary-background: rgb(99, 147, 250);
 
 body {
-  background-color: $primary-background;
+  background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/jeopardy-background-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+h2 {
+  margin: 5%;
+}
+
+p {
+  font-weight: 700;
+  font-size: 17px;
+  margin: 0% 0% 2% 0%;
+}
 // main{
 //   display: flex;
 //   justify-content: center;
 // }
 
-// #welcome-message,
-// #user-name-inputs {
-//   border: solid 1px black;
-//   background-color: rgb(174, 243, 240);
-//   display: flex; 
-//   margin-top: 200px;
-//   margin-left:300px;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   align-items: center;
-//   height: 300px;
-//   width: 600px;
-// }
+.splash-screen__welcome,
+.splash-screen__inputs {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  width: 100%;
+}
+
+.player-input {
+  width: 25%;
+  height: 30px;
+  border-radius: 4%;
+  border: none;
+  margin-bottom: 5px;
+}
+
+.splash-input__field,
+.splash-welcome__image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
 
 .score-cards__display {
   width: 100%;
@@ -86,11 +108,6 @@ inset -2px -2px 3px rgba(0, 0, 0, .6);
   width: 100%;
 }
 
-  #tg {
-    height: 400px;
-    width: 600px;
-    border-collapse:collapse;border-spacing:0;}
-
 .board-column__section 
 {
   display: flex;
@@ -101,24 +118,56 @@ inset -2px -2px 3px rgba(0, 0, 0, .6);
 
 .column-row__display
 {
-margin: 0% 0% 1% 1%;
-    height: 25%;
-    border-radius: 7%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: end;
-    font-size: 42px;
-    font-weight: 800;
-    color: goldenrod;
-    border-style: solid;
-    border-width: 5px;
-    border-color: black;
-    background-color: navy;
+  margin: 0% 0% 1% 1%;
+  height: 25%;
+  border-radius: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: end;
+  font-size: 42px;
+  font-weight: 800;
+  color: goldenrod;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  background-color: navy;
+  opacity: 0.95;
 }
 
-.column-header__category .column-row__display {
-  text-align:left;
-  vertical-align:top
+.column-header__category {
+  margin: 0% 0% 1% 1%;
+  height: 12%;
+  border-radius: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: end;
+  font-size: 23px;
+  font-weight: 800;
+  color: white;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  background-color: navy;
+  opacity: 0.95;
 }
 
+.player-scorecard {
+  height: 12%;
+  width: 16%;
+  border-radius: 7%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: end;
+  font-size: 23px;
+  font-weight: 800;
+  color: white;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  background-color: navy;
+   opacity: 0.95;
+}

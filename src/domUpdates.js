@@ -17,12 +17,12 @@ let domUpdates = {
     $('#js-player1-name').text(playerNames[0].name || 'Player 1');
     $('#player-1-score').text(playerNames[0].score || 0);
     $('#js-player2-name').text(playerNames[1].name  || 'Player 2');
-    $('#player-2-score').text(playerNames[1].score|| 0);
+    $('#player-2-score').text(playerNames[1].score || 0);
     $('#js-player3-name').text(playerNames[2].name  || 'Player 3');
-    $('#player-3-score').text(playerNames[2].score|| 0)
+    $('#player-3-score').text(playerNames[2].score || 0)
   },
 
-  populateGameBoard(currentBoard){
+  populateGameBoard(currentBoard) {
     let column0 = currentBoard[0]
     let column1 = currentBoard[1]
     let column2 = currentBoard[2]
