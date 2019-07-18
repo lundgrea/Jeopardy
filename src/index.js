@@ -76,6 +76,7 @@ $(document).ready(function() {
 
 
 
+
   $('.player-input').blur(() => {
     console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
     if($( '#player1-name__input' ).val() != '' && $( '#player2-name__input' ).val() != '' && $( '#player3-name__input' ).val() != ''){

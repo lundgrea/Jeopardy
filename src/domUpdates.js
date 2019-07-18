@@ -63,6 +63,7 @@ let domUpdates = {
 
   popUpLeaderBoard() {
   }
+  
 }
 
 export default domUpdates

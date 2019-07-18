@@ -5,7 +5,7 @@
   font-family: Oxygen, sans-serif;
   font-weight: 300;
 }
-$primary-background: rgb(99, 147, 250);
+
 
 body {
   background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/jeopardy-background-2.jpg');
@@ -26,6 +26,24 @@ p {
 //   display: flex;
 //   justify-content: center;
 // }
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
+    z-index: 5;
+}
 
 .splash-screen__welcome,
 .splash-screen__inputs {
@@ -174,3 +192,4 @@ inset -2px -2px 3px rgba(0, 0, 0, .6);
   opacity: 0.95;
   filter: drop-shadow(2px 4px 6px black);
 }
+
