@@ -35,33 +35,31 @@ let domUpdates = {
     $('#column3-row0__category').text(column3.category);
 
     $('#column0-row1__clue').text(column0.clues[0].pointValue)
-    $('#column0-row2__clue').text(column0.clues[1].pointValue)
-    $('#column0-row3__clue').text(column0.clues[2].pointValue)
-    $('#column0-row4__clue').text(column0.clues[3].pointValue)
+    $('#column0-row2__clue').text(column1.clues[1].pointValue)
+    $('#column0-row3__clue').text(column2.clues[2].pointValue)
+    $('#column0-row4__clue').text(column3.clues[3].pointValue)
 
     $('#column1-row1__clue').text(column0.clues[0].pointValue)
-    $('#column1-row2__clue').text(column0.clues[1].pointValue)
-    $('#column1-row3__clue').text(column0.clues[2].pointValue)
-    $('#column1-row4__clue').text(column0.clues[3].pointValue)
+    $('#column1-row2__clue').text(column1.clues[1].pointValue)
+    $('#column1-row3__clue').text(column2.clues[2].pointValue)
+    $('#column1-row4__clue').text(column3.clues[3].pointValue)
 
     $('#column2-row1__clue').text(column0.clues[0].pointValue)
-    $('#column2-row2__clue').text(column0.clues[1].pointValue)
-    $('#column2-row3__clue').text(column0.clues[2].pointValue)
-    $('#column2-row4__clue').text(column0.clues[3].pointValue)
+    $('#column2-row2__clue').text(column1.clues[1].pointValue)
+    $('#column2-row3__clue').text(column2.clues[2].pointValue)
+    $('#column2-row4__clue').text(column3.clues[3].pointValue)
 
     $('#column3-row1__clue').text(column0.clues[0].pointValue)
-    $('#column3-row2__clue').text(column0.clues[1].pointValue)
-    $('#column3-row3__clue').text(column0.clues[2].pointValue)
-    $('#column3-row4__clue').text(column0.clues[3].pointValue)
+    $('#column3-row2__clue').text(column1.clues[1].pointValue)
+    $('#column3-row3__clue').text(column2.clues[2].pointValue)
+    $('#column3-row4__clue').text(column3.clues[3].pointValue)
 
   },
 
+ 
   displayRequestToPlayAgain() {  
   },
 
-  populateJeopardyBoard(boardIndex) {
-    game.boards[boardIndex]
-  },
 
   popUpLeaderBoard() {
   }

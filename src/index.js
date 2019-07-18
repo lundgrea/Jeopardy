@@ -88,7 +88,8 @@ $(document).ready(function() {
       game.generateRound()
     } else {
       game.currentRound.beginTurn()
-   
+      
+
     }
   })
 
