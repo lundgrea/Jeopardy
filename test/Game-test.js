@@ -50,12 +50,12 @@ describe("Game", function() {
     expect(game.dailyDoubleTurns[0]).to.be.within(1, 16);
   });
 
-  it("should set a dailyDouble turn between 1 and 8 for the second round", function() {
+  it("should set a firt dailyDouble turn between 1 and 8 for the R2", function() {
     game.generateDailyDoubleTurns();
     expect(game.dailyDoubleTurns[1]).to.be.within(1, 8);
   });
 
-  it("should set a dailyDouble turn between 1 and 8 for the second round", function() {
+  it("should set a second dailyDouble turn between 9 and 16 for R2", function() {
     game.generateDailyDoubleTurns();
     expect(game.dailyDoubleTurns[2]).to.be.within(9, 16);
   });

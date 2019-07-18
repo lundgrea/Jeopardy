@@ -15,22 +15,7 @@ class Game {
     this.dailyDoubleTurns = []
   }
 
-
-  generateDailyDoubleTurns() {
-    if (this.dailyDoubleTurns < 3) {
-      let round1DailyDouble = Math.floor(Math.random() * (1,16));
-      console.log(round1DailyDouble)
-      let round2DailyDouble1 = Math.floor(Math.random() * (1,7)+1);
-            console.log(round2DailyDouble1)
-      let round2DailyDouble2 = Math.floor(Math.random() * (1,8) + 8);
-            console.log(round2DailyDouble2)
-      this.dailyDoubleTurns.push(round1DailyDouble);
-      this.dailyDoubleTurns.push(round2DailyDouble1);
-      this.dailyDoubleTurns.push(round2DailyDouble2);
-      console.log(this.dailyDoubleTurns)
-    }
-  }
-
+ 
   generateRound() {
     if (this.roundTracker <= 2) {
       this.currentRound = new Round(this.boards[this.roundTracker]);
@@ -41,17 +26,6 @@ class Game {
     }
   }
 
-    //   Math.floor(Math.random() * (1, 8));
-    // this.dailyDoubleTurn2 = Math.floor(Math.random() * (9, 16));
-  
-    //random number generator and assign that to dailyDouble
-    //daily double extends turn
-
-  //     Math.floor(Math.random() * (1, 8));
-  //   this.dailyDoubleTurn2 = Math.floor(Math.random() * (9, 16));
-  
-  // }
-   
 
     // if(this.roundTracker === 3 {
       //create super/extends round class
@@ -63,6 +37,15 @@ class Game {
   //    // this.boards = clue.makeBoardObject();
   // }
 
+  
+  startGame(playerNames) {
+    this.generatePlayers(playerNames);
+    this.generateDailyDoubleTurns()
+    domUpdates.populatePlayerDashboard(this.players);
+    // this.generateClues(data);
+    this.generateRound();
+  }
+
   generatePlayers(playerInput) {
     this.player1 = new Player(playerInput[0]);
     this.players.push(this.player1);
@@ -72,12 +55,16 @@ class Game {
     this.players.push(this.player3);
     return this.players;
   }
-  
-  startGame(playerNames) {
-    this.generatePlayers(playerNames);
-    domUpdates.populatePlayerDashboard(this.players);
-    // this.generateClues(data);
-    this.generateRound();
+
+  generateDailyDoubleTurns() {
+    if (this.dailyDoubleTurns.length < 3) {
+      let round1DailyDouble = Math.floor(Math.random() * (1, 16));
+      let round2DailyDouble1 = Math.floor(Math.random() * (1, 7) + 1);
+      let round2DailyDouble2 = Math.floor(Math.random() * (1, 8) + 8);
+      this.dailyDoubleTurns.push(round1DailyDouble);
+      this.dailyDoubleTurns.push(round2DailyDouble1);
+      this.dailyDoubleTurns.push(round2DailyDouble2);
+    }
   }
 
   determineGameWinner() {
