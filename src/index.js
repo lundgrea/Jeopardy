@@ -70,7 +70,7 @@ $(document).ready(function() {
     if(game.currentRound.turnTracker === 16) {
       game.generateRound()
     } else {
-     game.currentRound.beginTurn()
+     game.currentRound.takeTurn();
     }
   })
 
