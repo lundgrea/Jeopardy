@@ -39,9 +39,9 @@ let game
 // var x = clue.makeBoardObject()
 
 $(document).ready(function() {
-  $('#main-score-cards').hide();
+  $('#main-scorecard__display').hide();
   $('#user-name-inputs').hide();
-  $('#puzzle-table').hide();
+  $('#puzzle-table__display').hide();
   $('#welcome-message').delay(2500).fadeOut("slow");
   $('#user-name-inputs').append(`
   <input type="text" id="player1-name__input" class="player-input"> Player 1 </input>
@@ -62,8 +62,8 @@ $(document).ready(function() {
     game = new Game(boards);
     game.startGame(playerNames);
     $('#user-name-inputs').fadeOut();
-    $('#main-score-cards').delay(1000).fadeIn();
-    $('#puzzle-table').delay(1000).fadeIn();
+    $('#main-scorecard__display').delay(1000).fadeIn();
+    $('#puzzle-table__display').delay(1000).fadeIn();
   })
 
   $('#submit-button').click(() => {

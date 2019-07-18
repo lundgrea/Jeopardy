@@ -14,56 +14,75 @@
       <section id="user-name-inputs">
         <p>Enter names for each user:</p>
       </section>
-      <section class='score-cards middle' id="main-score-cards">
-          <article class='player-scorecard' id=''>
-            <h2 id='js-player1-name'>Player1</h2>
-            <h3>Score:<span id='player-1-score'> 0 </span></h3>
-          </article>
-          <article class='player-scorecard player2 2'>
-            <h2 id='js-player2-name' >Player2</h2>
-            <h3>Score:<span id='player-2-score'> 0 </span></h3>
-          </article>
-          <article class='player-scorecard player3 3'>
-            <h2 id='js-player3-name'>Player3</h2>
-            <h3>Score:<span id='player-3-score'> 0 </span></h3>
-          <button id="submit-button">Submit Guess</button>
-          </article>
-        </section>
-      <section id="puzzle-table">
+      
+      <section class="puzzle-table__display" id="puzzle-table__display">
         <div class="grid">
-          <table id="tg">
-              <tr>
-                <th id="column0-row0__category" class="tg-0lax">cat0</th>
-                <th id="column1-row0__category" class="tg-0lax">cat1</th>
-                <th id="column2-row0__category" class="tg-0lax">cat2</th>
-                <th id="column3-row0__category" class="tg-0lax">cat3</th>
-              </tr>
-              <tr>
-                <td id="column0-row1__clue" class="tg-0lax"></td>
-                <td id="column1-row1__clue" class="tg-0lax"></td>
-                <td id="column2-row1__clue" class="tg-0lax"></td>
-                <td id="column3-row1__clue" class="tg-0lax"></td>
-              </tr>
-               <tr>
-                <td id="column0-row2__clue" class="tg-0lax"></td>
-                <td id="column1-row2__clue" class="tg-0lax"></td>
-                <td id="column2-row2__clue" class="tg-0lax"></td>
-                <td id="column3-row2__clue" class="tg-0lax"></td>
-              </tr>
-               <tr>
-                <td id="column0-row3__clue" class="tg-0lax"></td>
-                <td id="column1-row3__clue" class="tg-0lax"></td>
-                <td id="column2-row3__clue" class="tg-0lax"></td>
-                <td id="column3-row3__clue" class="tg-0lax"></td>
-              </tr>
-               <tr>
-                <td id="column0-row4__clue" class="tg-0lax"></td>
-                <td id="column1-row4__clue" class="tg-0lax"></td>
-                <td id="column2-row4__clue" class="tg-0lax"></td>
-                <td id="column3-row4__clue" class="tg-0lax"></td>
-              </tr>
-            </table>
-          </div>
+          <!-- <table id="tg"> -->
+              <section class="board-column__section">
+                <article class="column-header__category" id="column0-row0__category">
+                </article>
+                <article id="column0-row1__clue" class="column-row__display">
+                </article>
+                <article id="column0-row2__clue" class="column-row__display">
+                </article>
+                <article id="column0-row3__clue" class="column-row__display">
+                </article>
+                <article id="column0-row4__clue" class="column-row__display">
+                </article>
+              </section class="board-column__section">
+              <section class="board-column__section">
+                <article class="column-header__category" id="column1-row0__category">
+                </article>
+                <article id="column1-row1__clue" class="column-row__display">
+                </article>
+                <article id="column1-row2__clue" class="column-row__display">
+                </article>
+                <article id="column1-row3__clue" class="column-row__display">
+                </article>
+                <article id="column1-row4__clue" class="column-row__display">
+                </article>
+              </section class="board-column__section">
+              <section class="board-column__section">
+                <article class="column-header__category" id="column2-row0__category">
+                </article>
+                <article id="column2-row1__clue" class="column-row__display">
+                </article>
+                <article id="column2-row2__clue" class="column-row__display">
+                </article>
+                <article id="column2-row3__clue" class="column-row__display">
+                </article>
+                <article id="column2-row4__clue" class="column-row__display">
+                </article>
+              </section class="board-column__section">
+              <section class="board-column__section">
+                <article class="column-header__category" id="column3-row0__category">
+                </article>
+                <article id="column3-row1__clue" class="column-row__display">
+                </article>
+                <article id="column3-row2__clue" class="column-row__display">
+                </article>
+                <article id="column3-row3__clue" class="column-row__display">
+                </article>
+                <article id="column3-row4__clue" class="column-row__display">
+                </article>
+              </section class="board-column__section">
+              <!-- </table> -->
+            </div>
+              <section class='score-cards__display' id="main-scorecard__display">
+                <article class='player-scorecard' id=''>
+                  <h2 id='js-player1-name'>Player1</h2>
+                  <h3>Score:<span id='player-1-score'> 0 </span></h3>
+                </article>
+                <article class='player-scorecard player2 2'>
+                  <h2 id='js-player2-name'>Player2</h2>
+                  <h3>Score:<span id='player-2-score'> 0 </span></h3>
+                </article>
+                <article class='player-scorecard player3 3'>
+                  <h2 id='js-player3-name'>Player3</h2>
+                  <h3>Score:<span id='player-3-score'> 0 </span></h3>
+                  <button id="submit-button">Submit Guess</button>
+                </article>
+              </section>
       </section>
     </main>
 
