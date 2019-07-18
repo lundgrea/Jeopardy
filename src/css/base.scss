@@ -118,7 +118,7 @@ inset -2px -2px 3px rgba(0, 0, 0, .6);
 
 .column-row__display
 {
-  margin: 0% 0% .4% .4%;
+  margin: 0% 0% 1% 1%;
   height: 25%;
   border-radius: 7%;
   display: flex;
@@ -133,10 +133,11 @@ inset -2px -2px 3px rgba(0, 0, 0, .6);
   border-color: black;
   background-color: navy;
   opacity: 0.95;
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 .column-header__category {
-  margin: 0% 0% .4% .4%;
+  margin: 0% 0% 1% 1%;
   height: 12%;
   border-radius: 7%;
   display: flex;
@@ -151,6 +152,7 @@ inset -2px -2px 3px rgba(0, 0, 0, .6);
   border-color: black;
   background-color: navy;
   opacity: 0.95;
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 .player-scorecard {
@@ -169,5 +171,6 @@ inset -2px -2px 3px rgba(0, 0, 0, .6);
   border-width: 5px;
   border-color: black;
   background-color: navy;
-   opacity: 0.95;
+  opacity: 0.95;
+  filter: drop-shadow(2px 4px 6px black);
 }
