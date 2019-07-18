@@ -45,7 +45,7 @@ $(document).ready(function() {
   $('.alert-question__container').hide()
   $('fieldset').hide()
   $('#welcome-message').delay(2500).fadeOut("slow");
-  $('question-alert__display')
+  // $('question-alert__display')
   $('#user-name__inputs').append(`
   <input type="text" id="player1-name__input" class="player-input"></input>
   <p>Player 1</p>
