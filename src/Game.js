@@ -17,12 +17,18 @@ class Game {
 
  
   generateRound() {
-    if (this.roundTracker <= 2) {
+    if (this.roundTracker < 2) {
       this.currentRound = new Round(this.boards[this.roundTracker]);
       domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
       console.log('THE ROUND', this.roundTracker)
-      this.currentRound.beginTurn() ;
+      this.currentRound.beginTurn();
+    }
+    if (this.roundTracker === 2) {
+      this.currentRound = new FinalRound(this.boards[this.roundTracker]);
+      //domUpdates.populateGameBoard(this.currentRound.board)
+      this.roundTracker ++;
+      this.currentRound.beginTurn()
     }
   }
 
