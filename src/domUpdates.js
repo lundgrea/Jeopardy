@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 let domUpdates = {
 
+
   disableUserInputButton () {
     console.log(`disableUserInputButton called on ${$('#players-name__submit').name}`)
     $('#players-name__submit').prop('disabled', true);
@@ -52,6 +53,7 @@ let domUpdates = {
     $('#column3-row2__clue').text(column0.clues[1].pointValue)
     $('#column3-row3__clue').text(column0.clues[2].pointValue)
     $('#column3-row4__clue').text(column0.clues[3].pointValue)
+
   },
 
   displayRequestToPlayAgain() {  

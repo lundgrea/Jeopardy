@@ -27,9 +27,9 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
 
 
 function getData(info) {
-    let clue = new Clue(info);
-    boards = clue.makeBoardObject();
-    console.log(boards)
+  let clue = new Clue(info);
+  boards = clue.makeBoardObject();
+  console.log(boards)
 }
 
 let game
@@ -57,8 +57,8 @@ $(document).ready(function() {
   domUpdates.disableUserInputButton();
 
   $('#players-name__submit').click(() => {
-    console.log($('#player1-name__input').val());
-    let playerNames = [$('#player1-name__input').val(), $('#player2-name__input').val(),$('#player3-name__input').val()]
+    // console.log($('#player1-name__input').val());
+    let playerNames = [$('#player1-name__input').val(), $('#player2-name__input').val(), $('#player3-name__input').val()]
     game = new Game(boards);
     game.startGame(playerNames);
     $('#user-name__inputs').fadeOut();
@@ -66,20 +66,60 @@ $(document).ready(function() {
     $('#puzzle-table__display').delay(1000).fadeIn();
   })
 
-  $('#submit-button').click(() => {
-    if(game.currentRound.turnTracker === 16) {
+  $('#main-board__display').click((e) => {
+    let clickedItem = e.target.id;
+    $(`#${clickedItem}`).css({
+      'background-color': 'mediumblue',
+      'transition': 'transform 2s',
+      'transform- style': 'preserve - 3d',
+      'transform': 'rotateX(180deg)'}
+    )
+
+
+    if (game.currentRound.turnTracker === 16) {
+      $('.column-row__display').removeAttr('style')
       game.generateRound()
     } else {
-     game.currentRound.beginTurn()
+      game.currentRound.beginTurn()
+   
     }
   })
+
+
+  // $('#submit-button').click(() => {
+  //   if (game.currentRound.turnTracker === 16) {
+  //     game.generateRound()
+  //   //   $('column-row__display').css({
+  //   //     margin: 0 % 0 % 1 % 1 %;
+  //   //     height: 25 %;
+  //   //     border- radius: 7 %;
+  //   //   display: flex;
+  //   //   justify - content: center;
+  //   //   align - items: center;
+  //   //   align - content: end;
+  //   //   font - size: 42px;
+  //   //   font - weight: 800;
+  //   //   color: goldenrod;
+  //   //   border - style: solid;
+  //   //   border - width: 5px;
+  //   //   border - color: black;
+  //   //   background - color: navy;
+  //   //   opacity: 0.95;
+  //   //   filter: drop - shadow(2px 4px 6px black);
+  //   // }
+
+  //     })
+  //   } else {
+  //     game.currentRound.beginTurn()
+  //   }
+  // })
 
 
 
 
   $('.player-input').blur(() => {
     console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
-    if($( '#player1-name__input' ).val() != '' && $( '#player2-name__input' ).val() != '' && $( '#player3-name__input' ).val() != ''){
+    if ($( '#player1-name__input' ).val() != '' && $( '#player2-name__input' ).val() != '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
     } else {
       domUpdates.disableUserInputButton();
