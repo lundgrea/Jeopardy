@@ -19,6 +19,10 @@ class Turn {
     //change score
   }
 
+  
+  acceptGuess(){
+
+  }
 
   evaluateGuess() {
     if(this.guess.toLowerCase() === this.answer.toLowerCase()) {
@@ -39,8 +43,6 @@ class Turn {
   displayClue() {
   }
 
-  acceptGuess() {
-  }
 
 
 }

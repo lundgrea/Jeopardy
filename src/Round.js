@@ -9,7 +9,7 @@ class Round {
     this.currentClue = null;
     this.board = board;
     this.currentPlayer = 1;
-    this.dailyDoubleTurn = null || Math.random();
+    this.dailyDoubleTurn = Math.floor(Math.random() * (1, 16));
   }
 
 
