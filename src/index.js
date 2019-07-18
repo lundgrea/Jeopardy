@@ -42,7 +42,10 @@ $(document).ready(function() {
   $('#main-scorecard__display').hide();
   $('#user-name__inputs').hide();
   $('#puzzle-table__display').hide();
+  $('.alert-question__container').hide()
+  $('fieldset').hide()
   $('#welcome-message').delay(2500).fadeOut("slow");
+  $('question-alert__display')
   $('#user-name__inputs').append(`
   <input type="text" id="player1-name__input" class="player-input"></input>
   <p>Player 1</p>
@@ -67,6 +70,7 @@ $(document).ready(function() {
   })
 
   $('#main-board__display').click((e) => {
+    
     let clickedItem = e.target.id;
     $(`#${clickedItem}`).css({
       'background-color': 'mediumblue',
@@ -75,6 +79,13 @@ $(document).ready(function() {
       'transform': 'rotateX(180deg)'}
     )
 
+    $('main').delay(700).fadeOut('fast')
+    $('.alert-question__container').css({'z-index': 100}).delay(700.5).slideDown(900)
+    $('fieldset').delay(1000).fadeIn(8000)
+
+    $('#current-question__display').text('HEY IM A QUESTION')
+  
+    
 
     if (game.currentRound.turnTracker === 16) {
       $('.column-row__display').removeAttr('style')
@@ -86,39 +97,17 @@ $(document).ready(function() {
   })
 
 
-  // $('#submit-button').click(() => {
-  //   if (game.currentRound.turnTracker === 16) {
-  //     game.generateRound()
-  //   //   $('column-row__display').css({
-  //   //     margin: 0 % 0 % 1 % 1 %;
-  //   //     height: 25 %;
-  //   //     border- radius: 7 %;
-  //   //   display: flex;
-  //   //   justify - content: center;
-  //   //   align - items: center;
-  //   //   align - content: end;
-  //   //   font - size: 42px;
-  //   //   font - weight: 800;
-  //   //   color: goldenrod;
-  //   //   border - style: solid;
-  //   //   border - width: 5px;
-  //   //   border - color: black;
-  //   //   background - color: navy;
-  //   //   opacity: 0.95;
-  //   //   filter: drop - shadow(2px 4px 6px black);
-  //   // }
-
-  //     })
-  //   } else {
-  //     game.currentRound.beginTurn()
-  //   }
-  // })
+  $('#submit-button').click(() => {
+    $('main').show()
+    $('fieldset').hide()
+    $('.alert-question__container').hide()
+  })
 
 
 
 
   $('.player-input').blur(() => {
-    console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
+    // console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
     if ($( '#player1-name__input' ).val() != '' && $( '#player2-name__input' ).val() != '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
     } else {

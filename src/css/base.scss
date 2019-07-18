@@ -207,7 +207,7 @@ inset -2px -2px 3px rgba(0, 0, 0, .6);
   display: flex;
   justify-content: center;
   align-items: center;
-  align-content: end;
+  // align-content: end;
   font-size: 23px;
   font-weight: 800;
   color: white;
@@ -215,6 +215,32 @@ inset -2px -2px 3px rgba(0, 0, 0, .6);
   // border-style: solid;
   // border-width: 5px;
   // border-color: black;
+  background-color: navy;
+  opacity: 0.95;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.alert-question__display {
+  width: 90%;
+  height: 850px;
+  border-radius: 7%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 750px;
+  border-radius: 7%;
+  flex-direction: column;
+  display: flex;
+  /* justify-content: center; */
+  align-content: center;
+  font-size: 42px;
+  font-weight: 800;
+  color: goldenrod;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
   background-color: navy;
   opacity: 0.95;
   filter: drop-shadow(2px 4px 6px black);
