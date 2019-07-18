@@ -51,9 +51,6 @@ $(document).ready(function() {
   <input type="text" id="player3-name__input" class="player-input"> Player 3:</input>
   <p></p>
   <button type="button" id="players-name__submit" name="submitUserNames" class="buttonStyled">Game on!</button>`).delay(3000).fadeIn('slow');
-  //$('.user-name-inputs').delay(3000).fadeIn("slow");
-  //let $grid = $('.grid').packery({itemSelector: '.grid-item', columnWidth: 100});
-  //$('.grid').packery({itemSelector: '.grid-item', gutter: 15, percentPosition: true, columnWidth: 100, });
   domUpdates.disableUserInputButton();
 
   $('#players-name__submit').click(() => {
@@ -76,7 +73,7 @@ $(document).ready(function() {
 
 
 
-  $('.player-input').blur(() => {
+  $('.player-input').keyup(() => {
     console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
     if($( '#player1-name__input' ).val() != '' && $( '#player2-name__input' ).val() != '' && $( '#player3-name__input' ).val() != ''){
       domUpdates.enableUserInputButton();
