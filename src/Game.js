@@ -12,6 +12,23 @@ class Game {
     this.players = [];
     this.winner = null;
     this.boards = boards
+    this.dailyDoubleTurns = []
+  }
+
+
+  generateDailyDoubleTurns() {
+    if (this.dailyDoubleTurns < 3) {
+      let round1DailyDouble = Math.floor(Math.random() * (1,16));
+      console.log(round1DailyDouble)
+      let round2DailyDouble1 = Math.floor(Math.random() * (1,7)+1);
+            console.log(round2DailyDouble1)
+      let round2DailyDouble2 = Math.floor(Math.random() * (1,8) + 8);
+            console.log(round2DailyDouble2)
+      this.dailyDoubleTurns.push(round1DailyDouble);
+      this.dailyDoubleTurns.push(round2DailyDouble1);
+      this.dailyDoubleTurns.push(round2DailyDouble2);
+      console.log(this.dailyDoubleTurns)
+    }
   }
 
   generateRound() {
@@ -20,12 +37,21 @@ class Game {
       domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
       console.log('THE ROUND', this.roundTracker)
-      this.currentRound.beginTurn() 
+      this.currentRound.beginTurn() ;
     }
   }
 
+    //   Math.floor(Math.random() * (1, 8));
+    // this.dailyDoubleTurn2 = Math.floor(Math.random() * (9, 16));
+  
+    //random number generator and assign that to dailyDouble
+    //daily double extends turn
 
-
+  //     Math.floor(Math.random() * (1, 8));
+  //   this.dailyDoubleTurn2 = Math.floor(Math.random() * (9, 16));
+  
+  // }
+   
 
     // if(this.roundTracker === 3 {
       //create super/extends round class

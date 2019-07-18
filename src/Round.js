@@ -9,9 +9,7 @@ class Round {
     this.currentClue = null;
     this.board = board;
     this.currentPlayer = 1;
-    this.dailyDoubleTurn = Math.floor(Math.random() * (1, 16));
   }
-
 
   changePlayer() {
     if (this.player < 3) {
@@ -40,13 +38,7 @@ class Round {
   updateScores() {
   }
 
-  generateDailyDoubleTurn() {
-    //random number generator and assign that to dailyDouble
-    //daily double extends turn
-  }
-
   increasePointValue() {
-
   }
  
 

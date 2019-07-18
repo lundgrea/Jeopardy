@@ -23,6 +23,10 @@ describe("Game", function() {
     expect(game.roundTracker).to.equal(0);
   });
 
+  it("should have a place to hold the dailyDouble turn numbers", function() {
+    expect(game.dailyDoubleTurns).to.deep.equal([]);
+  });
+
   it("should hold a spot for the players", function() {
     expect(game.players).to.be.a("array");
   });
@@ -31,13 +35,29 @@ describe("Game", function() {
     expect(game.winner).to.equal(null);
   });
 
-  it("should start with an empty board", function() {
-    expect(game.boards).to.deep.equal([]);
-  });
-
   it("should create be able to create new rounds", function() {
     game.generateRound();
     expect(game.currentRound).to.be.a("object");
+  });
+
+  it("should generate a dailyDoubles array", function() {
+    game.generateDailyDoubleTurns();
+    expect(game.dailyDoubleTurns).to.have.lengthOf(3);
+  });
+
+  it("should set a dailyDouble turn between 1 and 16 for the first round", function() {
+    game.generateDailyDoubleTurns();
+    expect(game.dailyDoubleTurns[0]).to.be.within(1, 16);
+  });
+
+  it("should set a dailyDouble turn between 1 and 8 for the second round", function() {
+    game.generateDailyDoubleTurns();
+    expect(game.dailyDoubleTurns[1]).to.be.within(1, 8);
+  });
+
+  it("should set a dailyDouble turn between 1 and 8 for the second round", function() {
+    game.generateDailyDoubleTurns();
+    expect(game.dailyDoubleTurns[2]).to.be.within(9, 16);
   });
 
   it("should create the board from the clues", function() {
