@@ -64,6 +64,8 @@ $(document).ready(function() {
   $('#main-board__display').click((e) => {
   
     let clickedItem = e.target.id;
+    let dataIndex = e.target.getAttribute('data-index');
+    console.log('data-index is:', e.target.getAttribute('data-index'));
     $(`#${clickedItem}`).css({
       'background-color': 'mediumblue',
       'transition': 'transform 2s',
@@ -75,13 +77,13 @@ $(document).ready(function() {
     $('.alert-question__container').css({'z-index': 100}).delay(700.5).slideDown(900)
     $('fieldset').delay(1000).fadeIn(8000)
 
-    $('#current-question__display').text('HEY IM A QUESTION')
+    // $('#current-question__display').text(boards[parseInt(dataIndex.split('')[0])].clues[parseInt(dataIndex.split('')[1])].question);
   
     if (game.currentRound.turnTracker === 16) {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     } else {
-     game.currentRound.takeTurn();
+     game.currentRound.takeTurn(dataIndex);
     }
   })
 

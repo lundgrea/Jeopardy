@@ -2,6 +2,7 @@ import Clue from '../src/Clue';
 import Turn from '../src/Turn';
 import Game from '../src/Game';
 import domUpdates from './domUpdates';
+import $ from 'jquery';
 
 class Round {
   constructor(board, players) {
@@ -39,15 +40,25 @@ class Round {
   
   }  
 
-  takeTurn() {
+  takeTurn(clueID) {
     this.turnTracker++;
-    console.log('Current player is: ', this.currentPlayer);
-    this.updateScores(this.currentPlayer);
-    this.changePlayer();
+    console.log(`Players is: ${this.players} clueID is: ${clueID}`)
+    console.log(`board value is: ${this.board[0].clues[0].question}`)
+    console.log(`clue question is: ${this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].question}`)
+    console.log(`clue answer is: ${this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].answer}`)
+    let value = this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].pointValue;
+    console.log(`clue value is: ${this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].pointValue}`)
+ 
+    $('#current-question__display').text(this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].question);
+
+
+
+    this.updateScores(value);
+    this.changePlayer(this.currentPlayer);
   }
-  updateScores() {
-    this.players[this.currentPlayer].score += parseInt(100);
-    console.log(this.players)
+  updateScores(pointValue) {
+    this.players[this.currentPlayer].score += parseInt(pointValue);
+    console.log('point value is: ', parseInt(pointValue))
     domUpdates.populatePlayerDashboard(this.players);
   }
 
