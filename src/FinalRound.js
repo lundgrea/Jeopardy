@@ -11,7 +11,11 @@ class FinalRound extends Round {
 
   }
 
+  acceptWager(){
 
+  }
+
+  
 
 
 }

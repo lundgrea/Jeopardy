@@ -30,14 +30,6 @@ class Game {
     }
   }
 
-
-  // generateClues() {
-  // maybecome another fetch call
-  //   let clue = new Clue();
-  //    // this.boards = clue.makeBoardObject();
-  // }
-
-  
   startGame(playerNames) {
     this.generatePlayers(playerNames);
     this.generateDailyDoubleTurns()
@@ -79,6 +71,12 @@ class Game {
     this.determineGameWinner();
     // domUpdates.displayRequestToPlayAgain();
   }    
+
+  restartGame() {
+  // maybecome another fetch call
+  //   let clue = new Clue();
+  //    // this.boards = clue.makeBoardObject();
+  }
 }
 
 

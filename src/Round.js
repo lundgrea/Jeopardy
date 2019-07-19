@@ -11,6 +11,11 @@ class Round {
     this.currentPlayer = 1;
   }
 
+  initiateDailyDoubleTurn(round) {
+    this.currentTurn = new DailyDouble(this.currentPlayer)
+    this.turnTracker ++
+  }
+
   changePlayer() {
     if (this.player < 3) {
       this.currentPlayer ++; 
@@ -20,27 +25,18 @@ class Round {
   }
 
   beginTurn() {
-    //instantiate a new turn
-
-    if(this.currentTurn === this.dailyDoubleTurn) {
-    //instantiate daily double extends class//
+    if (this.turnTracker === 16) {
+      this.endRound()
+    } else if (this.turnTracker === game.dailyDoubleTurns[round]) {
+      initiateDailyDoubleTurn()
+    } else {
+      this.currentTurn = new Turn(this.currentPlayer)
+      this.turnTracker ++
     }
-
-    // if(this.turnTracker === 16) {
-    //   this.endRound()
-    // }
-    
-    this.currentTurn = new Turn(this.currentPlayer)
-    this.turnTracker ++
-    console.log(this.turnTracker)
-  }  
+  } 
 
   updateScores() {
   }
-
-  increasePointValue() {
-  }
- 
 
 }
 
