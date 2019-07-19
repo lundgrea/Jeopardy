@@ -36,10 +36,10 @@ $(document).ready(function() {
   $('#main-scorecard__display').hide();
   $('#user-name__inputs').hide();
   $('#puzzle-table__display').hide();
-  $('.alert-question__container').hide()
-  $('fieldset').hide()
+  $('.alert-question__container').hide();
+  $('fieldset').hide();
+  $('.correct-answer__display').hide();
   $('#welcome-message').delay(2500).fadeOut("slow");
-  // $('question-alert__display')
   $('#user-name__inputs').append(`
   <input type="text" id="player1-name__input" class="player-input"></input>
   <p>Player 1</p>
@@ -72,10 +72,13 @@ $(document).ready(function() {
       'transform': 'rotateX(180deg)'}
     )
 
+    $('.correct-answer__display').hide();
     $('main').delay(700).fadeOut('fast')
     $('.alert-question__container').css({'z-index': 100}).delay(900).fadeIn(900)
-    $('fieldset').delay(1000).fadeIn(900)
-    $('#current-question__display').text('HEY IM A QUESTION')
+    $('#submit-button').delay(1000).fadeIn(900);
+    $('#current-answer__input').delay(1000).fadeIn(900);
+    $('alert-question__display').delay(1000).fadeIn(900)
+    $('#current-question__display').delay(1000).fadeIn(900);
 
   
 
@@ -85,10 +88,14 @@ $(document).ready(function() {
   })
 
   $('#submit-button').click(() => {
-    $('main').show();
-    $('fieldset').hide();
-    $('.alert-question__container').hide();
+    $('main').delay(1750).fadeIn('slow');
+    // $('fieldset').hide();
+    $('.alert-question__container').delay(1500).fadeOut('fast');
     $('#current-answer__input').val('');
+    $('#submit-button').hide();
+    $('#current-question__display').hide();
+    $('#current-answer__input').hide();
+    $('.correct-answer__display').show();
     if (game.currentRound.turnTracker === 16) {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
