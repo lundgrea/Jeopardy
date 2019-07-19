@@ -25,18 +25,13 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
   .then(parsedData => getData(parsedData))
   .catch(err => console.error(err));
 
-
 function getData(info) {
   let clue = new Clue(info);
   boards = clue.makeBoardObject();
   console.log(boards)
 }
 
-let game
-
-// let clue = new Clue(data)
-// console.log(clue)
-// var x = clue.makeBoardObject()
+let game;
 
 $(document).ready(function() {
   $('#main-scorecard__display').hide();
@@ -54,9 +49,6 @@ $(document).ready(function() {
   <input type="text" id="player3-name__input" class="player-input"></input>
   <p>Player 3</p>
   <button type="button" id="players-name__submit" name="submitUserNames" class="buttonStyled">Game on!</button>`).delay(3000).fadeIn('slow');
-  //$('.user-name-inputs').delay(3000).fadeIn("slow");
-  //let $grid = $('.grid').packery({itemSelector: '.grid-item', columnWidth: 100});
-  //$('.grid').packery({itemSelector: '.grid-item', gutter: 15, percentPosition: true, columnWidth: 100, });
   domUpdates.disableUserInputButton();
 
   $('#players-name__submit').click(() => {
@@ -70,8 +62,10 @@ $(document).ready(function() {
   })
 
   $('#main-board__display').click((e) => {
-    
+  
     let clickedItem = e.target.id;
+    let dataIndex = e.target.getAttribute('data-index');
+    console.log('data-index is:', e.target.getAttribute('data-index'));
     $(`#${clickedItem}`).css({
       'background-color': 'mediumblue',
       'transition': 'transform 2s',
@@ -83,19 +77,15 @@ $(document).ready(function() {
     $('.alert-question__container').css({'z-index': 100}).delay(700.5).slideDown(900)
     $('fieldset').delay(1000).fadeIn(8000)
 
-    $('#current-question__display').text('HEY IM A QUESTION')
+    // $('#current-question__display').text(boards[parseInt(dataIndex.split('')[0])].clues[parseInt(dataIndex.split('')[1])].question);
   
-    
-
     if (game.currentRound.turnTracker === 16) {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     } else {
-      game.currentRound.beginTurn()
-   
+     game.currentRound.takeTurn(dataIndex);
     }
   })
-
 
   $('#submit-button').click(() => {
     $('main').show()
@@ -103,10 +93,7 @@ $(document).ready(function() {
     $('.alert-question__container').hide()
   })
 
-
-
-
-  $('.player-input').blur(() => {
+  $('.player-input').keyup(() => {
     // console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
     if ($( '#player1-name__input' ).val() != '' && $( '#player2-name__input' ).val() != '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
@@ -114,7 +101,6 @@ $(document).ready(function() {
       domUpdates.disableUserInputButton();
     }
   })
-
 
 });
 
