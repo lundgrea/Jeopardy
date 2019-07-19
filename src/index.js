@@ -10,7 +10,6 @@ import './css/base.scss';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 //import './images/turing-logo.png'
 
-console.log('This is the JavaScript entry file - your code begins here.');
 
 import Game from './Game';
 import Clue from './Clue';
@@ -62,7 +61,7 @@ $(document).ready(function() {
   })
 
   $('#main-board__display').click((e) => {
-  
+
     let clickedItem = e.target.id;
     let dataIndex = e.target.getAttribute('data-index');
     console.log('data-index is:', e.target.getAttribute('data-index'));
@@ -74,28 +73,33 @@ $(document).ready(function() {
     )
 
     $('main').delay(700).fadeOut('fast')
-    $('.alert-question__container').css({'z-index': 100}).delay(700.5).slideDown(900)
-    $('fieldset').delay(1000).fadeIn(8000)
+    $('.alert-question__container').css({'z-index': 100}).delay(900).fadeIn(900)
+    $('fieldset').delay(1000).fadeIn(900)
+    $('#current-question__display').text('HEY IM A QUESTION')
 
-    // $('#current-question__display').text(boards[parseInt(dataIndex.split('')[0])].clues[parseInt(dataIndex.split('')[1])].question);
   
     if (game.currentRound.turnTracker === 16) {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     } else {
+
      game.currentRound.takeTurn(dataIndex);
     }
   })
 
   $('#submit-button').click(() => {
-    $('main').show()
-    $('fieldset').hide()
-    $('.alert-question__container').hide()
+    $('main').show();
+    $('fieldset').hide();
+    $('.alert-question__container').hide();
+    $('#current-answer__input').val('');
   })
 
+
+
   $('.player-input').keyup(() => {
+
     // console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
-    if ($( '#player1-name__input' ).val() != '' && $( '#player2-name__input' ).val() != '' && $( '#player3-name__input' ).val() != '') {
+    if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
     } else {
       domUpdates.disableUserInputButton();

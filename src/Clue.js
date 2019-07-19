@@ -85,7 +85,6 @@ class Clue {
       });
       return acc;
     }, []);
-    
 
     let boardObjects = [];
     test.forEach(category => {
