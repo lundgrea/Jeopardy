@@ -24,18 +24,13 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
   .then(parsedData => getData(parsedData))
   .catch(err => console.error(err));
 
-
 function getData(info) {
   let clue = new Clue(info);
   boards = clue.makeBoardObject();
   console.log(boards)
 }
 
-let game
-
-// let clue = new Clue(data)
-// console.log(clue)
-// var x = clue.makeBoardObject()
+let game;
 
 $(document).ready(function() {
   $('#main-scorecard__display').hide();
@@ -66,7 +61,10 @@ $(document).ready(function() {
   })
 
   $('#main-board__display').click((e) => {
+
     let clickedItem = e.target.id;
+    let dataIndex = e.target.getAttribute('data-index');
+    console.log('data-index is:', e.target.getAttribute('data-index'));
     $(`#${clickedItem}`).css({
       'background-color': 'mediumblue',
       'transition': 'transform 2s',
@@ -78,18 +76,16 @@ $(document).ready(function() {
     $('.alert-question__container').css({'z-index': 100}).delay(900).fadeIn(900)
     $('fieldset').delay(1000).fadeIn(900)
     $('#current-question__display').text('HEY IM A QUESTION')
-  
-    
 
+  
     if (game.currentRound.turnTracker === 16) {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     } else {
-      game.currentRound.beginTurn()
-      
+
+     game.currentRound.takeTurn(dataIndex);
     }
   })
-
 
   $('#submit-button').click(() => {
     $('main').show();
@@ -100,8 +96,8 @@ $(document).ready(function() {
 
 
 
+  $('.player-input').keyup(() => {
 
-  $('.player-input').focusout(() => {
     // console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
     if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
@@ -110,7 +106,6 @@ $(document).ready(function() {
     }
   })
 
-  
 });
 
 
