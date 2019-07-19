@@ -78,13 +78,10 @@ $(document).ready(function() {
     $('#current-question__display').text('HEY IM A QUESTION')
 
   
-    if (game.currentRound.turnTracker === 16) {
-      $('.column-row__display').removeAttr('style')
-      game.generateRound()
-    } else {
+
 
      game.currentRound.takeTurn(dataIndex);
-    }
+    
   })
 
   $('#submit-button').click(() => {
@@ -92,6 +89,10 @@ $(document).ready(function() {
     $('fieldset').hide();
     $('.alert-question__container').hide();
     $('#current-answer__input').val('');
+    if (game.currentRound.turnTracker === 16) {
+      $('.column-row__display').removeAttr('style')
+      game.generateRound()
+    }
   })
 
 
