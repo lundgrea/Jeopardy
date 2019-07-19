@@ -29,9 +29,11 @@ class Round {
   beginTurn() {
     if (this.turnTracker === 16) {
       this.endRound()
-    } else if (this.turnTracker === game.dailyDoubleTurns[round]) {
-      initiateDailyDoubleTurn()
-    } else {
+    }
+    // } else if (this.turnTracker === game.dailyDoubleTurns[round]) {
+    //   initiateDailyDoubleTurn()
+    // } 
+    else {
       this.currentTurn = new Turn(this.currentPlayer)
       this.turnTracker ++
     }
