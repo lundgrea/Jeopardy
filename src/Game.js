@@ -3,8 +3,6 @@ import Round from '../src/Round';
 import FinalRound from '../src/FinalRound';
 import Clue from '../src/Clue';
 import domUpdates from './domUpdates.js';
-// import data from '../src/data';
-
 
 
 class Game {
@@ -19,23 +17,17 @@ class Game {
 
   generateRound() {
     if (this.roundTracker <= 2) {
-      // this.currentRound = new Round(this.boards[this.roundTracker]);
-      // domUpdates.populateGameBoard(this.currentRound.board)
+      this.currentRound = new Round(this.boards[this.roundTracker]);
+      domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
-      console.log('round tracker', this.roundTracker)
-      console.log('round number', this.currentRound)
-      // this.currentRound.beginTurn();
+      this.currentRound.beginTurn();
     }
     if (this.roundTracker === 3) {
-      // this.currentRound = new FinalRound(this.boards[this.roundTracker]);
-      console.log('final round tracker', this.roundTracker)
-      console.log('final round', this.currentRound)
-      // domUpdates.populateGameBoard(this.currentRound.board)
+      this.currentRound = new FinalRound(this.boards[this.roundTracker]);
+      domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
-      // this.currentRound.beginTurn()
+      this.currentRound.beginTurn()
     }
-
-    
   }
 
 
@@ -49,8 +41,7 @@ class Game {
   startGame(playerNames) {
     this.generatePlayers(playerNames);
     this.generateDailyDoubleTurns()
-    // domUpdates.populatePlayerDashboard(this.players);
-    // this.generateClues(data);
+    domUpdates.populatePlayerDashboard(this.players);
     this.generateRound();
   }
 
@@ -66,12 +57,13 @@ class Game {
 
   generateDailyDoubleTurns() {
     if (this.dailyDoubleTurns.length < 3) {
-      let round1DailyDouble = Math.floor(Math.random() * (1, 16));
-      let round2DailyDouble1 = Math.floor(Math.random() * (1, 7) + 1);
-      let round2DailyDouble2 = Math.floor(Math.random() * (1, 8) + 8);
+      let round1DailyDouble = Math.floor(Math.random() * (15 - 1) + 1);
+      let round2DailyDouble1 = Math.floor(Math.random() * (8 - 1) + 1);
+      let round2DailyDouble2 = Math.floor(Math.random() * (16 - 8) + 8);
       this.dailyDoubleTurns.push(round1DailyDouble);
       this.dailyDoubleTurns.push(round2DailyDouble1);
       this.dailyDoubleTurns.push(round2DailyDouble2);
+      console.log(this.dailyDoubleTurns)
     }
   }
 
