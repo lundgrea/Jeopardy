@@ -1,8 +1,8 @@
 import Player from '../src/Player';
 import Round from '../src/Round';
+import FinalRound from '../src/FinalRound';
 import Clue from '../src/Clue';
 import domUpdates from './domUpdates.js';
-import data from '../src/data';
 
 
 class Game {
@@ -12,6 +12,7 @@ class Game {
     this.players = [];
     this.winner = null;
     this.boards = boards
+    this.dailyDoubleTurns = []
     this.questionsArray = [];
   }
 
@@ -20,23 +21,22 @@ class Game {
       this.currentRound = new Round(this.boards[this.roundTracker], this.players);
       domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
-      console.log('THE ROUND', this.roundTracker)
-      this.currentRound.beginTurn() 
+      this.currentRound.beginTurn();
+    }
+    if (this.roundTracker === 3) {
+      this.currentRound = new FinalRound(this.boards[this.roundTracker]);
+      domUpdates.populateGameBoard(this.currentRound.board)
+      this.roundTracker ++;
+      this.currentRound.beginTurn()
     }
   }
 
-
-
-
-    // if(this.roundTracker === 3 {
-      //create super/extends round class
-    // }
-
-  // generateClues() {
-  // maybecome another fetch call
-  //   let clue = new Clue();
-  //    // this.boards = clue.makeBoardObject();
-  // }
+  startGame(playerNames) {
+    this.generatePlayers(playerNames);
+    this.generateDailyDoubleTurns()
+    domUpdates.populatePlayerDashboard(this.players);
+    this.generateRound();
+  }
 
   generatePlayers(playerInput) {
     this.player1 = new Player(playerInput[0]);
@@ -47,12 +47,17 @@ class Game {
     this.players.push(this.player3);
     return this.players;
   }
-  
-  startGame(playerNames) {
-    this.generatePlayers(playerNames);
-    domUpdates.populatePlayerDashboard(this.players);
-    // this.generateClues(data);
-    this.generateRound();
+
+  generateDailyDoubleTurns() {
+    if (this.dailyDoubleTurns.length < 3) {
+      let round1DailyDouble = Math.floor(Math.random() * (15 - 1) + 1);
+      let round2DailyDouble1 = Math.floor(Math.random() * (8 - 1) + 1);
+      let round2DailyDouble2 = Math.floor(Math.random() * (16 - 8) + 8);
+      this.dailyDoubleTurns.push(round1DailyDouble);
+      this.dailyDoubleTurns.push(round2DailyDouble1);
+      this.dailyDoubleTurns.push(round2DailyDouble2);
+      console.log(this.dailyDoubleTurns)
+    }
   }
 
   determineGameWinner() {
@@ -68,6 +73,11 @@ class Game {
     // domUpdates.displayRequestToPlayAgain();
   }    
 
+  restartGame() {
+  // maybecome another fetch call
+  //   let clue = new Clue();
+  //    // this.boards = clue.makeBoardObject();
+  }
   createQuestionsArray(board) {
     // board.clues.reduce((acc, ))
 

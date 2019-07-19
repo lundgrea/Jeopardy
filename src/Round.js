@@ -11,10 +11,12 @@ class Round {
     this.currentClue = null;
     this.board = board;
     this.currentPlayer = 0;
-    this.dailyDoubleTurn = null || Math.random();
-    this.players = players;
   }
 
+  initiateDailyDoubleTurn(round) {
+    this.currentTurn = new DailyDouble(this.currentPlayer)
+    this.turnTracker ++
+  }
 
   changePlayer() {
     if (this.currentPlayer < 2) {
@@ -25,20 +27,17 @@ class Round {
   }
 
   beginTurn() {
-    //instantiate a new turn
-
-    if(this.currentTurn === this.dailyDoubleTurn) {
-    //instantiate daily double extends class//
+    if (this.turnTracker === 16) {
+      this.endRound()
     }
-
-    // if(this.turnTracker === 16) {
-    //   this.endRound()
-    // }
-    
-    this.currentTurn = new Turn(this.currentPlayer)
-    this.turnTracker ++
-  
-  }  
+    // } else if (this.turnTracker === game.dailyDoubleTurns[round]) {
+    //   initiateDailyDoubleTurn()
+    // } 
+    else {
+      this.currentTurn = new Turn(this.currentPlayer)
+      this.turnTracker ++
+    }
+  }
 
   takeTurn(clueID) {
     this.turnTracker++;
@@ -56,21 +55,12 @@ class Round {
     this.updateScores(value);
     this.changePlayer(this.currentPlayer);
   }
+  
   updateScores(pointValue) {
     this.players[this.currentPlayer].score += parseInt(pointValue);
     console.log('point value is: ', parseInt(pointValue))
     domUpdates.populatePlayerDashboard(this.players);
   }
-
-  generateDailyDoubleTurn() {
-    //random number generator and assign that to dailyDouble
-    //daily double extends turn
-  }
-
-  increasePointValue() {
-
-  }
- 
 
 }
 

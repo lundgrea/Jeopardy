@@ -108,6 +108,3 @@ $(document).ready(function() {
 
 });
 
-
-
-
