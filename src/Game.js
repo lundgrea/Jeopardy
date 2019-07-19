@@ -1,8 +1,10 @@
 import Player from '../src/Player';
 import Round from '../src/Round';
+import FinalRound from '../src/FinalRound';
 import Clue from '../src/Clue';
 import domUpdates from './domUpdates.js';
-import data from '../src/data';
+// import data from '../src/data';
+
 
 
 class Game {
@@ -15,27 +17,27 @@ class Game {
     this.dailyDoubleTurns = []
   }
 
- 
   generateRound() {
-    if (this.roundTracker < 2) {
-      this.currentRound = new Round(this.boards[this.roundTracker]);
-      domUpdates.populateGameBoard(this.currentRound.board)
+    if (this.roundTracker <= 2) {
+      // this.currentRound = new Round(this.boards[this.roundTracker]);
+      // domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
-      console.log('THE ROUND', this.roundTracker)
-      this.currentRound.beginTurn();
+      console.log('round tracker', this.roundTracker)
+      console.log('round number', this.currentRound)
+      // this.currentRound.beginTurn();
     }
-    if (this.roundTracker === 2) {
-      this.currentRound = new FinalRound(this.boards[this.roundTracker]);
-      //domUpdates.populateGameBoard(this.currentRound.board)
+    if (this.roundTracker === 3) {
+      // this.currentRound = new FinalRound(this.boards[this.roundTracker]);
+      console.log('final round tracker', this.roundTracker)
+      console.log('final round', this.currentRound)
+      // domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
-      this.currentRound.beginTurn()
+      // this.currentRound.beginTurn()
     }
+
+    
   }
 
-
-    // if(this.roundTracker === 3 {
-      //create super/extends round class
-    // }
 
   // generateClues() {
   // maybecome another fetch call
@@ -47,7 +49,7 @@ class Game {
   startGame(playerNames) {
     this.generatePlayers(playerNames);
     this.generateDailyDoubleTurns()
-    domUpdates.populatePlayerDashboard(this.players);
+    // domUpdates.populatePlayerDashboard(this.players);
     // this.generateClues(data);
     this.generateRound();
   }
