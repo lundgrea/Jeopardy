@@ -12,6 +12,7 @@ class Game {
     this.players = [];
     this.winner = null;
     this.boards = boards
+    this.questionsArray = [];
   }
 
   generateRound() {
@@ -66,6 +67,12 @@ class Game {
     this.determineGameWinner();
     // domUpdates.displayRequestToPlayAgain();
   }    
+
+  createQuestionsArray(board) {
+    // board.clues.reduce((acc, ))
+
+  }
+
 }
 
 

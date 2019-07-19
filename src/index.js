@@ -10,7 +10,6 @@ import './css/base.scss';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 //import './images/turing-logo.png'
 
-console.log('This is the JavaScript entry file - your code begins here.');
 
 import Game from './Game';
 import Clue from './Clue';
@@ -67,7 +66,6 @@ $(document).ready(function() {
   })
 
   $('#main-board__display').click((e) => {
-    
     let clickedItem = e.target.id;
     $(`#${clickedItem}`).css({
       'background-color': 'mediumblue',
@@ -89,7 +87,6 @@ $(document).ready(function() {
     } else {
       game.currentRound.beginTurn()
       
-
     }
   })
 
@@ -106,14 +103,14 @@ $(document).ready(function() {
 
   $('.player-input').focusout(() => {
     // console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
-    if ($( '#player1-name__input' ).val() != '' && $( '#player2-name__input' ).val() != '' && $( '#player3-name__input' ).val() != '') {
+    if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
     } else {
       domUpdates.disableUserInputButton();
     }
   })
 
-
+  
 });
 
 

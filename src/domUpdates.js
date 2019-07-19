@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Game from '../src/Game';
 
 let domUpdates = {
 
@@ -29,6 +30,8 @@ let domUpdates = {
     let column2 = currentBoard[2]
     let column3 = currentBoard[3]
 
+    
+
     $('#column0-row0__category').text(column0.category);
     $('#column1-row0__category').text(column1.category);
     $('#column2-row0__category').text(column2.category);
@@ -56,13 +59,18 @@ let domUpdates = {
 
   },
 
- 
+
+
   displayRequestToPlayAgain() {  
   },
 
 
-  popUpLeaderBoard() {
-  }
+  populateQuestion(path) {
+
+   
+  },
+
+
 
   
   
