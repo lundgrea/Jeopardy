@@ -33,7 +33,7 @@ class Round {
       this.currentTurn = new Turn(this.currentPlayer)
       this.turnTracker ++
     }
-  } 
+  }1 
 
   updateScores() {
   }
