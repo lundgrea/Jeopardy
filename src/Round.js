@@ -39,12 +39,12 @@ class Round {
 
   takeTurn(clueID) {
     this.turnTracker++;
-    console.log(`Players is: ${this.players} clueID is: ${clueID}`)
-    console.log(`board value is: ${this.board[0].clues[0].question}`)
-    console.log(`clue question is: ${this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].question}`)
-    console.log(`clue answer is: ${this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].answer}`)
+    // console.log(`Players is: ${this.players} clueID is: ${clueID}`)
+    // console.log(`board value is: ${this.board[0].clues[0].question}`)
+    // console.log(`clue question is: ${this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].question}`)
+    // console.log(`clue answer is: ${this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].answer}`)
     let value = this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].pointValue;
-    console.log(`clue value is: ${this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].pointValue}`)
+    // console.log(`clue value is: ${this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].pointValue}`)
  
     $('#current-question__display').text(this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].question);
 

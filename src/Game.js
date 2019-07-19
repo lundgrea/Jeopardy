@@ -13,6 +13,7 @@ class Game {
     this.winner = null;
     this.boards = boards
     this.dailyDoubleTurns = []
+    this.questionsArray = [];
   }
 
   generateRound() {
@@ -77,6 +78,11 @@ class Game {
   //   let clue = new Clue();
   //    // this.boards = clue.makeBoardObject();
   }
+  createQuestionsArray(board) {
+    // board.clues.reduce((acc, ))
+
+  }
+
 }
 
 
