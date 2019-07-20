@@ -85,7 +85,7 @@ $(document).ready(function() {
     let correct = game.currentRound.evaluateGuess($('#current-answer__input').val());
     correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0]))); 
     $('main').show();
-    $('fieldset').hide();
+    $('fieldset').hide(); //might need a conditional here - if active, hide.
     $('.alert-question__container').hide();
     $('#current-answer__input').val('');
     if (game.currentRound.turnTracker === 17) {

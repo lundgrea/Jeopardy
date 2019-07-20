@@ -27,12 +27,10 @@ let domUpdates = {
     let column2 = currentBoard[2]
     let column3 = currentBoard[3]
 
-    
-
-    $('#column0-row0__category').text(column0.category);
-    $('#column1-row0__category').text(column1.category);
-    $('#column2-row0__category').text(column2.category);
-    $('#column3-row0__category').text(column3.category);
+    $('#column0-row0__category').text(this.convertCategoryToUpperCase(column0.category));
+    $('#column1-row0__category').text(this.convertCategoryToUpperCase(column1.category));
+    $('#column2-row0__category').text(this.convertCategoryToUpperCase(column2.category));
+    $('#column3-row0__category').text(this.convertCategoryToUpperCase(column3.category));
 
     $('#column0-row1__clue').text(column0.clues[0].pointValue)
     $('#column0-row2__clue').text(column1.clues[1].pointValue)
@@ -53,6 +51,13 @@ let domUpdates = {
     $('#column3-row2__clue').text(column1.clues[1].pointValue)
     $('#column3-row3__clue').text(column2.clues[2].pointValue)
     $('#column3-row4__clue').text(column3.clues[3].pointValue)
+  },
+
+  convertCategoryToUpperCase(category) {
+    let upperCaseCategory = category.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+    let splitCategoryName = upperCaseCategory.split(/(?=[A-Z])/);
+    let joinedCategory = splitCategoryName.join(' ');
+    return joinedCategory;
   },
 
   updateQuestionDisplay(question) {
