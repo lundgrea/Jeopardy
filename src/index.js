@@ -48,7 +48,7 @@ $(document).ready(function() {
   <input type="text" id="player2-name__input" class="player-input"></input>
   <p class="player-input__label">Player 3</p>
   <input type="text" id="player3-name__input" class="player-input"></input>
-  <button type="button" id="players-name__submit" name="submitUserNames" class="button-styled hvr-grow">Game On!</button>`).delay(3000).fadeIn('slow');
+  <button type="button" id="players-name__submit" name="submitUserNames" class="button-styled hvr-grow">Game On!</button>`).delay(3700).fadeIn('slow');
   domUpdates.disableUserInputButton();
 
   $('#players-name__submit').click(() => {
@@ -95,7 +95,7 @@ $(document).ready(function() {
     $('#current-question__display').hide();
     $('#current-answer__input').hide();
     correct ? $('.correct-answer__display').show() : $('.incorrect-answer__display').show();
-    $('fieldset').hide(); //might need a conditional here - if active, hide.
+    // $('fieldset').hide(); //might need a conditional here - if active, hide.
     $('#current-answer__input').val('');
     if (game.currentRound.turnTracker === 17) {
       $('.column-row__display').removeAttr('style')
