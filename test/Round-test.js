@@ -27,5 +27,15 @@ describe('Round', function() {
     expect(round.turnTracker).to.equal(1);
   });
 
+  it.only('should return a string with any puctuation removed', function(){
+    expect(round.evaluateTestGuess('St. Paul', 'St. Paul')).to.equal(true);
+    expect(round.evaluateTestGuess('St Paul', 'St. Paul')).to.equal(true);
+    expect(round.evaluateTestGuess('St Paul!', 'St. Paul')).to.equal(true);
+    expect(round.evaluateTestGuess('st paul', 'St. Paul')).to.equal(true);
+    expect(round.evaluateTestGuess('Saint Paul', 'St. Paul')).to.equal(false);
+
+ 
+  });
+
 
 });

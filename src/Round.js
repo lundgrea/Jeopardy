@@ -60,13 +60,11 @@ class Round {
   }
 
   evaluateGuess(guess) {
-    console.log(guess)
-    if (guess.replace("\\s|[^a-zA-Z0-9]","").toLowerCase() === this.answer.replace("\\s|[^a-zA-Z0-9]","").toLowerCase()) {
-      return true;
-    } else {
-     return false;
-    }
+    return (guess.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase() === this.answer.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()) ? true : false;
+  }
   
+  evaluateTestGuess(guess, answer) {
+    return (guess.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase() === answer.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()) ? true : false;
   }
 }
 
