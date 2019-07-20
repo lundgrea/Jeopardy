@@ -49,20 +49,22 @@ class Round {
   
   updateScores(pointValue) {
     this.players[this.currentPlayer].score += parseInt(pointValue);
+
     if (this.players[this.currentPlayer].score < 0) {
       this.players[this.currentPlayer].score = 0
     }
+
     domUpdates.populatePlayerDashboard(this.players);
     this.changePlayer(this.currentPlayer);
   }
 
   evaluateGuess(guess) {
-    if (guess.toLowerCase() === this.answer.toLowerCase()) {
-      return true;
-    } else {
-      return false;
-    }
+
+    return (guess.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase() === this.answer.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()) ? true : false;
+  }
   
+  evaluateTestGuess(guess, answer) {
+    return (guess.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase() === answer.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()) ? true : false;
   }
 }
 

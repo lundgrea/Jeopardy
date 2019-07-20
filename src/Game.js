@@ -77,8 +77,6 @@ class Game {
   //   let clue = new Clue();
   //    // this.boards = clue.makeBoardObject();
   }
-
-
 }
 
 
