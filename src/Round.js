@@ -5,7 +5,7 @@ import domUpdates from './domUpdates';
 import $ from 'jquery';
 
 class Round {
-  constructor(board, players) {
+  constructor(board, players, dailyDoubleTurns) {
     this.currentTurn = null;
     this.turnTracker = 0;
     this.currentClue = null;
@@ -13,6 +13,7 @@ class Round {
     this.currentPlayer = 0;
     this.players = players;
     this.answer = '';
+    this.dailyDoubleTurns = dailyDoubleTurns;
   }
  
   initiateDailyDoubleTurn(round) {
