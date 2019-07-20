@@ -84,6 +84,9 @@ $(document).ready(function() {
       $('.correct-answer__display').hide();
       $('.incorrect-answer__display').hide();
       $('main').delay(700).fadeOut('fast')
+      $('#daily-double-question__display').hide()
+      $('#player-guess__input').hide();
+      $('#submit-button__guess').hide()
       $('#daily-double__container').css({'z-index': 100}).delay(900).fadeIn(900)
 
     } else {
