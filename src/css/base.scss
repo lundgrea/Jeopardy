@@ -97,16 +97,15 @@ p {
 .splash-input__field,
 .splash-welcome__image {
   display: flex;
-    border-radius: 2%;
-    flex-direction: column;
-    align-items: center;
-    width: 45%;
-    background-color: navy;
-    margin: 5% 0% 0% 0%;
-    padding: 3% 0% 3% 0%;
-    color: #F4F7FF;
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
+  border-radius: 2%;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
+  background-color: navy;
+  margin: 5% 0% 0% 0%;
+  padding: 3% 0% 3% 0%;
+  color: #F4F7FF;
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 .splash-screen__logo {
@@ -173,15 +172,13 @@ div {
   width: 100%;
 }
 
-.board-column__section 
-{
+.board-column__section {
   display: flex;
   flex-direction: column;
   width: 20%;
 }
 
-.column-row__display
-{
+.column-row__display {
   margin: 0% 0% 1% 1%;
   height: 25%;
   border-radius: 7%;

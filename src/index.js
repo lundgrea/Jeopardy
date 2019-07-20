@@ -94,11 +94,7 @@ $(document).ready(function() {
     $('#submit-button').hide();
     $('#current-question__display').hide();
     $('#current-answer__input').hide();
-    if ($('#current-answer__input').val() === '') {
-      $('.correct-answer__display').show();
-    } else {
-      $('.incorrect-answer__display').show();
-    }
+    correct ? $('.correct-answer__display').show() : $('.incorrect-answer__display').show();
     $('#current-answer__input').val('');
     if (game.currentRound.turnTracker === 17) {
       $('.column-row__display').removeAttr('style')
