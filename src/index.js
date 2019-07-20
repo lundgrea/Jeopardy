@@ -31,6 +31,7 @@ function getData(info) {
 }
 
 let game;
+let answer;
 
 $(document).ready(function() {
   $('#main-scorecard__display').hide();
@@ -69,9 +70,8 @@ $(document).ready(function() {
       'background-color': 'mediumblue',
       'transition': 'transform 2s',
       'transform- style': 'preserve - 3d',
-      'transform': 'rotateX(180deg)'}
-    )
-
+      'transform': 'rotateX(180deg)'
+    })
     $('.correct-answer__display').hide();
     $('.incorrect-answer__display').hide();
     $('main').delay(700).fadeOut('fast')
@@ -80,15 +80,14 @@ $(document).ready(function() {
     $('#current-answer__input').delay(1000).fadeIn(900);
     $('alert-question__display').delay(1000).fadeIn(900)
     $('#current-question__display').delay(1000).fadeIn(900);
-
-  
-
-
-     game.currentRound.takeTurn(dataIndex);
-    
+     answer = game.currentRound.takeTurn(dataIndex);
   })
 
+
   $('#submit-button').click(() => {
+    domUpdates.updateQuestionDisplay(answer[1]);
+    let correct = game.currentRound.evaluateGuess($('#current-answer__input').val());
+    correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0]))); 
     $('main').delay(1750).fadeIn('slow');
     // $('fieldset').hide();
     $('.alert-question__container').delay(1500).fadeOut('fast');
@@ -100,7 +99,8 @@ $(document).ready(function() {
     } else {
       $('.incorrect-answer__display').show();
     }
-    if (game.currentRound.turnTracker === 16) {
+    $('#current-answer__input').val('');
+    if (game.currentRound.turnTracker === 17) {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     }
@@ -111,7 +111,6 @@ $(document).ready(function() {
 
   $('.player-input').keyup(() => {
 
-    // console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
     if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
     } else {
