@@ -59,6 +59,7 @@ $(document).ready(function() {
     $('#user-name__inputs').fadeOut();
     $('#main-scorecard__display').delay(1000).fadeIn();
     $('#puzzle-table__display').delay(1000).fadeIn();
+    domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
   })
 
   $('#main-board__display').click((e) => {
@@ -101,6 +102,7 @@ $(document).ready(function() {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     }
+    domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
     $('#current-answer__input').val('');
   })
 

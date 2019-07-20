@@ -60,6 +60,16 @@ let domUpdates = {
     return joinedCategory;
   },
 
+  highlightCurrentPlayer(playerIndex) {
+    if (playerIndex === 0) {
+      $(`#js-player-card-${playerIndex}`).toggleClass('player-highlight')
+      $('#js-player-card-2').removeClass('player-highlight')
+    } else {
+    $(`#js-player-card-${playerIndex-1}`).toggleClass('player-highlight')
+    $(`#js-player-card-${playerIndex}`).toggleClass('player-highlight')
+    }
+  },
+
   updateQuestionDisplay(question) {
     $('#current-question__display').text(question);
   },
