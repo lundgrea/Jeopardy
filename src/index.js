@@ -42,13 +42,13 @@ $(document).ready(function() {
   $('.correct-answer__display').hide();
   $('#welcome-message').delay(2500).fadeOut("slow");
   $('#user-name__inputs').append(`
+  <p class="player-input__label">Player 1</p>
   <input type="text" id="player1-name__input" class="player-input"></input>
-  <p>Player 1</p>
+  <p class="player-input__label">Player 2</p>
   <input type="text" id="player2-name__input" class="player-input"></input>
-  <p>Player 2</p>
+  <p class="player-input__label">Player 3</p>
   <input type="text" id="player3-name__input" class="player-input"></input>
-  <p>Player 3</p>
-  <button type="button" id="players-name__submit" name="submitUserNames" class="buttonStyled">Game on!</button>`).delay(3000).fadeIn('slow');
+  <button type="button" id="players-name__submit" name="submitUserNames" class="buttonStyled hvr-grow">Game On!</button>`).delay(3000).fadeIn('slow');
   domUpdates.disableUserInputButton();
 
   $('#players-name__submit').click(() => {

@@ -23,6 +23,12 @@ p {
   margin: 0% 0% 2% 0%;
 }
 
+.splash-screen__header {
+  font-size: 32px;
+  font-weight: 400;
+  color: #909B9E;
+}
+
 .hvr-grow {
     display: inline-block;
     vertical-align: middle;
@@ -80,21 +86,33 @@ p {
 }
 
 .player-input {
-  width: 25%;
+  width: 40%;
   height: 30px;
   border-radius: 4%;
   border: none;
   margin-bottom: 5px;
+  background-color: #E4E7E7;
 }
 
 .splash-input__field,
 .splash-welcome__image {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
+    border-radius: 2%;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    background-color: navy;
+    margin: 5% 0% 0% 0%;
+    padding: 3% 0% 3% 0%;
+    color: #F4F7FF;
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 
+.splash-screen__logo {
+  margin-top: 100px;
+
+}
 
 .score-cards__display {
   width: 100%;
@@ -110,6 +128,8 @@ div {
 }
 
 .buttonStyled {
+  width: 40%;
+  margin: 3% 0% 0% 0%;
   border: 0;
   line-height: 2.5;
   padding: 0 20px;
@@ -117,22 +137,33 @@ div {
   text-align: center;
   color: #fff;
   text-shadow: 1px 1px 1px #000;
-  background-color: rgb(212, 134, 248);
+  background-color: goldenrod;
   border-radius: 8px;
   background-image: linear-gradient(to top left,
   rgba(0, 0, 0, .2),
   rgba(0, 0, 0, .2) 30%,
   rgba(0, 0, 0, 0));
-box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-inset -2px -2px 3px rgba(0, 0, 0, .6);
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+              inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
+
 .buttonStyled:hover {
-  background-color: rgb(108, 222, 250);
   border-radius: 8px;
 }
+
 .buttonStyled:active {
   box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
               inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+.buttonStyled:disabled {
+  background-color: #909B9E
+
+}
+
+.player-input__label {
+  margin: 2% 0% 1% 0%;
+  font-weight: 300;
+  color: #909B9E;
 }
 
 .puzzle-table__display {
