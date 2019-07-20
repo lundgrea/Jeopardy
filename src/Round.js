@@ -53,6 +53,7 @@ class Round {
   
   updateScores(pointValue) {
     this.players[this.currentPlayer].score += parseInt(pointValue);
+    if (this.players[this.currentPlayer].score < 0) this.players[this.currentPlayer].score = 0;
     console.log('point value is: ', parseInt(pointValue))
     domUpdates.populatePlayerDashboard(this.players);
     this.changePlayer(this.currentPlayer);
@@ -60,7 +61,7 @@ class Round {
 
   evaluateGuess(guess) {
     console.log(guess)
-    if (guess.toLowerCase() === this.answer.toLowerCase()) {
+    if (guess.replace("\\s|[^a-zA-Z0-9]","").toLowerCase() === this.answer.replace("\\s|[^a-zA-Z0-9]","").toLowerCase()) {
       return true;
     } else {
      return false;

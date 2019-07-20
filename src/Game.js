@@ -78,10 +78,6 @@ class Game {
   //   let clue = new Clue();
   //    // this.boards = clue.makeBoardObject();
   }
-  createQuestionsArray(board) {
-    // board.clues.reduce((acc, ))
-
-  }
 
 }
 
