@@ -73,6 +73,7 @@ $(document).ready(function() {
     )
 
     $('.correct-answer__display').hide();
+    $('.incorrect-answer__display').hide();
     $('main').delay(700).fadeOut('fast')
     $('.alert-question__container').css({'z-index': 100}).delay(900).fadeIn(900)
     $('#submit-button').delay(1000).fadeIn(900);
@@ -91,15 +92,19 @@ $(document).ready(function() {
     $('main').delay(1750).fadeIn('slow');
     // $('fieldset').hide();
     $('.alert-question__container').delay(1500).fadeOut('fast');
-    $('#current-answer__input').val('');
     $('#submit-button').hide();
     $('#current-question__display').hide();
     $('#current-answer__input').hide();
-    $('.correct-answer__display').show();
+    if ($('#current-answer__input').val() === '') {
+      $('.correct-answer__display').show();
+    } else {
+      $('.incorrect-answer__display').show();
+    }
     if (game.currentRound.turnTracker === 16) {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     }
+    $('#current-answer__input').val('');
   })
 
 

@@ -234,10 +234,14 @@ inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 
 .correct-answer__display {
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
   filter: invert(1);
   opacity: .95;
 }
 
+.incorrect-answer__display {
+  filter: invert(1);
+  opacity: .95;
+}
 
