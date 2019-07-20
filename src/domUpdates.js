@@ -53,10 +53,11 @@ let domUpdates = {
     $('#column3-row2__clue').text(column1.clues[1].pointValue)
     $('#column3-row3__clue').text(column2.clues[2].pointValue)
     $('#column3-row4__clue').text(column3.clues[3].pointValue)
-
   },
 
-
+  updateQuestionDisplay(question) {
+    $('#current-question__display').text(question);
+  },
 
   displayRequestToPlayAgain() {  
   },

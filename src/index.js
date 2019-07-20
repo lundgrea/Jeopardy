@@ -31,6 +31,7 @@ function getData(info) {
 }
 
 let game;
+let answer;
 
 $(document).ready(function() {
   $('#main-scorecard__display').hide();
@@ -71,25 +72,23 @@ $(document).ready(function() {
       'transform- style': 'preserve - 3d',
       'transform': 'rotateX(180deg)'}
     )
-
     $('main').delay(700).fadeOut('fast')
     $('.alert-question__container').css({'z-index': 100}).delay(900).fadeIn(900)
     $('fieldset').delay(1000).fadeIn(900)
-    $('#current-question__display').text('HEY IM A QUESTION')
 
-  
-
-
-     game.currentRound.takeTurn(dataIndex);
+     answer = game.currentRound.takeTurn(dataIndex);
     
   })
 
   $('#submit-button').click(() => {
+    domUpdates.updateQuestionDisplay(answer[1]);
+    let correct = game.currentRound.evaluateGuess($('#current-answer__input').val());
+    correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0]))); 
     $('main').show();
     $('fieldset').hide();
     $('.alert-question__container').hide();
     $('#current-answer__input').val('');
-    if (game.currentRound.turnTracker === 16) {
+    if (game.currentRound.turnTracker === 17) {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     }
@@ -99,7 +98,6 @@ $(document).ready(function() {
 
   $('.player-input').keyup(() => {
 
-    // console.log(`player-input value is: ${$( '#player1-name__input' ).val()}`)
     if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
     } else {
