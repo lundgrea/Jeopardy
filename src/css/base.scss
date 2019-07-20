@@ -38,7 +38,6 @@ p {
     -moz-osx-font-smoothing: grayscale;
     transition-duration: 0.3s;
     transition-property: transform;
-
 }
 
 .hvr-grow:hover,
@@ -231,6 +230,10 @@ div {
   background-color: navy;
   opacity: 0.95;
   filter: drop-shadow(2px 4px 6px black);
+}
+
+.player-highlight {
+  background-color: pink;
 }
 
 .alert-question__display {
