@@ -24,7 +24,7 @@ class Turn {
   }
 
   evaluateGuess() {
-    if (this.guess.toLowerCase() === this.answer.toLowerCase()) {
+    if (this.guess.toLowerCase().replace(/[^\w\s]|_/g, "") === this.answer.toLowerCase().replace(/[^\w\s]|_/g, "")) {
       this.player.score += this.question.pointValue
       domUpdates.updateScore(this.player)
     } else {

@@ -95,6 +95,7 @@ $(document).ready(function() {
     $('#current-question__display').hide();
     $('#current-answer__input').hide();
     correct ? $('.correct-answer__display').show() : $('.incorrect-answer__display').show();
+    $('fieldset').hide(); //might need a conditional here - if active, hide.
     $('#current-answer__input').val('');
     if (game.currentRound.turnTracker === 17) {
       $('.column-row__display').removeAttr('style')
