@@ -110,7 +110,6 @@ p {
 
 .splash-screen__logo {
   margin-top: 100px;
-
 }
 
 .score-cards__display {
@@ -126,7 +125,7 @@ div {
   min-height: 580px;
 }
 
-.buttonStyled {
+.button-styled {
   width: 40%;
   margin: 3% 0% 0% 0%;
   border: 0;
@@ -146,17 +145,16 @@ div {
               inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 
-.buttonStyled:hover {
+.button-styled:hover {
   border-radius: 8px;
 }
 
-.buttonStyled:active {
+.button-styled:active {
   box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
               inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
-.buttonStyled:disabled {
+.button-styled:disabled {
   background-color: #909B9E
-
 }
 
 .player-input__label {
@@ -224,7 +222,7 @@ div {
   display: flex;
   justify-content: center;
   align-items: center;
-  // align-content: end;
+  align-content: end;
   font-size: 23px;
   font-weight: 800;
   color: white;
@@ -259,6 +257,14 @@ div {
   background-color: navy;
   opacity: 0.95;
   filter: drop-shadow(2px 4px 6px black);
+}
+
+.submit-button{
+  width: 30%;
+}
+
+.guess__input{
+  width: 30%;
 }
 
 .correct-answer__display {

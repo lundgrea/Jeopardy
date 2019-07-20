@@ -5,7 +5,7 @@ import domUpdates from './domUpdates';
 import $ from 'jquery';
 
 class Round {
-  constructor(board, players) {
+  constructor(board, players, dailyDoubleTurns) {
     this.currentTurn = null;
     this.turnTracker = 0;
     this.currentClue = null;
@@ -13,6 +13,7 @@ class Round {
     this.currentPlayer = 0;
     this.players = players;
     this.answer = '';
+    this.dailyDoubleTurns = dailyDoubleTurns;
   }
  
   initiateDailyDoubleTurn(round) {
@@ -32,8 +33,8 @@ class Round {
     if (this.turnTracker === 16) {
       this.endRound()
     }
-    // } else if (this.turnTracker === game.dailyDoubleTurns[round]) {
-    //   initiateDailyDoubleTurn()
+    // } else if (this.turnTracker === this.dailyDoubleTurns[round]) {
+    //   this.initiateDailyDoubleTurn()
     // } 
     else {
       this.currentTurn = new Turn(this.currentPlayer)
