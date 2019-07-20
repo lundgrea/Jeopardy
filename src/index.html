@@ -6,14 +6,13 @@
   <body>
     <main>
       <section class="splash-screen__welcome" id="welcome-message">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Jeopardy%21_logo.svg">
+          <img class="splash-screen__logo" alt="jeopardy logo" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Jeopardy%21_logo.svg">
       </section>
       <section class="splash-screen__inputs" >
         <article class="splash-input__field" id="user-name__inputs">
-          <p>What is: Player Names</p>
+          <p class="splash-screen__header">Enter Contestant Names</p>
         </article>
       </section>
-      
       <section class="puzzle-table__display" id="puzzle-table__display">
         <div class="main-board__display" id="main-board__display">
               <section class="board-column__section">
@@ -84,8 +83,10 @@
           <div class="alert-question__container">
             <article class="alert-question__display">
               <h1 id="current-question__display">QUESTION</h1>
-              <input id="current-answer__input" type="input">
-              <button id="submit-button">Submit Guess</button>
+              <input class="player-input guess__input" id="current-answer__input" type="input">
+              <button class="submit-button button-styled hvr-grow" id="submit-button">Submit Guess</button>
+              <img class="correct-answer__display" src="https://image.flaticon.com/icons/svg/741/741774.svg"></img>
+              <img class="incorrect-answer__display" src="https://image.flaticon.com/icons/svg/1941/1941585.svg"></img>
             </article>
           </div>
   </body>
