@@ -18,7 +18,7 @@ class Game {
 
   generateRound() {
     if (this.roundTracker <= 2) {
-      this.currentRound = new Round(this.boards[this.roundTracker], this.players);
+      this.currentRound = new Round(this.boards[this.roundTracker], this.players, this.dailyDoubleTurns);
       domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
       this.currentRound.beginTurn();

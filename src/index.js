@@ -27,7 +27,7 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
 function getData(info) {
   let clue = new Clue(info);
   boards = clue.makeBoardObject();
-  console.log(boards)
+
 }
 
 let game;
@@ -40,6 +40,7 @@ $(document).ready(function() {
   $('.alert-question__container').hide();
   $('fieldset').hide();
   $('.correct-answer__display').hide();
+  $('#daily-double__container').hide();
   $('#welcome-message').delay(2500).fadeOut("slow");
   $('#user-name__inputs').append(`
   <p class="player-input__label">Player 1</p>
@@ -61,24 +62,47 @@ $(document).ready(function() {
   })
 
   $('#main-board__display').click((e) => {
-
+    
     let clickedItem = e.target.id;
     let dataIndex = e.target.getAttribute('data-index');
-    $(`#${clickedItem}`).css({
-      'background-color': 'mediumblue',
-      'transition': 'transform 2s',
-      'transform- style': 'preserve - 3d',
-      'transform': 'rotateX(180deg)'
-    })
-    $('.correct-answer__display').hide();
-    $('.incorrect-answer__display').hide();
-    $('main').delay(700).fadeOut('fast')
-    $('.alert-question__container').css({'z-index': 100}).delay(900).fadeIn(900)
-    $('#submit-button').delay(1000).fadeIn(900);
-    $('#current-answer__input').delay(1000).fadeIn(900);
-    $('alert-question__display').delay(1000).fadeIn(900)
-    $('#current-question__display').delay(1000).fadeIn(900);
-     answer = game.currentRound.takeTurn(dataIndex);
+    console.log('game.roundTracker :', game.roundTracker);
+    console.log('game.currentRound.turnTracker :', game.currentRound.turnTracker);
+    console.log('game.currentRound.dailyDoubleTurns[0] :', game.currentRound.dailyDoubleTurns[0]);
+
+    if (game.roundTracker === 1 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[0]) {
+      $(`#${clickedItem}`).css({
+        'background-color': 'pink',
+        'background-image': 'url("http://images2.minutemediacdn.com/image/upload/c_fit,f_auto,fl_lossy,q_auto,w_728/v1555924671/shape/mentalfloss/daily_double.jpg")',
+        'background-size': 'cover',
+        'background-repeat': 'no-repeat',
+        'background-position': 'center',
+        'transition': 'transform 4s',
+        'transform- style': 'preserve - 3d',
+      })
+      $(`#${clickedItem}`).text('')
+      $('audio#pop')[0].play();
+      $('.correct-answer__display').hide();
+      $('.incorrect-answer__display').hide();
+      $('main').delay(700).fadeOut('fast')
+      $('#daily-double__container').css({'z-index': 100}).delay(900).fadeIn(900)
+
+    } else {
+      $(`#${clickedItem}`).css({
+        'background-color': 'mediumblue',
+        'transition': 'transform 2s',
+        'transform- style': 'preserve - 3d',
+        'transform': 'rotateX(180deg)'
+      })
+      $('.correct-answer__display').hide();
+      $('.incorrect-answer__display').hide();
+      $('main').delay(700).fadeOut('fast')
+      $('.alert-question__container').css({'z-index': 100}).delay(900).fadeIn(900)
+      $('#submit-button').delay(1000).fadeIn(900);
+      $('#current-answer__input').delay(1000).fadeIn(900);
+      $('alert-question__display').delay(1000).fadeIn(900)
+      $('#current-question__display').delay(1000).fadeIn(900);
+      answer = game.currentRound.takeTurn(dataIndex);
+    }
   })
 
 

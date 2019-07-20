@@ -22,6 +22,7 @@ let domUpdates = {
   },
 
   populateGameBoard(currentBoard) {
+
     let column0 = currentBoard[0]
     let column1 = currentBoard[1]
     let column2 = currentBoard[2]
