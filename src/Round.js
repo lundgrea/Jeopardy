@@ -11,8 +11,10 @@ class Round {
     this.currentClue = null;
     this.board = board;
     this.currentPlayer = 0;
+    this.players = players;
+    this.answer = '';
   }
-
+ 
   initiateDailyDoubleTurn(round) {
     this.currentTurn = new DailyDouble(this.currentPlayer)
     this.turnTracker ++
@@ -41,27 +43,29 @@ class Round {
 
   takeTurn(clueID) {
     this.turnTracker++;
-    // console.log(`Players is: ${this.players} clueID is: ${clueID}`)
-    // console.log(`board value is: ${this.board[0].clues[0].question}`)
-    // console.log(`clue question is: ${this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].question}`)
-    // console.log(`clue answer is: ${this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].answer}`)
-    let value = this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].pointValue;
-    // console.log(`clue value is: ${this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].pointValue}`)
- 
-    $('#current-question__display').text(this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].question);
-
-
-
-    this.updateScores(value);
-    this.changePlayer(this.currentPlayer);
+  
+    let value = this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].pointValue; 
+    this.answer = this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].answer; 
+    domUpdates.updateQuestionDisplay(this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].question);
+    return [value, this.answer];
   }
   
   updateScores(pointValue) {
     this.players[this.currentPlayer].score += parseInt(pointValue);
     console.log('point value is: ', parseInt(pointValue))
     domUpdates.populatePlayerDashboard(this.players);
+    this.changePlayer(this.currentPlayer);
   }
 
+  evaluateGuess(guess) {
+    console.log(guess)
+    if (guess.toLowerCase() === this.answer.toLowerCase()) {
+      return true;
+    } else {
+     return false;
+    }
+  
+  }
 }
 
 export default Round;
