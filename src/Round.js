@@ -24,18 +24,14 @@ class Round {
     if (this.currentPlayer < 2) {
       this.currentPlayer ++; 
     } else {
-    this.currentPlayer = 0;
+      this.currentPlayer = 0;
     }
   }
 
   beginTurn() {
     if (this.turnTracker === 16) {
       this.endRound()
-    }
-    // } else if (this.turnTracker === game.dailyDoubleTurns[round]) {
-    //   initiateDailyDoubleTurn()
-    // } 
-    else {
+    } else {
       this.currentTurn = new Turn(this.currentPlayer)
       this.turnTracker ++
     }
@@ -52,17 +48,18 @@ class Round {
   
   updateScores(pointValue) {
     this.players[this.currentPlayer].score += parseInt(pointValue);
-    console.log('point value is: ', parseInt(pointValue))
+    if (this.players[this.currentPlayer].score < 0) {
+      this.players[this.currentPlayer].score = 0
+    }
     domUpdates.populatePlayerDashboard(this.players);
     this.changePlayer(this.currentPlayer);
   }
 
   evaluateGuess(guess) {
-    console.log(guess)
     if (guess.toLowerCase() === this.answer.toLowerCase()) {
       return true;
     } else {
-     return false;
+      return false;
     }
   
   }

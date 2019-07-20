@@ -56,7 +56,6 @@ class Game {
       this.dailyDoubleTurns.push(round1DailyDouble);
       this.dailyDoubleTurns.push(round2DailyDouble1);
       this.dailyDoubleTurns.push(round2DailyDouble2);
-      console.log(this.dailyDoubleTurns)
     }
   }
 
@@ -78,10 +77,7 @@ class Game {
   //   let clue = new Clue();
   //    // this.boards = clue.makeBoardObject();
   }
-  createQuestionsArray(board) {
-    // board.clues.reduce((acc, ))
 
-  }
 
 }
 

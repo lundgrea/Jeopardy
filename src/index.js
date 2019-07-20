@@ -40,7 +40,6 @@ $(document).ready(function() {
   $('.alert-question__container').hide()
   $('fieldset').hide()
   $('#welcome-message').delay(2500).fadeOut("slow");
-  // $('question-alert__display')
   $('#user-name__inputs').append(`
   <input type="text" id="player1-name__input" class="player-input"></input>
   <p>Player 1</p>
@@ -52,7 +51,6 @@ $(document).ready(function() {
   domUpdates.disableUserInputButton();
 
   $('#players-name__submit').click(() => {
-    // console.log($('#player1-name__input').val());
     let playerNames = [$('#player1-name__input').val(), $('#player2-name__input').val(), $('#player3-name__input').val()]
     game = new Game(boards);
     game.startGame(playerNames);
@@ -65,7 +63,6 @@ $(document).ready(function() {
 
     let clickedItem = e.target.id;
     let dataIndex = e.target.getAttribute('data-index');
-    console.log('data-index is:', e.target.getAttribute('data-index'));
     $(`#${clickedItem}`).css({
       'background-color': 'mediumblue',
       'transition': 'transform 2s',
@@ -76,7 +73,7 @@ $(document).ready(function() {
     $('.alert-question__container').css({'z-index': 100}).delay(900).fadeIn(900)
     $('fieldset').delay(1000).fadeIn(900)
 
-     answer = game.currentRound.takeTurn(dataIndex);
+    answer = game.currentRound.takeTurn(dataIndex);
     
   })
 
@@ -85,7 +82,7 @@ $(document).ready(function() {
     let correct = game.currentRound.evaluateGuess($('#current-answer__input').val());
     correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0]))); 
     $('main').show();
-    $('fieldset').hide(); //might need a conditional here - if active, hide.
+    $('fieldset').hide();
     $('.alert-question__container').hide();
     $('#current-answer__input').val('');
     if (game.currentRound.turnTracker === 17) {

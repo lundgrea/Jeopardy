@@ -68,11 +68,6 @@ let domUpdates = {
   },
 
 
-  populateQuestion(path) {
-
-   
-  },
-
 
 
   
