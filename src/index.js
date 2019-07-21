@@ -67,59 +67,51 @@ $(document).ready(function() {
     
     let clickedItem = e.target.id;
     let dataIndex = e.target.getAttribute('data-index');
-    console.log('game.roundTracker :', game.roundTracker);
-    console.log('game.currentRound.turnTracker :', game.currentRound.turnTracker);
-    console.log('game.currentRound.dailyDoubleTurns[0] :', game.currentRound.dailyDoubleTurns[0]);
-
+    
     if (game.roundTracker === 1 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[0]) {
-      $(`#${clickedItem}`).css({
-        'background-color': 'pink',
-        'background-image': 'url("http://images2.minutemediacdn.com/image/upload/c_fit,f_auto,fl_lossy,q_auto,w_728/v1555924671/shape/mentalfloss/daily_double.jpg")',
-        'background-size': 'cover',
-        'background-repeat': 'no-repeat',
-        'background-position': 'center',
-        'transition': 'transform 4s',
-        'transform- style': 'preserve - 3d',
-      })
-      $(`#${clickedItem}`).text('')
-      $('audio#pop')[0].play();
-      $('.correct-answer__display').hide();
-      $('.incorrect-answer__display').hide();
-      $('main').delay(700).fadeOut('fast')
-      $('#daily-double-question__display').hide()
-      $('#player-guess__input').hide();
-      $('#submit-button__guess').hide()
-      $('#daily-double__container').css({'z-index': 100}).delay(900).fadeIn(900)
-      game.currentRound.takeTurn(dataIndex)
+      domUpdates.dailyDoubleTurnActions(clickedItem)
+      answer = game.currentRound.takeTurn(dataIndex)
 
+    } 
+    if (game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[1] || game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[2] && game.roundTracker === 2 ) {
+      domUpdates.dailyDoubleTurnActions(clickedItem)
+      answer = game.currentRound.takeTurn(dataIndex)
     } else {
-      $(`#${clickedItem}`).css({
-        'background-color': 'mediumblue',
-        'transition': 'transform 2s',
-        'transform- style': 'preserve - 3d',
-        'transform': 'rotateX(180deg)'
-      })
-      $('.correct-answer__display').hide();
-      $('.incorrect-answer__display').hide();
-      $('main').delay(700).fadeOut('fast')
-      $('.alert-question__container').css({'z-index': 100}).delay(900).fadeIn(900)
-      $('#submit-button').delay(1000).fadeIn(900);
-      $('#current-answer__input').delay(1000).fadeIn(900);
-      $('alert-question__display').delay(1000).fadeIn(900)
-      $('#current-question__display').delay(1000).fadeIn(900);
+      domUpdates.normalTurnActions(clickedItem)
       answer = game.currentRound.takeTurn(dataIndex);
     }
   })
 
   $('#submit-button__wager').click(() => {
-    wager = $('player-wager__input').val()
+    wager = $('#player-wager__input').val()
     $('#daily-double-wager__display').delay(500).fadeOut('slow')
     $('#player-wager__input').delay(500).fadeOut('slow')
     $('#submit-button__wager').delay(500).fadeOut('slow')
     $('#daily-double-question__display').delay(1000).fadeIn('slow')
     $('#player-guess__input').delay(1000).fadeIn('slow')
     $('#submit-button__guess').delay(1000).fadeIn('slow')
+  })
 
+  $('#submit-button__guess').click(() => {
+    domUpdates.updateQuestionDisplay(answer[0]);
+    let correct = game.currentRound.evaluateGuess($('#player-guess__input').val());
+    correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0])));
+
+    $('main').delay(1750).fadeIn('slow');
+    $('#daily-double-question__display').delay(1500).fadeOut('fast');
+
+    $('#submit-button__guess').hide();
+    $('#current-question__display').hide();
+    $('#current-answer__input').hide();
+    $('#player-guess__input').val('');
+    $('#player-guess__input').hide;
+    $('#daily-double__display').delay(2500).fadeOut('slow')
+    if (game.currentRound.turnTracker === 17) {
+      $('.column-row__display').removeAttr('style')
+      game.generateRound()
+    }
+    domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
+    $('#current-answer__input').val('');
   })
 
   $('#submit-button').click(() => {

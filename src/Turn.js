@@ -3,9 +3,9 @@ class Turn {
     this.player = player;
   }
 
-  turnThings() {
-    this.evaluateGuess()   
-  }
+  // turnThings() {
+  //   this.evaluateGuess()   
+  // }
 
 
   evaluateGuess() {
