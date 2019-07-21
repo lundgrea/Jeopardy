@@ -1,8 +1,11 @@
 import chai from 'chai';
 const expect = chai.expect;
 
+
 import Clue from '../src/Clue';
 import data from '../src/data';
+import domUpdates from "../src/domUpdates";
+
 
 var clue
 

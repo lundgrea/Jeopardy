@@ -1,9 +1,10 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-import DailyDouble from '../src/DailyDouble'
+import DailyDouble from '../src/DailyDouble';
+import domUpdates from "../src/domUpdates";
 
-let dailyDouble
+var dailyDouble
 
 beforeEach(() => {
 

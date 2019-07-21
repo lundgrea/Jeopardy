@@ -1,12 +1,11 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-
 import Player from '../src/Player';
 
 global.document = {};
 
-let player1, player2
+var player1, player2
 
 beforeEach(() => {
   player1 = new Player('John');

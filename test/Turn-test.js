@@ -1,8 +1,9 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-
 import Turn from '../src/Turn';
+import domUpdates from "../src/domUpdates";
+
 
 //Declare variables for beforeEach here//
 

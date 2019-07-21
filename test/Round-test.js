@@ -1,14 +1,19 @@
 import chai from 'chai';
 const expect = chai.expect;
+import spies from 'chai-spies';
+// const spy = chai.spy()
+
+chai.use(spies);
 
 import Round from '../src/Round';
+import domUpdates from "../src/domUpdates";
 
-//Declare variables for beforeEach here//
 let round;
+
+chai.spy.on(domUpdates, ['disableUserInputButton', 'enableUserInputButton', 'populateGameBoard', 'convertCategoryToUpperCase', 'highlightCurrentPlayer', 'updateQuestionDisplay', 'displayRequestToPlayAgain'], () => {});
 
 beforeEach(() => {
   round = new Round()
-
 });
 
 describe('Round', function() {

@@ -1,16 +1,26 @@
 import chai from "chai";
 const expect = chai.expect;
+// import spies from 'chai-spies';
+// const spy = chai.spy()
+
+
+
+// chai.use(spies);
 
 import Game from "../src/Game";
-import Round from "../src/Round"
-import FinalRound from "../src/FinalRound"
-import data from "../src/data"
+import Player from "../src/Player"
+import Round from "../src/Round";
+import FinalRound from "../src/FinalRound";
+import data from "../src/data";
+import domUpdates from "../src/domUpdates";
 
-//Declare variables for beforeEach here//
-let game;
+
+// chai.spy.on(domUpdates, ['disableUserInputButton', 'enableUserInputButton', 'populateGameBoard', 'convertCategoryToUpperCase', 'highlightCurrentPlayer', 'updateQuestionDisplay', 'displayRequestToPlayAgain'], () => {});
+
+var game;
 
 beforeEach(() => {
-  game = new Game();
+  game = new Game(data);
 });
 
 describe("Game", function() {
