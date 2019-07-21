@@ -90,15 +90,30 @@ let domUpdates = {
     })
     $(`#${clickedItem}`).text('')
     $('audio#pop')[0].play();
-    $('.correct-answer__display').hide();
-    $('.incorrect-answer__display').hide();
-    $('main').delay(700).fadeOut('fast')
+    $('main').delay(3000).fadeOut('slow')
+
     $('#daily-double-question__display').hide()
-    $('#player-guess__input').hide();
+    $('#player-guess__input').hide()
     $('#submit-button__guess').hide()
-    $('#daily-double__container').css({ 'z-index': 100 }).delay(900).fadeIn(900)
+    $('#daily-double-incorrect__image').hide()
+    $('#daily-double-incorrect__image').hide()
+
+    $('#daily-double__container').delay(3500).fadeIn(3750)
+    $('#daily-double__display').delay(3700).fadeIn(4000)
+    $('#daily-double-wager__display').delay(4100).fadeIn(4500)
+    $('#player-wager__input').delay(4300).fadeIn(4500)
+    $('#submit-button__wager').delay(4500).fadeIn(4500)
   },
 
+  wagerSubmit() {
+    $('#daily-double-wager__display').delay(500).fadeOut('slow')
+    $('#player-wager__input').delay(500).fadeOut('slow')
+    $('#submit-button__wager').delay(500).fadeOut('slow')
+    $('#daily-double-question__display').delay(1000).fadeIn('slow')
+    $('#player-guess__input').delay(1000).fadeIn('slow')
+    $('#submit-button__guess').delay(1000).fadeIn('slow')
+  },
+  
   normalTurnActions(clickedItem) {
     $(`#${clickedItem}`).css({
       'background-color': 'mediumblue',
@@ -114,13 +129,29 @@ let domUpdates = {
     $('#current-answer__input').delay(1000).fadeIn(900);
     $('alert-question__display').delay(1000).fadeIn(900)
     $('#current-question__display').delay(1000).fadeIn(900);
+  },
+  
+  dailyDoubleSubmitGuessActions() {
+    $('main').delay(1000).fadeIn('slow');
+    $('#daily-double-question__display').delay(1500).fadeOut('fast');
+
+    $('#submit-button__guess').hide();
+    $('#daily-double-question__display').hide();
+    $('#player-guess__input').hide()
+    $('#player-guess__input').val('');
+    $('#daily-double__display').delay(1000).fadeOut('fast')
+    $('#daily-double__container').delay(1000).hide()
+  },
+  
+  normalSubmitGuessActions() {
+
+    $('main').delay(1750).fadeIn('slow');
+    $('.alert-question__container').delay(1500).fadeOut('fast');
+    $('#submit-button').hide();
+    $('#current-question__display').hide();
+    $('#current-answer__input').hide();
+    $('#current-answer__input').val('');
   }
-
-
-
-
-  
-  
 }
 
 export default domUpdates

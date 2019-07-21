@@ -18,23 +18,32 @@ import Round from './Round';
 import Turn from './Turn';
 import domUpdates from './domUpdates.js';
 
-var boards;
+
 fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
-  .then(response => response.json())
-  .then(parsedData => getData(parsedData))
-  .catch(err => console.error(err));
+.then(response => response.json())
+.then(parsedData => getData(parsedData))
+.catch(err => console.error(err));
+
+let answer;
+let boards;
+let game;
+let wager;
 
 function getData(info) {
   let clue = new Clue(info);
   boards = clue.makeBoardObject();
-
 }
 
-let game;
-let answer;
-let wager;
+function checkAnswer(location) {
+  let correct = game.currentRound.evaluateGuess($(`${location}`).val());
+  console.log('location :', location);
+  console.log('correct :', correct);
+  correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0])));
+  correct ? $('.correct-answer__display').show() : $('.incorrect-answer__display').show();
+}
 
-$(document).ready(function() {
+
+$(document).ready(() => {
   $('#main-scorecard__display').hide();
   $('#user-name__inputs').hide();
   $('#puzzle-table__display').hide();
@@ -64,16 +73,14 @@ $(document).ready(function() {
   })
 
   $('#main-board__display').click((e) => {
-    
+    new Audio("hhttp://soundbible.com/grab.php?id=1891&type=mp3").play()
     let clickedItem = e.target.id;
     let dataIndex = e.target.getAttribute('data-index');
     
     if (game.roundTracker === 1 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[0]) {
       domUpdates.dailyDoubleTurnActions(clickedItem)
       answer = game.currentRound.takeTurn(dataIndex)
-
-    } 
-    if (game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[1] || game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[2] && game.roundTracker === 2 ) {
+    } else if (game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[1] || game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[2] && game.roundTracker === 2 ) {
       domUpdates.dailyDoubleTurnActions(clickedItem)
       answer = game.currentRound.takeTurn(dataIndex)
     } else {
@@ -84,57 +91,33 @@ $(document).ready(function() {
 
   $('#submit-button__wager').click(() => {
     wager = $('#player-wager__input').val()
-    $('#daily-double-wager__display').delay(500).fadeOut('slow')
-    $('#player-wager__input').delay(500).fadeOut('slow')
-    $('#submit-button__wager').delay(500).fadeOut('slow')
-    $('#daily-double-question__display').delay(1000).fadeIn('slow')
-    $('#player-guess__input').delay(1000).fadeIn('slow')
-    $('#submit-button__guess').delay(1000).fadeIn('slow')
+    domUpdates.wagerSubmit()
   })
 
   $('#submit-button__guess').click(() => {
-    domUpdates.updateQuestionDisplay(answer[0]);
-    let correct = game.currentRound.evaluateGuess($('#player-guess__input').val());
-    correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0])));
 
-    $('main').delay(1750).fadeIn('slow');
-    $('#daily-double-question__display').delay(1500).fadeOut('fast');
-
-    $('#submit-button__guess').hide();
-    $('#current-question__display').hide();
-    $('#current-answer__input').hide();
-    $('#player-guess__input').val('');
-    $('#player-guess__input').hide;
-    $('#daily-double__display').delay(2500).fadeOut('slow')
+    checkAnswer('#player-guess__input')
+    
     if (game.currentRound.turnTracker === 17) {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     }
+    domUpdates.updateQuestionDisplay(answer[0]);
+    domUpdates.dailyDoubleSubmitGuessActions()
     domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
-    $('#current-answer__input').val('');
   })
 
   $('#submit-button').click(() => {
-    domUpdates.updateQuestionDisplay(answer[1]);
-    let correct = game.currentRound.evaluateGuess($('#current-answer__input').val());
-    correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0]))); 
-
-    $('main').delay(1750).fadeIn('slow');
-    $('.alert-question__container').delay(1500).fadeOut('fast');
-    $('#submit-button').hide();
-    $('#current-question__display').hide();
-    $('#current-answer__input').hide();
-    correct ? $('.correct-answer__display').show() : $('.incorrect-answer__display').show();
-    $('#current-answer__input').val('');
+    checkAnswer('#current-answer__input')
+    
     if (game.currentRound.turnTracker === 17) {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     }
+    domUpdates.updateQuestionDisplay(answer[0]);
+    domUpdates.normalSubmitGuessActions()
     domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
-    $('#current-answer__input').val('');
   })
-
-
 
   $('.player-input').keyup(() => {
 
@@ -145,5 +128,6 @@ $(document).ready(function() {
     }
   })
 
+ 
 });
 
