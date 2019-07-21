@@ -344,12 +344,23 @@ div {
   filter: drop-shadow(2px 4px 6px black);
 }
 
-.daily-double-wager__display {
+.daily-double-wager__display,
+.daily-double-question__display {
   color: snow;
   opacity: .95;
 }
 
-#submit-button__wager {
+#submit-button__wager,
+#submit-button__guess {
   background-color: hotpink;
 }
+
+.player-wager__input,
+.player-guess__input{
+    width: 25%;
+    height: 30px;
+    border: none;
+    border-radius: 7%;
+}
+
 

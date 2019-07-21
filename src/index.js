@@ -32,6 +32,7 @@ function getData(info) {
 
 let game;
 let answer;
+let wager;
 
 $(document).ready(function() {
   $('#main-scorecard__display').hide();
@@ -89,6 +90,7 @@ $(document).ready(function() {
       $('#player-guess__input').hide();
       $('#submit-button__guess').hide()
       $('#daily-double__container').css({'z-index': 100}).delay(900).fadeIn(900)
+      game.currentRound.takeTurn(dataIndex)
 
     } else {
       $(`#${clickedItem}`).css({
@@ -109,6 +111,16 @@ $(document).ready(function() {
     }
   })
 
+  $('#submit-button__wager').click(() => {
+    wager = $('player-wager__input').val()
+    $('#daily-double-wager__display').delay(500).fadeOut('slow')
+    $('#player-wager__input').delay(500).fadeOut('slow')
+    $('#submit-button__wager').delay(500).fadeOut('slow')
+    $('#daily-double-question__display').delay(1000).fadeIn('slow')
+    $('#player-guess__input').delay(1000).fadeIn('slow')
+    $('#submit-button__guess').delay(1000).fadeIn('slow')
+
+  })
 
   $('#submit-button').click(() => {
     domUpdates.updateQuestionDisplay(answer[1]);
