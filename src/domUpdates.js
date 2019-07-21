@@ -22,6 +22,7 @@ let domUpdates = {
   },
 
   populateGameBoard(currentBoard) {
+
     let column0 = currentBoard[0]
     let column1 = currentBoard[1]
     let column2 = currentBoard[2]
@@ -65,23 +66,21 @@ let domUpdates = {
       $(`#js-player-card-${playerIndex}`).toggleClass('player-highlight')
       $('#js-player-card-2').removeClass('player-highlight')
     } else {
-    $(`#js-player-card-${playerIndex-1}`).toggleClass('player-highlight')
+    $(`#js-player-card-${playerIndex - 1}`).toggleClass('player-highlight')
     $(`#js-player-card-${playerIndex}`).toggleClass('player-highlight')
     }
   },
 
   updateQuestionDisplay(question) {
+    $('#daily-double-question__display').text(question)
     $('#current-question__display').text(question);
   },
 
+
+  
   displayRequestToPlayAgain() {  
   },
 
-
-  populateQuestion(path) {
-
-   
-  },
 
 
 

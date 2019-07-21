@@ -18,7 +18,7 @@ class Game {
 
   generateRound() {
     if (this.roundTracker <= 2) {
-      this.currentRound = new Round(this.boards[this.roundTracker], this.players);
+      this.currentRound = new Round(this.boards[this.roundTracker], this.players, this.dailyDoubleTurns);
       domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
       this.currentRound.beginTurn();
@@ -56,7 +56,6 @@ class Game {
       this.dailyDoubleTurns.push(round1DailyDouble);
       this.dailyDoubleTurns.push(round2DailyDouble1);
       this.dailyDoubleTurns.push(round2DailyDouble2);
-      console.log(this.dailyDoubleTurns)
     }
   }
 
@@ -78,7 +77,6 @@ class Game {
   //   let clue = new Clue();
   //    // this.boards = clue.makeBoardObject();
   }
-
 }
 
 

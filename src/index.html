@@ -63,18 +63,17 @@
                 <article id="column3-row4__clue" class="column-row__display hvr-grow hvr-trim" data-index="33">
                 </article>
               </section class="board-column__section">
-              <!-- </table> -->
             </div>
               <section class="score-cards__display" id="main-scorecard__display">
-                <article id="js-player-card-0" class="player-scorecard hvr-trim">
+                <article id="js-player-card-0" class="player-scorecard hvr-buzz">
                   <h2 id="js-player1-name">Player1</h2>
                   <h2>$<span id="player-1-score"> 0 </span></h2>
                 </article>
-                <article id="js-player-card-1" class="player-scorecard hvr-trim">
+                <article id="js-player-card-1" class="player-scorecard hvr-buzz">
                   <h2 id="js-player2-name">Player2</h2>
                   <h2>$<span id="player-2-score"> 0 </span></h2>
                 </article>
-                <article id="js-player-card-2" class="player-scorecard hvr-trim">
+                <article id="js-player-card-2" class="player-scorecard hvr-buzz">
                   <h2 id="js-player3-name">Player3</p>
                   <h2>$<span id="player-3-score"> 0 </span></h2>
                 </article>
@@ -89,6 +88,19 @@
               <img class="incorrect-answer__display" src="https://image.flaticon.com/icons/svg/1941/1941585.svg"></img>
             </article>
           </div>
+          <div class="daily-double__container" id="daily-double__container">
+            <article class="daily-double__display" id="daily-double__display">
+              <h1 class="daily-double-wager__display" id="daily-double-wager__display">What Will You Wager?</h1>
+              <input class="player-wager__input" id="player-wager__input" type="input">
+              <button class="submit-button button-styled hvr-grow" id="submit-button__wager">Submit Wager</button>
+              <h1 class="daily-double-question__display" id="daily-double-question__display"></h1>
+              <input class="player-guess__input" id="player-guess__input" type="input">
+              <button class="submit-button button-styled hvr-grow" id="submit-button__guess">Submit Guess</button>
+            </article>
+          </div>
+        <audio id="pop">
+          <source src="https://www.myinstants.com/media/sounds/jeopardy-daily-double-sound-effect-from-youtube.mp3" type="audio/mpeg">
+        </audio>
   </body>
   <script src="https://unpkg.com/packery@2/dist/packery.pkgd.js"></script>
   <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
