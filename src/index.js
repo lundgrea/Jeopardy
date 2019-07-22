@@ -60,7 +60,8 @@ $(document).ready(function() {
     $('#user-name__inputs').fadeOut();
     $('#main-scorecard__display').delay(1000).fadeIn();
     $('#puzzle-table__display').delay(1000).fadeIn();
-    domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
+    domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer);
+    domUpdates.disableCategories();
   })
 
   $('#main-board__display').click((e) => {
@@ -112,7 +113,12 @@ $(document).ready(function() {
   })
 
   $('#submit-button__wager').click(() => {
-    wager = $('player-wager__input').val()
+    wager = $('.player-wager__input').val()
+    if(!game.currentRound.checkPlayerWager(wager)) {
+      
+      $('.player-wager__input').val('');
+      window.alert('Wager more than score! Try another wager.')
+    }
     $('#daily-double-wager__display').delay(500).fadeOut('slow')
     $('#player-wager__input').delay(500).fadeOut('slow')
     $('#submit-button__wager').delay(500).fadeOut('slow')
@@ -138,14 +144,18 @@ $(document).ready(function() {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     }
+    //testing endGame with fake roundTracker and turnTracker
+    // if (game.currentRound.turnTracker === 4) {
+    //   $('.column-row__display').removeAttr('style')
+    //   let players = [{'name': "Moe", 'score': 5000}, {'name': "Larry", 'score': 6000}, {'name': "Curly", 'score': 12000}];
+    //   game.endGame(players)
+    // }
+
     domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
     $('#current-answer__input').val('');
   })
 
-
-
   $('.player-input').keyup(() => {
-
     if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
     } else {
