@@ -109,6 +109,7 @@ $(document).ready(function() {
       $('#current-answer__input').delay(1000).fadeIn(900);
       $('alert-question__display').delay(1000).fadeIn(900)
       $('#current-question__display').delay(1000).fadeIn(900);
+      $('#submit-button').prop('disabled', true);
       answer = game.currentRound.takeTurn(dataIndex);
     }
   })
