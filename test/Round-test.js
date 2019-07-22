@@ -3,9 +3,14 @@ const expect = chai.expect;
 
 
 import Round from '../src/Round';
+import spies from 'chai-spies';
 import domUpdates from "../src/domUpdates";
 
 let round;
+
+chai.use(spies);
+
+chai.spy.on(domUpdates, ['updateQuestionDisplay'], () => {});
 
 
 beforeEach(() => {

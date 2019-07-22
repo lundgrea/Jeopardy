@@ -10,17 +10,13 @@ import domUpdates from '../src/domUpdates'
 import Round from "../src/Round";
 import FinalRound from "../src/FinalRound";
 
+var game, board;
+
 chai.use(spies);
 
 chai.spy.on(domUpdates, ['populateGameBoard', 'populatePlayerDashboard'], () => {});
 
 
-// global.domUpdates = {};
-// global.$ = () => {}
-
-
-
-var game, board;
 
 beforeEach(() => {
   board = [[], [], []]
