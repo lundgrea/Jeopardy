@@ -24,4 +24,5 @@ describe('Turn', function() {
   it('should be an instance of Turn', function() {
     expect(turn).to.be.an.instanceof(Turn);
   });
+
 });
