@@ -4,7 +4,7 @@ import Game from '../src/Game';
 let domUpdates = {
 
   pageLoadHandler() {
-    new Audio("https://www.myinstants.com/media/sounds/jeopardy-intro-1.mp3").play()
+    // new Audio("https://www.myinstants.com/media/sounds/jeopardy-intro-1.mp3").play()
     $('#main-scorecard__display').hide();
     $('#user-name__inputs').hide();
     $('#puzzle-table__display').hide();

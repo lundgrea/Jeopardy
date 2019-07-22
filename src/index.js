@@ -29,6 +29,7 @@ let boards;
 let game;
 let wager;
 
+new Audio("https://www.myinstants.com/media/sounds/jeopardy-intro-1.mp3").play()
 function getData(info) {
   let clue = new Clue(info);
   boards = clue.makeBoardObject();
@@ -48,6 +49,7 @@ function checkAnswer(location) {
 
 
 $(document).ready(() => {
+  // new Audio("https://www.myinstants.com/media/sounds/jeopardy-intro-1.mp3").play()
   domUpdates.pageLoadHandler()
   // new Audio("https://www.myinstants.com/media/sounds/jeopardy-intro-1.mp3").play()
   // $('#main-scorecard__display').hide();
