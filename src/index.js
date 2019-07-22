@@ -90,6 +90,8 @@ $(document).ready(function() {
       $('#player-guess__input').hide();
       $('#submit-button__guess').hide()
       $('#daily-double__container').css({'z-index': 100}).delay(900).fadeIn(900)
+      console.log(game.currentRound.currentPlayer)
+      $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
       game.currentRound.takeTurn(dataIndex)
 
     } else {
