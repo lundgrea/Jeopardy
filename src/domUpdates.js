@@ -24,6 +24,7 @@ let domUpdates = {
   <button type="button" id="players-name__submit" name="submitUserNames" class="button-styled hvr-grow">Game On!</button>`).delay(3700).fadeIn('slow');
   },
 
+
   disableUserInputButton () {
     $('#players-name__submit').prop('disabled', true);
   },
