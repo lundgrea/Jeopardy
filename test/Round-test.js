@@ -10,7 +10,8 @@ import domUpdates from "../src/domUpdates";
 
 let round;
 
-chai.spy.on(domUpdates, ['disableUserInputButton', 'enableUserInputButton', 'populateGameBoard', 'convertCategoryToUpperCase', 'highlightCurrentPlayer', 'updateQuestionDisplay', 'displayRequestToPlayAgain'], () => {});
+chai.spy.on(domUpdates, ['updateQuestionDisplay', 'populatePlayerDashboard'], () => {});
+
 
 beforeEach(() => {
   round = new Round()
@@ -20,6 +21,10 @@ describe('Round', function() {
 
   it('should be a function', function() {
     expect(Round).to.be.a('function');
+  });
+
+  it('should be an instance of Round', function() {
+    expect(round).to.be.an.instanceof(Round);
   });
 
   it('should start with no clues', function() {
@@ -32,7 +37,7 @@ describe('Round', function() {
     expect(round.turnTracker).to.equal(1);
   });
 
-  it.only('should return a string with any puctuation removed', function(){
+  it('should return a string with any punctuation removed', function(){
     expect(round.evaluateTestGuess('St. Paul', 'St. Paul')).to.equal(true);
     expect(round.evaluateTestGuess('St Paul', 'St. Paul')).to.equal(true);
     expect(round.evaluateTestGuess('St Paul!', 'St. Paul')).to.equal(true);

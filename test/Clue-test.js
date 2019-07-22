@@ -20,6 +20,10 @@ describe('Clue', function() {
     expect(Clue).to.be.a('function');
   });
 
+  it('should be an instance of Clue', function() {
+    expect(clue).to.be.an.instanceof(Clue);
+  });
+
   it('should be able to shuffle the array of category ids', function() {
 
     let randomArray = clue.shuffleArray()

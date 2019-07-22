@@ -18,6 +18,11 @@ describe('Player', function() {
     expect(Player).to.be.a('function');
   });
 
+  it('should be an instance of Player', function() {
+    expect(player1).to.be.an.instanceof(Player);
+  });
+
+
   it('should have a name', function() {
     expect(player1.name).to.equal('John')
   });

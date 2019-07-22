@@ -1,11 +1,9 @@
 import chai from "chai";
 const expect = chai.expect;
-// import spies from 'chai-spies';
+import spies from 'chai-spies';
 // const spy = chai.spy()
 
-
-
-// chai.use(spies);
+chai.use(spies);
 
 import Game from "../src/Game";
 import Player from "../src/Player"
@@ -14,18 +12,25 @@ import FinalRound from "../src/FinalRound";
 import data from "../src/data";
 import domUpdates from "../src/domUpdates";
 
+// chai.spy.on(domUpdates, ['populateGameBoard', 'populatePlayerDashboard'], () => {});
+// chai.spy.on(domUpdates, ['populateGameBoard', 'populatePlayerDashboard'], () => {});
 
-// chai.spy.on(domUpdates, ['disableUserInputButton', 'enableUserInputButton', 'populateGameBoard', 'convertCategoryToUpperCase', 'highlightCurrentPlayer', 'updateQuestionDisplay', 'displayRequestToPlayAgain'], () => {});
 
-var game;
+
+var game, board;
 
 beforeEach(() => {
-  game = new Game(data);
+  board = [[], [], []]
+  game = new Game(board);
 });
 
 describe("Game", function() {
   it("should be a function", function() {
     expect(Game).to.be.a("function");
+  });
+
+  it('should be an instance of Game', function() {
+    expect(game).to.be.an.instanceof(Game);
   });
 
   it("should hold a place for the current round", function() {
