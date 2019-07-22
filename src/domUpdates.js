@@ -3,6 +3,26 @@ import Game from '../src/Game';
 
 let domUpdates = {
 
+  pageLoadHandler() {
+    new Audio("https://www.myinstants.com/media/sounds/jeopardy-intro-1.mp3").play()
+    $('#main-scorecard__display').hide();
+    $('#user-name__inputs').hide();
+    $('#puzzle-table__display').hide();
+    $('.alert-question__container').hide();
+    $('fieldset').hide();
+    $('.correct-answer__display').hide();
+    $('#daily-double__container').hide();
+    $('.final-round').hide();
+    $('#welcome-message').delay(9000).fadeOut("slow");
+    $('#user-name__inputs').delay(6000).append(`
+  <p class="player-input__label">Player 1</p>
+  <input type="text" id="player1-name__input" class="player-input"></input>
+  <p class="player-input__label">Player 2</p>
+  <input type="text" id="player2-name__input" class="player-input"></input>
+  <p class="player-input__label">Player 3</p>
+  <input type="text" id="player3-name__input" class="player-input"></input>
+  <button type="button" id="players-name__submit" name="submitUserNames" class="button-styled hvr-grow">Game On!</button>`).delay(3700).fadeIn('slow');
+  },
 
   disableUserInputButton () {
     $('#players-name__submit').prop('disabled', true);
@@ -66,8 +86,8 @@ let domUpdates = {
       $(`#js-player-card-${playerIndex}`).toggleClass('player-highlight')
       $('#js-player-card-2').removeClass('player-highlight')
     } else {
-    $(`#js-player-card-${playerIndex - 1}`).toggleClass('player-highlight')
-    $(`#js-player-card-${playerIndex}`).toggleClass('player-highlight')
+      $(`#js-player-card-${playerIndex - 1}`).toggleClass('player-highlight')
+      $(`#js-player-card-${playerIndex}`).toggleClass('player-highlight')
     }
   },
 
@@ -86,7 +106,7 @@ let domUpdates = {
       'background-repeat': 'no-repeat',
       'background-position': 'center',
       'transition': 'transform 4s',
-      'transform- style': 'preserve - 3d',
+      'transform-style': 'preserve-3d',
     })
     $(`#${clickedItem}`).text('')
     $('audio#pop')[0].play();

@@ -22,6 +22,7 @@ class Game {
       domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
       this.currentRound.beginTurn();
+      console.log('this.roundTracker :', this.roundTracker);
     }
     if (this.roundTracker === 3) {
       this.currentRound = new FinalRound(this.boards[this.roundTracker]);
