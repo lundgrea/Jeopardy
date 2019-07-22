@@ -12,6 +12,12 @@ let domUpdates = {
     $('#players-name__submit').prop('disabled', false);
   },
 
+  disableCategories() {
+    console.log('disableCategories called! ')
+    $('.column-header__category').prop('disabled',true).addClass("disabled");
+   // $('#column2-row0__category').prop('disabled', true);
+  },
+
   populatePlayerDashboard(playerNames) {
     $('#js-player1-name').text(playerNames[0].name || 'Player 1');
     $('#player-1-score').text(playerNames[0].score || 0);
@@ -71,7 +77,8 @@ let domUpdates = {
     }
   },
 
-  updateQuestionDisplay(question) {
+  updateQuestionDisplay(question, player, score) {
+    $('#current-player-name').text(`${player}, your current total is $${score}. ` || 'Player 3, ');
     $('#daily-double-question__display').text(question)
     $('#current-question__display').text(question);
   },
