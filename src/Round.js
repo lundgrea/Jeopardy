@@ -16,10 +16,10 @@ class Round {
     this.dailyDoubleTurns = dailyDoubleTurns;
   }
  
-  initiateDailyDoubleTurn(round) {
-    this.currentTurn = new DailyDouble(this.currentPlayer)
-    this.turnTracker ++
-  }
+  // initiateDailyDoubleTurn(round) {
+  //   // this.currentTurn = new DailyDouble(this.currentPlayer)
+  //   this.turnTracker ++
+  // }
 
   changePlayer() {
     if (this.currentPlayer < 2) {

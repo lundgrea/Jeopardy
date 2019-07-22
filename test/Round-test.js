@@ -21,13 +21,13 @@ describe('Round', function() {
     expect(round.currentClue).to.equal(null)
   });
 
-  it('should be able to begin the turn', function(){
+  it('should be able to begin the turn', function() {
     round.beginTurn();
     expect(round.currentTurn).to.be.a('object')
     expect(round.turnTracker).to.equal(1);
   });
 
-  it.only('should return a string with any puctuation removed', function(){
+  it.only('should return a string with any puctuation removed', function() {
     expect(round.evaluateTestGuess('St. Paul', 'St. Paul')).to.equal(true);
     expect(round.evaluateTestGuess('St Paul', 'St. Paul')).to.equal(true);
     expect(round.evaluateTestGuess('St Paul!', 'St. Paul')).to.equal(true);

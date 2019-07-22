@@ -171,7 +171,22 @@ let domUpdates = {
     $('#current-question__display').hide();
     $('#current-answer__input').hide();
     $('#current-answer__input').val('');
-  }
+  },
+
+  startFinalRound() {
+    $('main').hide();
+
+    $('#final-round__container').delay(1250).fadeIn('slow');
+    $('.final-round-wager__display').delay(1400).fadeIn('slow')
+    $('#player1-wager__input').delay(1400).fadeIn('slow')
+    $('#player2-wager__input').delay(1400).fadeIn('slow')
+    $('#player3-wager__input').delay(1400).fadeIn('slow')
+    $('#submit-button__wager1').delay(1400).fadeIn('slow')
+    $('#submit-button__wager2').delay(1400).fadeIn('slow')
+    $('#submit-button__wager3').delay(1400).fadeIn('slow')
+
+
+  },
 }
 
 export default domUpdates

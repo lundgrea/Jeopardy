@@ -17,19 +17,22 @@ class Game {
   }
 
   generateRound() {
-    if (this.roundTracker <= 2) {
+    // this.roundTracker++;
+
+    if (this.roundTracker < 2) {
       this.currentRound = new Round(this.boards[this.roundTracker], this.players, this.dailyDoubleTurns);
       domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
       this.currentRound.beginTurn();
-      console.log('this.roundTracker :', this.roundTracker);
+      return
     }
-    if (this.roundTracker === 3) {
+    if (this.roundTracker === 2) {
       this.currentRound = new FinalRound(this.boards[this.roundTracker]);
-      domUpdates.populateGameBoard(this.currentRound.board)
+      domUpdates.startFinalRound(this.currentRound.board)
       this.roundTracker ++;
       this.currentRound.beginTurn()
     }
+
   }
 
   startGame(playerNames) {
@@ -61,7 +64,7 @@ class Game {
   }
 
   determineGameWinner() {
-    let sortedScores = this.players.sort((a,b) => a.score - b.score);
+    let sortedScores = this.players.sort((a, b) => a.score - b.score);
     let highestScorer = sortedScores[sortedScores.length - 1].name;
     this.winner = highestScorer;
     return this.winner;
