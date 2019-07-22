@@ -3,8 +3,6 @@ const expect = chai.expect;
 
 import Player from '../src/Player';
 
-global.document = {};
-
 var player1, player2
 
 beforeEach(() => {

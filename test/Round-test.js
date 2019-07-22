@@ -1,16 +1,11 @@
 import chai from 'chai';
 const expect = chai.expect;
-import spies from 'chai-spies';
-// const spy = chai.spy()
 
-chai.use(spies);
 
 import Round from '../src/Round';
 import domUpdates from "../src/domUpdates";
 
 let round;
-
-chai.spy.on(domUpdates, ['updateQuestionDisplay', 'populatePlayerDashboard'], () => {});
 
 
 beforeEach(() => {

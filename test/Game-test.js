@@ -1,19 +1,22 @@
 import chai from "chai";
 const expect = chai.expect;
+
+
+import data from "../src/data";
+import Game from "../src/Game";
+import Player from "../src/Player"
 import spies from 'chai-spies';
-// const spy = chai.spy()
+import domUpdates from '../src/domUpdates'
+import Round from "../src/Round";
+import FinalRound from "../src/FinalRound";
 
 chai.use(spies);
 
-import Game from "../src/Game";
-import Player from "../src/Player"
-import Round from "../src/Round";
-import FinalRound from "../src/FinalRound";
-import data from "../src/data";
-import domUpdates from "../src/domUpdates";
+chai.spy.on(domUpdates, ['populateGameBoard', 'populatePlayerDashboard'], () => {});
 
-// chai.spy.on(domUpdates, ['populateGameBoard', 'populatePlayerDashboard'], () => {});
-// chai.spy.on(domUpdates, ['populateGameBoard', 'populatePlayerDashboard'], () => {});
+
+// global.domUpdates = {};
+// global.$ = () => {}
 
 
 
@@ -73,30 +76,33 @@ describe("Game", function() {
     expect(game.dailyDoubleTurns[2]).to.be.within(9, 16);
   });
 
-  it("should be able to generate new rounds", function() {
-    game.startGame(["Jon", "Chris", "Alyssa"]);
-    expect(game.roundTracker).to.equal(1);
-    game.generateRound();
-    expect(game.roundTracker).to.equal(2);
-    game.generateRound();
-    expect(game.roundTracker).to.equal(3);
+ it('should instantiate all of the players', function() {
+    game.generatePlayers(["Jon", "Chris", "Alyssa"]);
+    expect(game.player1).to.be.an.instanceof(Player);
+    expect(game.player2).to.be.an.instanceof(Player);
+    expect(game.player3).to.be.an.instanceof(Player);
   });
 
-  it("should create the board from the clues", function() {
-    game.generateClues();
-    expect(game.boards).to.be.a("array");
-  });
+  // it("should be able to generate new rounds", function() {
+  //   game.startGame(["Jon", "Chris", "Alyssa"]);
+  //   expect(game.roundTracker).to.equal(1);
+  //   game.generateRound();
+  //   expect(game.roundTracker).to.equal(2);
+  //   game.generateRound();
+  //   expect(game.roundTracker).to.equal(3);
+  // });
 
-  it("should not create more than three rounds", function() {
-    game.startGame(["Jon", "Chris", "Alyssa"]);
-    expect(game.roundTracker).to.equal(1);
-    game.generateRound();
-    expect(game.roundTracker).to.equal(2);
-    game.generateRound();
-    expect(game.roundTracker).to.equal(3);
-    game.generateRound();
-    expect(game.roundTracker).to.equal(3);
-  });
+
+  // it("should not create more than three rounds", function() {
+  //   game.startGame(["Jon", "Chris", "Alyssa"]);
+  //   expect(game.roundTracker).to.equal(1);
+  //   game.generateRound();
+  //   expect(game.roundTracker).to.equal(2);
+  //   game.generateRound();
+  //   expect(game.roundTracker).to.equal(3);
+  //   game.generateRound();
+  //   expect(game.roundTracker).to.equal(3);
+  // });
 
   it("should create three new Players from the player input fields", function() {
     game.generatePlayers(["Jon", "Chris", "Alyssa"]);
@@ -108,6 +114,7 @@ describe("Game", function() {
     expect(game.currentRound).to.be.a("object");
     expect(game.roundTracker).to.equal(1);
     expect(game.players).to.be.a("array");
+    expect(domUpdates.populateGameBoard).to.have.been.called(1);
   });
 
   it("should keep track of the current round", function() {
