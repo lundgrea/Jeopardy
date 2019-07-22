@@ -59,7 +59,6 @@ class Round {
   }
 
   evaluateGuess(guess) {
-
     return (guess.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase() === this.answer.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()) ? true : false;
   }
   

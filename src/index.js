@@ -138,14 +138,18 @@ $(document).ready(function() {
       $('.column-row__display').removeAttr('style')
       game.generateRound()
     }
+    //testing endGame with fake roundTracker and turnTracker
+    if (game.currentRound.turnTracker === 4) {
+      $('.column-row__display').removeAttr('style')
+      let players = [{'name': "Moe", 'score': 5000}, {'name': "Larry", 'score': 6000}, {'name': "Curly", 'score': 12000}];
+      game.endGame(players)
+    }
+
     domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
     $('#current-answer__input').val('');
   })
 
-
-
   $('.player-input').keyup(() => {
-
     if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
     } else {
