@@ -14,7 +14,11 @@ chai.spy.on(domUpdates, ['updateQuestionDisplay'], () => {});
 
 
 beforeEach(() => {
-  round = new Round()
+  round = new Round([], [
+    {name: "Jon"   , score: 100}, 
+    {name:"Chris"  , score: 100}, 
+    {name: "Alyssa", score: 150}
+    ], [] )
 });
 
 describe('Round', function() {
@@ -43,8 +47,11 @@ describe('Round', function() {
     expect(round.evaluateTestGuess('St Paul!', 'St. Paul')).to.equal(true);
     expect(round.evaluateTestGuess('st paul', 'St. Paul')).to.equal(true);
     expect(round.evaluateTestGuess('Saint Paul', 'St. Paul')).to.equal(false);
+  });
 
- 
+  it('should update scores', function() {
+    round.updateScores(100);
+    expect(domUpdates.populatePlayerDashboard).to.have.been.called(5);
   });
 
 
