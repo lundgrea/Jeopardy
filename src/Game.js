@@ -1,8 +1,10 @@
+import $ from 'jquery';
 import Player from '../src/Player';
 import Round from '../src/Round';
 import FinalRound from '../src/FinalRound';
 import Clue from '../src/Clue';
 import domUpdates from './domUpdates.js';
+
 
 
 class Game {

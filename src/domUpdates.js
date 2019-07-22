@@ -3,7 +3,6 @@ import Game from '../src/Game';
 
 let domUpdates = {
 
-
   disableUserInputButton () {
     $('#players-name__submit').prop('disabled', true);
   },
