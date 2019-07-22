@@ -1,8 +1,11 @@
 import chai from 'chai';
 const expect = chai.expect;
 
+
 import Clue from '../src/Clue';
 import data from '../src/data';
+import domUpdates from "../src/domUpdates";
+
 
 var clue
 
@@ -15,6 +18,10 @@ describe('Clue', function() {
   it('should be a function', function() {
    
     expect(Clue).to.be.a('function');
+  });
+
+  it('should be an instance of Clue', function() {
+    expect(clue).to.be.an.instanceof(Clue);
   });
 
   it('should be able to shuffle the array of category ids', function() {

@@ -27,7 +27,6 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
 function getData(info) {
   let clue = new Clue(info);
   boards = clue.makeBoardObject();
-
 }
 
 let game;
