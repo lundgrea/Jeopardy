@@ -61,6 +61,11 @@ p {
   animation-iteration-count: infinite;
 }
 
+input,
+.input {
+  font-size: 22px;
+  padding-left: 5px;
+}
 
 .splash-screen__header {
   font-size: 32px;
