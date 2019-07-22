@@ -61,6 +61,11 @@ p {
   animation-iteration-count: infinite;
 }
 
+input,
+.input {
+  font-size: 22px;
+  padding-left: 5px;
+}
 
 .splash-screen__header {
   font-size: 32px;
@@ -264,8 +269,8 @@ div {
   align-content: end;
   font-size: 23px;
   font-weight: 800;
-  color:white;
-  border: black solid 5px;
+  color: white;
+  border: rgba(0, 0, 0, 0.32) solid 5px;
   background-color: rgba(0, 0, 128, 0.32);
   filter: drop-shadow(2px 4px 6px black);
 }

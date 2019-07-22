@@ -89,6 +89,8 @@ $(document).ready(function() {
       $('#player-guess__input').hide();
       $('#submit-button__guess').hide()
       $('#daily-double__container').css({'z-index': 100}).delay(900).fadeIn(900)
+      console.log(game.currentRound.currentPlayer)
+      $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
       game.currentRound.takeTurn(dataIndex)
 
     } else {
@@ -106,6 +108,7 @@ $(document).ready(function() {
       $('#current-answer__input').delay(1000).fadeIn(900);
       $('alert-question__display').delay(1000).fadeIn(900)
       $('#current-question__display').delay(1000).fadeIn(900);
+      $('#submit-button').prop('disabled', true);
       answer = game.currentRound.takeTurn(dataIndex);
     }
   })
@@ -114,6 +117,7 @@ $(document).ready(function() {
     wager = $('player-wager__input').val()
     $('#daily-double-wager__display').delay(500).fadeOut('slow')
     $('#player-wager__input').delay(500).fadeOut('slow')
+    $('#daily-double-wager__display__name-span').delay(500).fadeOut('slow')
     $('#submit-button__wager').delay(500).fadeOut('slow')
     $('#daily-double-question__display').delay(1000).fadeIn('slow')
     $('#player-guess__input').delay(1000).fadeIn('slow')
@@ -141,10 +145,16 @@ $(document).ready(function() {
     $('#current-answer__input').val('');
   })
 
+  $('#current-answer__input').keyup(() => {
+    if ($( '#current-answer__input' ).val() !== '') {
+      domUpdates.enableGuessInputButton();
+    } else {
+      domUpdates.disableGuessInputButton();
+    }
+  })
 
 
   $('.player-input').keyup(() => {
-
     if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
     } else {
