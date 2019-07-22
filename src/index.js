@@ -117,6 +117,7 @@ $(document).ready(function() {
     wager = $('player-wager__input').val()
     $('#daily-double-wager__display').delay(500).fadeOut('slow')
     $('#player-wager__input').delay(500).fadeOut('slow')
+    $('#daily-double-wager__display__name-span').delay(500).fadeOut('slow')
     $('#submit-button__wager').delay(500).fadeOut('slow')
     $('#daily-double-question__display').delay(1000).fadeIn('slow')
     $('#player-guess__input').delay(1000).fadeIn('slow')
