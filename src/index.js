@@ -145,10 +145,16 @@ $(document).ready(function() {
     $('#current-answer__input').val('');
   })
 
+  $('#current-answer__input').keyup(() => {
+    if ($( '#current-answer__input' ).val() !== '') {
+      domUpdates.enableGuessInputButton();
+    } else {
+      domUpdates.disableGuessInputButton();
+    }
+  })
 
 
   $('.player-input').keyup(() => {
-
     if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
     } else {

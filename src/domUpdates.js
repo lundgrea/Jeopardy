@@ -12,6 +12,14 @@ let domUpdates = {
     $('#players-name__submit').prop('disabled', false);
   },
 
+  disableGuessInputButton() {
+    $('#submit-button').prop('disabled', true);
+  },
+
+  enableGuessInputButton() {
+    $('#submit-button').prop('disabled', false);
+  },
+
   populatePlayerDashboard(playerNames) {
     $('#js-player1-name').text(playerNames[0].name || 'Player 1');
     $('#player-1-score').text(playerNames[0].score || 0);
