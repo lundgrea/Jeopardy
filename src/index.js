@@ -15,10 +15,9 @@ import Game from './Game';
 import Clue from './Clue';
 import Player from './Player';
 import Round from './Round';
-import Turn from './Turn';
+// // import Turn from './Turn';
 import domUpdates from './domUpdates.js';
-import FinalRound from './FinalRound';
-
+// npmn
 
 fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
   .then(response => response.json())
@@ -40,7 +39,7 @@ function getData(info) {
 function checkAnswer(location) {
   let correct = game.currentRound.evaluateGuess($(`${location}`).val());
   console.log('Location is: ', location)
-  if(location === '#player-guess__input'){
+  if (location === '#player-guess__input') {
     correct ? game.currentRound.updateScores(parseInt(wager)) : game.currentRound.updateScores(-(parseInt(wager)));
   } else {
     correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0]))); 
@@ -74,8 +73,6 @@ $(document).ready(() => {
     let clickedItem = e.target.id;
     let dataIndex = e.target.getAttribute('data-index');
     
-    console.log('game.roundTracker :', game.roundTracker);
-    console.log('game.currentRound.dailyDoubleTurns :', game.currentRound.dailyDoubleTurns);
 
     if (game.roundTracker === 1 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[0]) {
       domUpdates.dailyDoubleTurnActions(clickedItem);
@@ -92,13 +89,14 @@ $(document).ready(() => {
     } 
     if (game.roundTracker === 2 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[2]) {
 
-      domUpdates.dailyDoubleTurnActions(clickedItem);
+
+      domUpdates.dailyDoubleTurnActions(clickedItem)
+       $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
+      answer = game.currentRound.takeTurn(dataIndex)
+      return
+    } else {
+      domUpdates.normalTurnActions(clickedItem)
       $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
-      answer = game.currentRound.takeTurn(dataIndex);
-      return;
-    } 
-    else {
-      domUpdates.normalTurnActions(clickedItem);
       answer = game.currentRound.takeTurn(dataIndex);
       return
     }
@@ -107,7 +105,7 @@ $(document).ready(() => {
   $('#submit-button__wager').click(() => {
     wager = $('#player-wager__input').val()
   
-    if(!game.currentRound.checkPlayerWager(wager)) {
+    if (!game.currentRound.checkPlayerWager(wager)) {
       domUpdates.disableGuessInputButton();
       $('.player-wager__input').val('');
       $('#daily-double-wager__display').text('Your wager is more than your current score! Please enter a new wager.');
@@ -152,12 +150,57 @@ $(document).ready(() => {
   })
 
   $('.player-input').keyup(() => {
-    if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() != '') {
+    if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() !== '') {
       domUpdates.enableUserInputButton();
     } else {
       domUpdates.disableUserInputButton();
     }
   })
 
+  $('#submit-button-final__wager1').click(() => {
+    domUpdates.finalWagerSubmit(1, 2)
+    game.currentRound.takeGuess(game.currentRound.currentPlayer)
+    game.currentRound.changePlayer();
+
+  })
+
+  $('#submit-button-final__wager2').click(() => {
+    domUpdates.finalWagerSubmit(2, 3)
+    game.currentRound.takeGuess(game.currentRound.currentPlayer)
+    game.currentRound.changePlayer();
+  })
+
+  $('#submit-button-final__wager3').click(() => {
+    domUpdates.finalWagerSubmit(3, 0)
+    game.currentRound.takeGuess(game.currentRound.currentPlayer)
+    game.currentRound.changePlayer();
+    domUpdates.finalGuessSubmit(1, 2)
+
+  })
+
+  $('#submit-button-final__guess1').click(() => {
+    domUpdates.finalGuessSubmit(1, 2)
+    game.currentRound.takeGuess(game.currentRound.currentPlayer)
+    game.currentRound.changePlayer();
+
+  })
+
+  $('#submit-button-final__guess2').click(() => {
+    domUpdates.finalGuessSubmit(2, 3)
+    game.currentRound.takeGuess(game.currentRound.currentPlayer)
+    game.currentRound.changePlayer();
+  })
+
+  $('#submit-button-final__guess3').click(() => {
+    game.game.currentRound.endGame()
+    domUpdates.finalGuessSubmit(3, 0)
+    game.game.currentRound.takeGuess(game.currentRound.currentPlayer)
+    domUpdates.finalGuessSubmit(3, 0)
+  })
+
+  $('.reset-game-button__container').click(() => {
+    document.location.reload()
+  })
+  
 });
 

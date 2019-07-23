@@ -13,14 +13,13 @@ class Game {
     this.currentRound = {};
     this.roundTracker = 0;
     this.players = [];
-    this.winner = null;
+    // this.winner = null;
     this.boards = boards
     this.dailyDoubleTurns = []
     this.questionsArray = [];
   }
 
   generateRound() {
-    // this.roundTracker++;
 
     if (this.roundTracker < 2) {
       this.currentRound = new Round(this.boards[this.roundTracker], this.players, this.dailyDoubleTurns);
@@ -31,10 +30,16 @@ class Game {
       return
     }
     if (this.roundTracker === 2) {
-      this.currentRound = new FinalRound(this.boards[this.roundTracker]);
+      this.currentRound = new FinalRound(this.boards[this.roundTracker], this.players, this.dailyDoubleTurns);
       domUpdates.startFinalRound(this.currentRound.board)
+      ///move bottom limne to a fnction in incex that calls a method in domUpdates//
+      $('#final-round__category').text(this.boards[2][0].category)
       this.roundTracker ++;
       this.currentRound.beginTurn()
+    }
+
+    if (this.roundTracker > 2) {
+      this.currentRound.endGame()
     }
   }
 
@@ -66,28 +71,28 @@ class Game {
     }
   }
 
-  determineGameWinner() {
-    let sortedScores = this.players.sort((a, b) => a.score - b.score);
-    let highestScorer = sortedScores[sortedScores.length - 1].name;
-    this.winner = highestScorer;
-    return this.winner;
-  }
+  // determineGameWinner() {
+  //   let sortedScores = this.players.sort((a, b) => a.score - b.score);
+  //   let highestScorer = sortedScores[sortedScores.length - 1].name;
+  //   this.winner = highestScorer;
+  //   return this.winner;
+  // }
 
 
-  endGame(players) {
-    let winner = this.determineGameWinner(players);
-    console.log('winner is: ', winner);
-    window.alert(`Congratulations ${winner}! You are the Jeopardy Champion!`);
-    //domUpdates.updateQuestionDisplay(`Congratulations ${winner}! You are the Jeopardy Champion!`)
-    return winner;
-    // domUpdates.displayRequestToPlayAgain();
-  }    
+  // endGame(players) {
+  //   let winner = this.determineGameWinner(players);
+  //   console.log('winner is: ', winner);
+  //   window.alert(`Congratulations ${winner}! You are the Jeopardy Champion!`);
+  //   //domUpdates.updateQuestionDisplay(`Congratulations ${winner}! You are the Jeopardy Champion!`)
+  //   return winner;
+  //   // domUpdates.displayRequestToPlayAgain();
+  // }    
 
-  restartGame() {
-  // maybecome another fetch call
-  //   let clue = new Clue();
-  //    // this.boards = clue.makeBoardObject();
-  }
+  // restartGame() {
+  // // maybecome another fetch call
+  // //   let clue = new Clue();
+  // //    // this.boards = clue.makeBoardObject();
+  // }
 }
 
 
