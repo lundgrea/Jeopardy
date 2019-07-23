@@ -391,3 +391,50 @@ div {
     filter: drop-shadow(2px 4px 6px black);
 }
 
+.final-round__screen2 {
+  background-image: url(https://image.freepik.com/free-photo/rectangle-stage-with-smoke-purple-neon-light_33739-270.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0% 10% 0% 10%;
+    text-align: center;
+    width: 90%;
+    border-radius: 8px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    font-size: 42px;
+    font-weight: 800;
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    opacity: 0.9;
+    color: white;
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+.winner-card__display {
+   background-image: url(https://i.pinimg.com/originals/2c/45/5a/2c455aede755a7b7c917de15a2827680.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+    padding: 0% 10% 0% 10%;
+    text-align: center;
+    width: 100%;
+    border-radius: 8px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    font-size: 42px;
+    font-weight: 800;
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    opacity: 0.9;
+    color: white;
+    filter: drop-shadow(2px 4px 6px black);
+}
+

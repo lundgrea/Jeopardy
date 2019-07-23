@@ -136,19 +136,52 @@ $(document).ready(() => {
   })
 
   $('.player-input').keyup(() => {
-    if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() != '') {
+    if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() !== '') {
       domUpdates.enableUserInputButton();
     } else {
       domUpdates.disableUserInputButton();
     }
   })
 
-  $('#submit-button-final__wager').click(() => {
-    new FinalRound
-    domUpdates.finalSubmit()
+  $('#submit-button-final__wager1').click(() => {
+    domUpdates.finalWagerSubmit(1, 2)
     FinalRound.takeGuess(game.currentRound.currentPlayer)
     FinalRound.changePlayer();
 
+  })
+
+  $('#submit-button-final__wager2').click(() => {
+    domUpdates.finalWagerSubmit(2, 3)
+    FinalRound.takeGuess(game.currentRound.currentPlayer)
+    FinalRound.changePlayer();
+  })
+
+  $('#submit-button-final__wager3').click(() => {
+    domUpdates.finalWagerSubmit(3, 0)
+    FinalRound.takeGuess(game.currentRound.currentPlayer)
+    FinalRound.changePlayer();
+    domUpdates.finalGuessSubmit(1, 2)
+
+  })
+
+  $('#submit-button-final__guess1').click(() => {
+    domUpdates.finalGuessSubmit(1, 2)
+    FinalRound.takeGuess(game.currentRound.currentPlayer)
+    FinalRound.changePlayer();
+
+  })
+
+  $('#submit-button-final__guess2').click(() => {
+    domUpdates.finalGuessSubmit(2, 3)
+    FinalRound.takeGuess(game.currentRound.currentPlayer)
+    FinalRound.changePlayer();
+  })
+
+  $('#submit-button-final__guess3').click(() => {
+    domUpdates.finalGuessSubmit(3, 0)
+    FinalRound.takeGuess(game.currentRound.currentPlayer)
+    FinalRound.changePlayer();
+    domUpdates.finalGuessSubmit(3, 0)
   })
 });
 

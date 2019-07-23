@@ -10,7 +10,7 @@ import domUpdates from './domUpdates.js';
 class Game {
   constructor(boards) {
     this.currentRound = {};
-    this.roundTracker = 2;
+    this.roundTracker = 0;
     this.players = [];
     this.winner = null;
     this.boards = boards
@@ -29,7 +29,7 @@ class Game {
       return
     }
     if (this.roundTracker === 2) {
-      this.currentRound = new FinalRound(this.boards[this.roundTracker]);
+      this.currentRound = new FinalRound(this.boards[this.roundTracker], this.players, null);
       domUpdates.startFinalRound(this.currentRound.board)
       this.roundTracker ++;
       this.currentRound.beginTurn()
