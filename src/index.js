@@ -183,5 +183,12 @@ $(document).ready(() => {
     FinalRound.changePlayer();
     domUpdates.finalGuessSubmit(3, 0)
   })
+
+  $('.reset-game-button__container').click(() => {
+    console.log('hey')
+    document.location.reload()
+  })
+
+  
 });
 
