@@ -74,26 +74,33 @@ $(document).ready(() => {
     console.log('game.currentRound.dailyDoubleTurns :', game.currentRound.dailyDoubleTurns);
 
     if (game.roundTracker === 1 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[0]) {
-      domUpdates.dailyDoubleTurnActions(clickedItem)
-      answer = game.currentRound.takeTurn(dataIndex)
-      return
+      domUpdates.dailyDoubleTurnActions(clickedItem);
+      console.log(game.currentRound.currentPlayer)
+      console.log(game.players)
+      $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
+      answer = game.currentRound.takeTurn(dataIndex);
+      return;
     } 
     if (game.roundTracker === 2 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[1] ) {
 
-      domUpdates.dailyDoubleTurnActions(clickedItem)
-      answer = game.currentRound.takeTurn(dataIndex)
-      return
+      domUpdates.dailyDoubleTurnActions(clickedItem);
+      console.log(game.currentRound.currentPlayer)
+      console.log(game.players)
+      $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
+      answer = game.currentRound.takeTurn(dataIndex);
+      return;
     } 
     if (game.roundTracker === 2 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[2]) {
 
-      domUpdates.dailyDoubleTurnActions(clickedItem)
-      answer = game.currentRound.takeTurn(dataIndex)
-      return
+      domUpdates.dailyDoubleTurnActions(clickedItem);
+      console.log(game.currentRound.currentPlayer)
+      console.log(game.players)
+      $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
+      answer = game.currentRound.takeTurn(dataIndex);
+      return;
     } 
     else {
-      domUpdates.normalTurnActions(clickedItem)
-      $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer+1].name)
-
+      domUpdates.normalTurnActions(clickedItem);
       answer = game.currentRound.takeTurn(dataIndex);
       return
     }
@@ -145,15 +152,6 @@ $(document).ready(() => {
     } else {
       domUpdates.disableUserInputButton();
     }
-  })
-
-  $('#restart-game-button').click(() => {
-    document.location.reload()
-    // fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
-    //   .then(response => response.json())
-    //   .then(parsedData => getData(parsedData))
-    //   .catch(err => console.error(err));
-    // domUpdates.pageLoadHandler()
   })
 
 });

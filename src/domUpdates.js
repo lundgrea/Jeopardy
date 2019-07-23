@@ -131,6 +131,8 @@ let domUpdates = {
     $('#daily-double-wager__display').delay(4100).fadeIn(4500)
     $('#player-wager__input').delay(4300).fadeIn(4500)
     $('#submit-button__wager').delay(4500).fadeIn(4500)
+
+    
   },
 
   wagerSubmit() {
