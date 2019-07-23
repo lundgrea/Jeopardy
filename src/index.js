@@ -30,7 +30,7 @@ let boards;
 let game;
 let wager;
 
-// new Audio("https://www.myinstants.com/media/sounds/jeopardy-intro-1.mp3").play()
+new Audio("https://www.myinstants.com/media/sounds/jeopardy-intro-1.mp3").play()
 
 function getData(info) {
   let clue = new Clue(info);
@@ -123,7 +123,6 @@ $(document).ready(() => {
     domUpdates.updateQuestionDisplay(answer[0]);
     domUpdates.normalSubmitGuessActions()
     domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
-    
   })
 
 
@@ -185,7 +184,6 @@ $(document).ready(() => {
   })
 
   $('.reset-game-button__container').click(() => {
-    console.log('hey')
     document.location.reload()
   })
 
