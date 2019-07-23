@@ -117,7 +117,7 @@ $(document).ready(function() {
   $('#submit-button__wager').click(() => {
     wager = $('.player-wager__input').val()
     if(!game.currentRound.checkPlayerWager(wager)) {
-      
+      domUpdates.disableGuessInputButton();
       $('.player-wager__input').val('');
       window.alert('Wager more than score! Try another wager.')
     }

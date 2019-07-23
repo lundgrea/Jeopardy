@@ -67,7 +67,7 @@ class Round {
   }
 
   checkPlayerWager(wager) {
-    console.log(`Player name and score: ${this.players[this.currentPlayer].name} ${this.players[this.currentPlayer].score} parseIntScore: ${parseInt(this.players[this.currentPlayer].score)} parseIntWager: ${parseInt(wager)}`)
+  //  console.log(`Player name and score: ${this.players[this.currentPlayer].name} ${this.players[this.currentPlayer].score} parseIntScore: ${parseInt(this.players[this.currentPlayer].score)} parseIntWager: ${parseInt(wager)}`)
     return (parseInt(this.players[this.currentPlayer].score) >= parseInt(wager) ? true : false);
   }
 }

@@ -4,7 +4,7 @@ import Round from '../src/Round';
 import FinalRound from '../src/FinalRound';
 import Clue from '../src/Clue';
 import domUpdates from './domUpdates.js';
-import $ from 'jquery';
+
 
 
 
