@@ -92,7 +92,7 @@ $(document).ready(() => {
     } 
     else {
       domUpdates.normalTurnActions(clickedItem)
-      $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
+      $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer+1].name)
 
       answer = game.currentRound.takeTurn(dataIndex);
       return
