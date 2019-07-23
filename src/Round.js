@@ -40,7 +40,6 @@ class Round {
 
   takeTurn(clueID) {
     this.turnTracker++;
-  
     let value = this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].pointValue; 
     this.answer = this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].answer; 
     domUpdates.updateQuestionDisplay(this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].question, this.players[this.currentPlayer].name, this.players[this.currentPlayer].score);
@@ -49,11 +48,9 @@ class Round {
   
   updateScores(pointValue) {
     this.players[this.currentPlayer].score += parseInt(pointValue);
-
     if (this.players[this.currentPlayer].score < 0) {
       this.players[this.currentPlayer].score = 0
     }
-
     domUpdates.populatePlayerDashboard(this.players);
     this.changePlayer(this.currentPlayer);
   }
@@ -67,7 +64,6 @@ class Round {
   }
 
   checkPlayerWager(wager) {
-  //  console.log(`Player name and score: ${this.players[this.currentPlayer].name} ${this.players[this.currentPlayer].score} parseIntScore: ${parseInt(this.players[this.currentPlayer].score)} parseIntWager: ${parseInt(wager)}`)
     return (parseInt(this.players[this.currentPlayer].score) >= parseInt(wager) ? true : false);
   }
 }

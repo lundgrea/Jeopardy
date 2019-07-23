@@ -39,7 +39,13 @@ function getData(info) {
 
 function checkAnswer(location) {
   let correct = game.currentRound.evaluateGuess($(`${location}`).val());
-  correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0])));
+  console.log('Location is: ', location)
+  if(location === '#player-guess__input'){
+    correct ? game.currentRound.updateScores(parseInt(wager)) : game.currentRound.updateScores(-(parseInt(wager)));
+  } else {
+    correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0]))); 
+  }
+
   if (correct) {
     $('.correct-answer__display').show()
     new Audio('http://www.nebo.edu/learning_resources/ppt/sounds/Applause.wav').play()
@@ -104,7 +110,7 @@ $(document).ready(() => {
     if(!game.currentRound.checkPlayerWager(wager)) {
       domUpdates.disableGuessInputButton();
       $('.player-wager__input').val('');
-      $('#daily-double-wager__display').text('Wager more than score! Try another wager.');
+      $('#daily-double-wager__display').text('Your wager is more than your current score! Please enter a new wager.');
     } else {
       $('.player-wager__input').val('');
       domUpdates.wagerSubmit();
