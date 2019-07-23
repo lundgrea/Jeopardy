@@ -13,6 +13,7 @@ let domUpdates = {
     $('.correct-answer__display').hide();
     $('#daily-double__container').hide();
     $('.final-round').hide();
+    $('#restart-game-button').hide()
     $('#welcome-message').delay(9000).fadeOut("slow");
     $('#user-name__inputs').delay(6000).append(`
   <p class="player-input__label">Player 1</p>
@@ -104,8 +105,6 @@ let domUpdates = {
     $('#daily-double-question__display').text(question)
     $('#current-question__display').text(question);
   },
-
-
   
   dailyDoubleTurnActions(clickedItem) {  
     $(`#${clickedItem}`).css({
@@ -195,9 +194,8 @@ let domUpdates = {
     $('#submit-button__wager1').delay(1400).fadeIn('slow')
     $('#submit-button__wager2').delay(1400).fadeIn('slow')
     $('#submit-button__wager3').delay(1400).fadeIn('slow')
-
-
   },
+
 }
 
 export default domUpdates

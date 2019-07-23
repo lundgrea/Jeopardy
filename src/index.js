@@ -60,6 +60,8 @@ $(document).ready(() => {
     $('#user-name__inputs').fadeOut();
     $('#main-scorecard__display').delay(1000).fadeIn();
     $('#puzzle-table__display').delay(1000).fadeIn();
+    $('#restart-game-button').delay(1000).fadeIn();
+
     domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
   })
 
@@ -144,5 +146,13 @@ $(document).ready(() => {
       domUpdates.disableUserInputButton();
     }
   })
+
+  $('#restart-game-button').click(() => {
+    fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
+      .then(response => response.json())
+      .then(parsedData => getData(parsedData))
+      .catch(err => console.error(err));
+  })
+
 });
 

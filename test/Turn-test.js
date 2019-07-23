@@ -1,28 +1,28 @@
-import chai from 'chai';
-const expect = chai.expect;
+// import chai from 'chai';
+// const expect = chai.expect;
 
-import Turn from '../src/Turn';
-import spies from 'chai-spies';
-import domUpdates from "../src/domUpdates";
+// import Turn from '../src/Turn';
+// import spies from 'chai-spies';
+// import domUpdates from "../src/domUpdates";
 
-var turn; 
+// var turn; 
 
-chai.use(spies);
+// chai.use(spies);
 
-chai.spy.on(domUpdates, ['updateScore'], () => {})
+// chai.spy.on(domUpdates, ['updateScore'], () => {})
 
-beforeEach(() => {
-  turn = new Turn()
-});
+// beforeEach(() => {
+//   turn = new Turn()
+// });
 
-describe('Turn', function() {
+// describe('Turn', function() {
 
-  it('should be a function', function() {
-    expect(Turn).to.be.a('function');
-  });
+//   it('should be a function', function() {
+//     expect(Turn).to.be.a('function');
+//   });
 
-  it('should be an instance of Turn', function() {
-    expect(turn).to.be.an.instanceof(Turn);
-  });
+//   it('should be an instance of Turn', function() {
+//     expect(turn).to.be.an.instanceof(Turn);
+//   });
 
-});
+// });
