@@ -33,6 +33,14 @@ let domUpdates = {
     $('#players-name__submit').prop('disabled', false);
   },
 
+  disableGuessInputButton() {
+    $('#submit-button').prop('disabled', true);
+  },
+
+  enableGuessInputButton() {
+    $('#submit-button').prop('disabled', false);
+  },
+
   populatePlayerDashboard(playerNames) {
     $('#js-player1-name').text(playerNames[0].name || 'Player 1');
     $('#player-1-score').text(playerNames[0].score || 0);
@@ -129,6 +137,7 @@ let domUpdates = {
   wagerSubmit() {
     $('#daily-double-wager__display').delay(500).fadeOut('slow')
     $('#player-wager__input').delay(500).fadeOut('slow')
+    $('#daily-double-wager__display__name-span').delay(500).fadeOut('slow')
     $('#submit-button__wager').delay(500).fadeOut('slow')
     $('#daily-double-question__display').delay(1000).fadeIn('slow')
     $('#player-guess__input').delay(1000).fadeIn('slow')
@@ -150,6 +159,7 @@ let domUpdates = {
     $('#current-answer__input').delay(1000).fadeIn(900);
     $('alert-question__display').delay(1000).fadeIn(900)
     $('#current-question__display').delay(1000).fadeIn(900);
+    $('#submit-button').prop('disabled', true);
   },
   
   dailyDoubleSubmitGuessActions() {

@@ -72,9 +72,6 @@ $(document).ready(() => {
     console.log('game.currentRound.dailyDoubleTurns :', game.currentRound.dailyDoubleTurns);
 
     if (game.roundTracker === 1 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[0]) {
-      console.log('round1');
-      console.log('game.roundTracker :', game.roundTracker);
-      console.log('game.currentRound.dailyDoubleTurns :', game.currentRound.dailyDoubleTurns);
       domUpdates.dailyDoubleTurnActions(clickedItem)
       answer = game.currentRound.takeTurn(dataIndex)
       return
@@ -91,12 +88,10 @@ $(document).ready(() => {
       answer = game.currentRound.takeTurn(dataIndex)
       return
     } 
-    // if (game.roundTracker === 3) {
-    //   domUpdates.startFinalRound()
-    //   new FinalRound(boards)
-    //   return
     else {
       domUpdates.normalTurnActions(clickedItem)
+      $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
+
       answer = game.currentRound.takeTurn(dataIndex);
       return
     }
@@ -106,6 +101,7 @@ $(document).ready(() => {
     wager = $('#player-wager__input').val()
     domUpdates.wagerSubmit()
   })
+
 
   $('#submit-button__guess').click(() => {
 
@@ -132,8 +128,16 @@ $(document).ready(() => {
     domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
   })
 
-  $('.player-input').keyup(() => {
 
+  $('#current-answer__input').keyup(() => {
+    if ($( '#current-answer__input' ).val() !== '') {
+      domUpdates.enableGuessInputButton();
+    } else {
+      domUpdates.disableGuessInputButton();
+    }
+  })
+
+  $('.player-input').keyup(() => {
     if ($( '#player1-name__input' ).val() !== '' && $( '#player2-name__input' ).val() !== '' && $( '#player3-name__input' ).val() != '') {
       domUpdates.enableUserInputButton();
     } else {
