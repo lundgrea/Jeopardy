@@ -12,7 +12,8 @@ let domUpdates = {
     $('fieldset').hide();
     $('.correct-answer__display').hide();
     $('#daily-double__container').hide();
-    $('.final-round').hide();
+    $('.final-round__screen1').hide();
+    $('.final-round__screen2').hide();
     $('#welcome-message').delay(9000).fadeOut("slow");
     $('#user-name__inputs').delay(6000).append(`
   <p class="player-input__label">Player 1</p>
@@ -186,18 +187,15 @@ let domUpdates = {
 
   startFinalRound() {
     $('main').hide();
+    $('#main-board__display').hide()
+    $('#main-scorecard__display').hide()
 
-    $('#final-round__container').delay(1250).fadeIn('slow');
-    $('.final-round-wager__display').delay(1400).fadeIn('slow')
-    $('#player1-wager__input').delay(1400).fadeIn('slow')
-    $('#player2-wager__input').delay(1400).fadeIn('slow')
-    $('#player3-wager__input').delay(1400).fadeIn('slow')
-    $('#submit-button__wager1').delay(1400).fadeIn('slow')
-    $('#submit-button__wager2').delay(1400).fadeIn('slow')
-    $('#submit-button__wager3').delay(1400).fadeIn('slow')
-
-
+    $('.final-round__screen1').fadeIn(5000)
   },
+
+  finalSubmit() {
+    
+    }
 }
 
 export default domUpdates

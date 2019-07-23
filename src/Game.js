@@ -10,7 +10,7 @@ import domUpdates from './domUpdates.js';
 class Game {
   constructor(boards) {
     this.currentRound = {};
-    this.roundTracker = 0;
+    this.roundTracker = 2;
     this.players = [];
     this.winner = null;
     this.boards = boards

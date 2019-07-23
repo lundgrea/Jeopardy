@@ -368,4 +368,26 @@ div {
     border-radius: 8px;
 }
 
+.final-round__display{
+   background-image: url("https://img.freepik.com/free-photo/triangle-stage-with-smoke-purple-neon-light-abstract-futuristic-background_33739-194.jpg?size=626&ext=jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0% 10% 0% 10%;
+    text-align: center;
+    width: 90%;
+    border-radius: 8px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    font-size: 42px;
+    font-weight: 800;
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    opacity: 0.9;
+    color: white;
+    filter: drop-shadow(2px 4px 6px black);
+}
 

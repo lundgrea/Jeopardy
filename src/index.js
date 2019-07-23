@@ -68,8 +68,6 @@ $(document).ready(() => {
     let clickedItem = e.target.id;
     let dataIndex = e.target.getAttribute('data-index');
     
-    console.log('game.roundTracker :', game.roundTracker);
-    console.log('game.currentRound.dailyDoubleTurns :', game.currentRound.dailyDoubleTurns);
 
     if (game.roundTracker === 1 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[0]) {
       domUpdates.dailyDoubleTurnActions(clickedItem)
@@ -87,8 +85,7 @@ $(document).ready(() => {
       domUpdates.dailyDoubleTurnActions(clickedItem)
       answer = game.currentRound.takeTurn(dataIndex)
       return
-    } 
-    else {
+    } else {
       domUpdates.normalTurnActions(clickedItem)
       $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
 
@@ -126,6 +123,7 @@ $(document).ready(() => {
     domUpdates.updateQuestionDisplay(answer[0]);
     domUpdates.normalSubmitGuessActions()
     domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
+    
   })
 
 
@@ -143,6 +141,14 @@ $(document).ready(() => {
     } else {
       domUpdates.disableUserInputButton();
     }
+  })
+
+  $('#submit-button-final__wager').click(() => {
+    new FinalRound
+    domUpdates.finalSubmit()
+    FinalRound.takeGuess(game.currentRound.currentPlayer)
+    FinalRound.changePlayer();
+
   })
 });
 

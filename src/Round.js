@@ -16,11 +16,7 @@ class Round {
     this.dailyDoubleTurns = dailyDoubleTurns;
   }
  
-  // initiateDailyDoubleTurn(round) {
-  //   // this.currentTurn = new DailyDouble(this.currentPlayer)
-  //   this.turnTracker ++
-  // }
-
+ 
   changePlayer() {
     if (this.currentPlayer < 2) {
       this.currentPlayer ++; 
@@ -33,7 +29,6 @@ class Round {
     if (this.turnTracker === 16) {
       this.endRound()
     } else {
-      // this.currentTurn = new Turn(this.currentPlayer)
       this.turnTracker ++
     }
   }
