@@ -26,6 +26,7 @@ class Game {
       this.currentRound = new Round(this.boards[this.roundTracker], this.players, this.dailyDoubleTurns);
       domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
+      domUpdates.highlightCurrentPlayer(this.currentRound.currentPlayer);
       this.currentRound.beginTurn();
       return
     }

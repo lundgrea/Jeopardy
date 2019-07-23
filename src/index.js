@@ -67,7 +67,7 @@ $(document).ready(() => {
     $('#main-scorecard__display').delay(1000).fadeIn();
     $('#puzzle-table__display').delay(1000).fadeIn();
 
-    domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer);
+    // domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer);
     domUpdates.disableCategories();
   })
 
