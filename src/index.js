@@ -119,8 +119,10 @@ $(document).ready(function() {
     if(!game.currentRound.checkPlayerWager(wager)) {
       domUpdates.disableGuessInputButton();
       $('.player-wager__input').val('');
-      window.alert('Wager more than score! Try another wager.')
-    }
+     // window.alert('Wager more than score! Try another wager.');
+      $('#daily-double-question__display').text('Wager more than score! Try another wager.');
+   
+    } else {
     $('#daily-double-wager__display').delay(500).fadeOut('slow')
     $('#player-wager__input').delay(500).fadeOut('slow')
     $('#daily-double-wager__display__name-span').delay(500).fadeOut('slow')
@@ -128,7 +130,7 @@ $(document).ready(function() {
     $('#daily-double-question__display').delay(1000).fadeIn('slow')
     $('#player-guess__input').delay(1000).fadeIn('slow')
     $('#submit-button__guess').delay(1000).fadeIn('slow')
-
+    }  
   })
 
   $('#submit-button').click(() => {
