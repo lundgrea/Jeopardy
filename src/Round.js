@@ -33,7 +33,7 @@ class Round {
     if (this.turnTracker === 16) {
       this.endRound()
     } else {
-      this.currentTurn = new Turn(this.currentPlayer)
+      // this.currentTurn = new Turn(this.currentPlayer)
       this.turnTracker ++
     }
   }
