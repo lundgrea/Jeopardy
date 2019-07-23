@@ -3,6 +3,28 @@ import Game from '../src/Game';
 
 let domUpdates = {
 
+  pageLoadHandler() {
+    // new Audio("https://www.myinstants.com/media/sounds/jeopardy-intro-1.mp3").play()
+    $('#main-scorecard__display').hide();
+    $('#user-name__inputs').hide();
+    $('#puzzle-table__display').hide();
+    $('.alert-question__container').hide();
+    $('fieldset').hide();
+    $('.correct-answer__display').hide();
+    $('#daily-double__container').hide();
+    $('.final-round').hide();
+    $('#welcome-message').delay(9000).fadeOut("slow");
+    $('#user-name__inputs').delay(6000).append(`
+  <p class="player-input__label">Player 1</p>
+  <input type="text" id="player1-name__input" class="player-input"></input>
+  <p class="player-input__label">Player 2</p>
+  <input type="text" id="player2-name__input" class="player-input"></input>
+  <p class="player-input__label">Player 3</p>
+  <input type="text" id="player3-name__input" class="player-input"></input>
+  <button type="button" id="players-name__submit" name="submitUserNames" class="button-styled hvr-grow">Game On!</button>`).delay(3700).fadeIn('slow');
+  },
+
+
   disableUserInputButton () {
     $('#players-name__submit').prop('disabled', true);
   },
@@ -73,8 +95,8 @@ let domUpdates = {
       $(`#js-player-card-${playerIndex}`).toggleClass('player-highlight')
       $('#js-player-card-2').removeClass('player-highlight')
     } else {
-    $(`#js-player-card-${playerIndex - 1}`).toggleClass('player-highlight')
-    $(`#js-player-card-${playerIndex}`).toggleClass('player-highlight')
+      $(`#js-player-card-${playerIndex - 1}`).toggleClass('player-highlight')
+      $(`#js-player-card-${playerIndex}`).toggleClass('player-highlight')
     }
   },
 
@@ -85,14 +107,97 @@ let domUpdates = {
 
 
   
-  displayRequestToPlayAgain() {  
+  dailyDoubleTurnActions(clickedItem) {  
+    $(`#${clickedItem}`).css({
+      'background-color': 'pink',
+      'background-image': 'url("http://images2.minutemediacdn.com/image/upload/c_fit,f_auto,fl_lossy,q_auto,w_728/v1555924671/shape/mentalfloss/daily_double.jpg")',
+      'background-size': 'cover',
+      'background-repeat': 'no-repeat',
+      'background-position': 'center',
+      'transition': 'transform 4s',
+      'transform-style': 'preserve-3d',
+    })
+    $(`#${clickedItem}`).text('')
+    $('audio#pop')[0].play();
+    $('main').delay(3000).fadeOut('slow')
+
+    $('#daily-double-question__display').hide()
+    $('#player-guess__input').hide()
+    $('#submit-button__guess').hide()
+    $('#daily-double-incorrect__image').hide()
+    $('#daily-double-incorrect__image').hide()
+
+    $('#daily-double__container').delay(3500).fadeIn(3750)
+    $('#daily-double__display').delay(3700).fadeIn(4000)
+    $('#daily-double-wager__display').delay(4100).fadeIn(4500)
+    $('#player-wager__input').delay(4300).fadeIn(4500)
+    $('#submit-button__wager').delay(4500).fadeIn(4500)
   },
 
-
-
-
+  wagerSubmit() {
+    $('#daily-double-wager__display').delay(500).fadeOut('slow')
+    $('#player-wager__input').delay(500).fadeOut('slow')
+    $('#daily-double-wager__display__name-span').delay(500).fadeOut('slow')
+    $('#submit-button__wager').delay(500).fadeOut('slow')
+    $('#daily-double-question__display').delay(1000).fadeIn('slow')
+    $('#player-guess__input').delay(1000).fadeIn('slow')
+    $('#submit-button__guess').delay(1000).fadeIn('slow')
+  },
   
+  normalTurnActions(clickedItem) {
+    $(`#${clickedItem}`).css({
+      'background-color': 'mediumblue',
+      'transition': 'transform 2s',
+      'transform- style': 'preserve - 3d',
+      'transform': 'rotateX(180deg)'
+    })
+    $('.correct-answer__display').hide();
+    $('.incorrect-answer__display').hide();
+    $('main').delay(700).fadeOut('fast')
+    $('.alert-question__container').css({ 'z-index': 100 }).delay(900).fadeIn(900)
+    $('#submit-button').delay(1000).fadeIn(900);
+    $('#current-answer__input').delay(1000).fadeIn(900);
+    $('alert-question__display').delay(1000).fadeIn(900)
+    $('#current-question__display').delay(1000).fadeIn(900);
+    $('#submit-button').prop('disabled', true);
+  },
   
+  dailyDoubleSubmitGuessActions() {
+    $('main').delay(1000).fadeIn('slow');
+    $('#daily-double-question__display').delay(1500).fadeOut('fast');
+
+    $('#submit-button__guess').hide();
+    $('#daily-double-question__display').hide();
+    $('#player-guess__input').hide()
+    $('#player-guess__input').val('');
+    $('#daily-double__display').delay(1000).fadeOut('fast')
+    $('#daily-double__container').delay(1000).hide()
+  },
+  
+  normalSubmitGuessActions() {
+
+    $('main').delay(1750).fadeIn('slow');
+    $('.alert-question__container').delay(1500).fadeOut('fast');
+    $('#submit-button').hide();
+    $('#current-question__display').hide();
+    $('#current-answer__input').hide();
+    $('#current-answer__input').val('');
+  },
+
+  startFinalRound() {
+    $('main').hide();
+
+    $('#final-round__container').delay(1250).fadeIn('slow');
+    $('.final-round-wager__display').delay(1400).fadeIn('slow')
+    $('#player1-wager__input').delay(1400).fadeIn('slow')
+    $('#player2-wager__input').delay(1400).fadeIn('slow')
+    $('#player3-wager__input').delay(1400).fadeIn('slow')
+    $('#submit-button__wager1').delay(1400).fadeIn('slow')
+    $('#submit-button__wager2').delay(1400).fadeIn('slow')
+    $('#submit-button__wager3').delay(1400).fadeIn('slow')
+
+
+  },
 }
 
 export default domUpdates

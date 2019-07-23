@@ -104,7 +104,7 @@ input,
   content: '';
   position: absolute;
   border: white solid 4px;
-  border-radius: 7%;
+  border-radius: 8px;
   top: 4px;
   left: 4px;
   right: 4px;
@@ -131,7 +131,7 @@ input,
 .player-input {
   width: 40%;
   height: 30px;
-  border-radius: 4%;
+  border-radius: 8px;
   border: none;
   margin-bottom: 5px;
   background-color: #E4E7E7;
@@ -140,7 +140,7 @@ input,
 .splash-input__field,
 .splash-welcome__image {
   display: flex;
-  border-radius: 2%;
+  border-radius: 8px;
   flex-direction: column;
   align-items: center;
   width: 45%;
@@ -222,7 +222,7 @@ div {
 .column-row__display {
   margin: 0% 0% 1% 1%;
   height: 25%;
-  border-radius: 7%;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -241,7 +241,7 @@ div {
 .column-header__category {
   margin: 0% 0% 1% 1%;
   height: 20%;
-  border-radius: 7%;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -261,7 +261,7 @@ div {
 .player-scorecard {
   height: 12%;
   width: 16%;
-  border-radius: 7%;
+  border-radius: 8px;
   flex-direction: column;
   display: flex;
   justify-content: center;
@@ -286,16 +286,16 @@ div {
   text-align: center;
   width: 90%;
   // height: 850px;
-  border-radius: 7%;
+  border-radius: 8px;
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 850px;
+  height: 700px;
   // border-radius: 7%;
   // flex-direction: column;
   // display: flex;
-  // align-content: center;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0);
   font-size: 42px;
   font-weight: 800;
   color: goldenrod;
@@ -316,14 +316,14 @@ div {
 }
 
 .correct-answer__display {
-  height: 300px;
-  width: 300px;
-  filter: invert(1);
+  height: 400px;
+  width: 400px;
   opacity: .95;
 }
 
 .incorrect-answer__display {
-  filter: invert(1);
+  height: 400px;
+  width: 400px;
   opacity: .95;
 }
 
@@ -334,12 +334,12 @@ div {
   padding: 0% 10% 0% 10%;
   text-align: center;
   width: 90%;
-  border-radius: 7%;
+  border-radius: 8px;
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 850px;
+  height: 700px;
   font-size: 42px;
   font-weight: 800;
   border-style: solid;
@@ -365,7 +365,7 @@ div {
     width: 25%;
     height: 30px;
     border: none;
-    border-radius: 7%;
+    border-radius: 8px;
 }
 
 

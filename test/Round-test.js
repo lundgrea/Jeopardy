@@ -15,10 +15,10 @@ chai.spy.on(domUpdates, ['updateQuestionDisplay'], () => {});
 
 beforeEach(() => {
   round = new Round([], [
-    {name: "Jon"   , score: 100}, 
-    {name:"Chris"  , score: 100}, 
+    {name: "Jon", score: 100}, 
+    {name: "Chris", score: 100}, 
     {name: "Alyssa", score: 150}
-    ], [] )
+  ], [] )
 });
 
 describe('Round', function() {
@@ -35,13 +35,14 @@ describe('Round', function() {
     expect(round.currentClue).to.equal(null)
   });
 
-  it('should be able to begin the turn', function(){
+  it('should be able to begin the turn', function() {
     round.beginTurn();
     expect(round.currentTurn).to.be.a('object')
     expect(round.turnTracker).to.equal(1);
   });
 
-  it('should return a string with any punctuation removed', function(){
+
+  it('should return a string with any punctuation removed', function() {
     expect(round.evaluateTestGuess('St. Paul', 'St. Paul')).to.equal(true);
     expect(round.evaluateTestGuess('St Paul', 'St. Paul')).to.equal(true);
     expect(round.evaluateTestGuess('St Paul!', 'St. Paul')).to.equal(true);

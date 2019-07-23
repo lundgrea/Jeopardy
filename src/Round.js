@@ -16,10 +16,10 @@ class Round {
     this.dailyDoubleTurns = dailyDoubleTurns;
   }
  
-  initiateDailyDoubleTurn(round) {
-    this.currentTurn = new DailyDouble(this.currentPlayer)
-    this.turnTracker ++
-  }
+  // initiateDailyDoubleTurn(round) {
+  //   // this.currentTurn = new DailyDouble(this.currentPlayer)
+  //   this.turnTracker ++
+  // }
 
   changePlayer() {
     if (this.currentPlayer < 2) {
@@ -33,7 +33,7 @@ class Round {
     if (this.turnTracker === 16) {
       this.endRound()
     } else {
-      this.currentTurn = new Turn(this.currentPlayer)
+      // this.currentTurn = new Turn(this.currentPlayer)
       this.turnTracker ++
     }
   }
@@ -59,13 +59,9 @@ class Round {
   }
 
   evaluateGuess(guess) {
-
-    return (guess.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase() === this.answer.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()) ? true : false;
+    return (guess.replace(/[\s.,-/#!$%^&*;:{}=\-_`~()]/g, "").toLowerCase() === this.answer.replace(/[\s.,-/#!$%^&*;:{}=\-_`~()]/g, "").toLowerCase()) ? true : false;
   }
   
-  evaluateTestGuess(guess, answer) {
-    return (guess.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase() === answer.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()) ? true : false;
-  }
 }
 
 export default Round;
