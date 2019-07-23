@@ -4,6 +4,7 @@ import Round from '../src/Round';
 import FinalRound from '../src/FinalRound';
 import Clue from '../src/Clue';
 import domUpdates from './domUpdates.js';
+import $ from 'jquery';
 
 
 
@@ -18,7 +19,7 @@ class Game {
     this.questionsArray = [];
   }
 
-  generateRound() {
+  generateRound(testRoundTracker) {
     if (this.roundTracker <= 2) {
       this.currentRound = new Round(this.boards[this.roundTracker], this.players, this.dailyDoubleTurns);
       domUpdates.populateGameBoard(this.currentRound.board)
@@ -30,6 +31,9 @@ class Game {
       domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
       this.currentRound.beginTurn()
+    }
+    if (this.roundTracker > 3) {
+      this.endGame();
     }
   }
 
@@ -61,16 +65,21 @@ class Game {
     }
   }
 
-  determineGameWinner() {
-    let sortedScores = this.players.sort((a,b) => a.score - b.score);
-    let highestScorer = sortedScores[sortedScores.length - 1].name;
+  determineGameWinner(players) {
+    let sortedScores = /*this.*/players.sort((a,b) => b.score - a.score);
+    let highestScorer = sortedScores[0].name;
+  //  let highestScorer = sortedScores[sortedScores.length - 1].name;
     this.winner = highestScorer;
     return this.winner;
   }
 
 
-  endGame() {
-    this.determineGameWinner();
+  endGame(players) {
+    let winner = this.determineGameWinner(players);
+    console.log('winner is: ', winner);
+    window.alert(`Congratulations ${winner}! You are the Jeopardy Champion!`);
+    //domUpdates.updateQuestionDisplay(`Congratulations ${winner}! You are the Jeopardy Champion!`)
+    return winner;
     // domUpdates.displayRequestToPlayAgain();
   }    
 

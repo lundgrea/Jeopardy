@@ -43,7 +43,7 @@ class Round {
   
     let value = this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].pointValue; 
     this.answer = this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].answer; 
-    domUpdates.updateQuestionDisplay(this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].question);
+    domUpdates.updateQuestionDisplay(this.board[parseInt(clueID.split('')[0])].clues[parseInt(clueID.split('')[1])].question, this.players[this.currentPlayer].name, this.players[this.currentPlayer].score);
     return [value, this.answer];
   }
   
@@ -59,12 +59,16 @@ class Round {
   }
 
   evaluateGuess(guess) {
-
     return (guess.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase() === this.answer.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()) ? true : false;
   }
   
   evaluateTestGuess(guess, answer) {
     return (guess.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase() === answer.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()) ? true : false;
+  }
+
+  checkPlayerWager(wager) {
+    console.log(`Player name and score: ${this.players[this.currentPlayer].name} ${this.players[this.currentPlayer].score} parseIntScore: ${parseInt(this.players[this.currentPlayer].score)} parseIntWager: ${parseInt(wager)}`)
+    return (parseInt(this.players[this.currentPlayer].score) >= parseInt(wager) ? true : false);
   }
 }
 
