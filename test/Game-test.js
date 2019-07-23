@@ -124,10 +124,11 @@ describe("Game", function() {
     expect(game.determineGameWinner()).to.deep.equal("Jon");
   });
 
-  it("should end the game at the end of the third round", function() {
-    game.startGame(["Jon", "Chris", "Alyssa"]);
-    game.player1.score = +10;
-    game.endGame();
-    expect(game.winner).to.equal("Jon");
+  it.only("should end the game at the end of the third round", function() {
+    // game.startGame(["Jon", "Chris", "Alyssa"]);
+    // game.player1.score = +10;
+    let players = [{'name': "Moe", 'score': 5000}, {'name': "Larry", 'score': 6000}, {'name': "Curly", 'score': 12000}];
+    game.endGame(players);
+    expect(game.winner).to.equal("Curly");
   });
 });

@@ -7,6 +7,7 @@ import domUpdates from './domUpdates.js';
 
 
 
+
 class Game {
   constructor(boards) {
     this.currentRound = {};
@@ -34,7 +35,6 @@ class Game {
       this.roundTracker ++;
       FinalRound.beginTurn()
     }
-
   }
 
   startGame(playerNames) {
@@ -73,8 +73,12 @@ class Game {
   }
 
 
-  endGame() {
-    this.determineGameWinner();
+  endGame(players) {
+    let winner = this.determineGameWinner(players);
+    console.log('winner is: ', winner);
+    window.alert(`Congratulations ${winner}! You are the Jeopardy Champion!`);
+    //domUpdates.updateQuestionDisplay(`Congratulations ${winner}! You are the Jeopardy Champion!`)
+    return winner;
     // domUpdates.displayRequestToPlayAgain();
   }    
 

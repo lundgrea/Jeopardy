@@ -39,7 +39,13 @@ function getData(info) {
 
 function checkAnswer(location) {
   let correct = game.currentRound.evaluateGuess($(`${location}`).val());
-  correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0])));
+  console.log('Location is: ', location)
+  if(location === '#player-guess__input'){
+    correct ? game.currentRound.updateScores(parseInt(wager)) : game.currentRound.updateScores(-(parseInt(wager)));
+  } else {
+    correct ? game.currentRound.updateScores(parseInt(answer[0])) : game.currentRound.updateScores(-(parseInt(answer[0]))); 
+  }
+
   if (correct) {
     $('.correct-answer__display').show()
     new Audio('http://www.nebo.edu/learning_resources/ppt/sounds/Applause.wav').play()
@@ -60,7 +66,8 @@ $(document).ready(() => {
     $('#user-name__inputs').fadeOut();
     $('#main-scorecard__display').delay(1000).fadeIn();
     $('#puzzle-table__display').delay(1000).fadeIn();
-    domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
+    domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer);
+    domUpdates.disableCategories();
   })
 
   $('#main-board__display').click((e) => {
@@ -96,9 +103,16 @@ $(document).ready(() => {
 
   $('#submit-button__wager').click(() => {
     wager = $('#player-wager__input').val()
-    domUpdates.wagerSubmit()
+  
+    if(!game.currentRound.checkPlayerWager(wager)) {
+      domUpdates.disableGuessInputButton();
+      $('.player-wager__input').val('');
+      $('#daily-double-wager__display').text('Your wager is more than your current score! Please enter a new wager.');
+    } else {
+      $('.player-wager__input').val('');
+      domUpdates.wagerSubmit();
+    }  
   })
-
 
   $('#submit-button__guess').click(() => {
 
