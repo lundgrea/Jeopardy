@@ -66,8 +66,6 @@ $(document).ready(() => {
     $('#user-name__inputs').fadeOut();
     $('#main-scorecard__display').delay(1000).fadeIn();
     $('#puzzle-table__display').delay(1000).fadeIn();
-
-    // domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer);
     domUpdates.disableCategories();
   })
 
@@ -81,8 +79,6 @@ $(document).ready(() => {
 
     if (game.roundTracker === 1 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[0]) {
       domUpdates.dailyDoubleTurnActions(clickedItem);
-      console.log(game.currentRound.currentPlayer)
-      console.log(game.players)
       $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
       answer = game.currentRound.takeTurn(dataIndex);
       return;
@@ -90,8 +86,6 @@ $(document).ready(() => {
     if (game.roundTracker === 2 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[1] ) {
 
       domUpdates.dailyDoubleTurnActions(clickedItem);
-      console.log(game.currentRound.currentPlayer)
-      console.log(game.players)
       $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
       answer = game.currentRound.takeTurn(dataIndex);
       return;
@@ -99,8 +93,6 @@ $(document).ready(() => {
     if (game.roundTracker === 2 && game.currentRound.turnTracker === game.currentRound.dailyDoubleTurns[2]) {
 
       domUpdates.dailyDoubleTurnActions(clickedItem);
-      console.log(game.currentRound.currentPlayer)
-      console.log(game.players)
       $('#daily-double-wager__display__name-span').text(game.players[game.currentRound.currentPlayer].name)
       answer = game.currentRound.takeTurn(dataIndex);
       return;
