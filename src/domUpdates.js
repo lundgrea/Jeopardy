@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import Game from '../src/Game';
+// import FinalRound from './FinalRound';
 
 let domUpdates = {
 
@@ -234,10 +235,11 @@ let domUpdates = {
       $('#player-final-wager__input').val('').fadeOut(1000)
       $('.final-round__screen2').fadeOut(1800)
       $('#final-round__container').fadeOut(1800)
-
       $('#winner-card__display').delay(2100).fadeIn(2500)
+      
       return
     }
+
     $(`#submit-button-final__guess${num}`).fadeOut(700)
     $(`#submit-button-final__guess${next}`).delay(700).fadeIn(2000)
     $('#player-final-wager__input').val('')
