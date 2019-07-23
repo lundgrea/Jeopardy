@@ -19,6 +19,9 @@ let domUpdates = {
     $('#submit-button-final__wager3').hide()
     $('#final-round__container').hide()
     $('#winner-card__display').hide()
+    $('#submit-button-final__guess1').hide()
+    $('#submit-button-final__guess2').hide()
+    $('#submit-button-final__guess3').hide()
     $('#welcome-message').delay(9000).fadeOut("slow");
     $('#user-name__inputs').delay(6000).append(`
   <p class="player-input__label">Player 1</p>
@@ -195,37 +198,41 @@ let domUpdates = {
     $('#main-board__display').hide()
     $('#main-scorecard__display').hide()
     $('#winner-card__display').hide()
+    $('#submit-button-final__wager1').hide()
+    $('#submit-button-final__wager2').hide()
+    $('#submit-button-final__wager3').hide()
 
-    $('.final-round__screen').fadeIn(5000)
-    $('.final-round__screen1').fadeIn(5000)
-    $('#submit-button-final__wager1').fadeIn(5250)
+    $('.final-round__screen').fadeIn(3000)
+    $('.final-round__screen1').fadeIn(3000)
+    $('#submit-button-final__wager1').fadeIn(3250)
   },
 
   finalWagerSubmit(num, next) {
     if (next === 0) {
-      $(`#submit-button-final__wager${num}`).fadeOut(2000)
-      $('#player-final-wager__input').val('').fadeOut(2000)
+      $(`#submit-button-final__wager${num}`).fadeOut(1800)
+      $('#player-final-wager__input').val('').fadeOut(1800)
       $('.final-round__screen1').fadeOut(1800)
       $('.final-round__screen2').delay(1900).fadeIn(2500)
       $('#final-round-question__display').fadeIn(3000)
+      $('#submit-button-final__guess1').fadeIn(3000)
     }
-    $(`#submit-button-final__wager${num}`).fadeOut(2000)
-    $(`#submit-button-final__wager${next}`).fadeIn(2000)
+    $(`#submit-button-final__wager${num}`).fadeOut(700)
+    $(`#submit-button-final__wager${next}`).delay(700).fadeIn('slow')
     $('#player-final-wager__input').val('')
   },
 
   finalGuessSubmit(num, next) {
     if (next === 0) {
-      $(`#submit-button-final__guess${num}`).fadeOut(2000)
-      $('#player-final-wager__input').val('').fadeOut(2000)
-      $('.final-round__screen2').fadeOut(2000)
-      $('#final-round__container').fadeOut(2000)
+      $(`#submit-button-final__guess${num}`).fadeOut(1000)
+      $('#player-final-wager__input').val('').fadeOut(1000)
+      $('.final-round__screen2').fadeOut(1800)
+      $('#final-round__container').fadeOut(1800)
 
-      $('#winner-card__display').delay(2100).fadeIn(2000)
+      $('#winner-card__display').delay(2100).fadeIn(2500)
       return
     }
-    $(`#submit-button-final__guess${num}`).fadeOut(2000)
-    $(`#submit-button-final__guess${next}`).fadeIn(2000)
+    $(`#submit-button-final__guess${num}`).fadeOut(700)
+    $(`#submit-button-final__guess${next}`).delay(700).fadeIn(2000)
     $('#player-final-wager__input').val('')
   }
 
