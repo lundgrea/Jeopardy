@@ -148,10 +148,12 @@ $(document).ready(() => {
   })
 
   $('#restart-game-button').click(() => {
-    fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
-      .then(response => response.json())
-      .then(parsedData => getData(parsedData))
-      .catch(err => console.error(err));
+    document.location.reload()
+    // fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
+    //   .then(response => response.json())
+    //   .then(parsedData => getData(parsedData))
+    //   .catch(err => console.error(err));
+    // domUpdates.pageLoadHandler()
   })
 
 });
