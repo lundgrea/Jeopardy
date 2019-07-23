@@ -60,7 +60,8 @@ $(document).ready(() => {
     $('#user-name__inputs').fadeOut();
     $('#main-scorecard__display').delay(1000).fadeIn();
     $('#puzzle-table__display').delay(1000).fadeIn();
-    domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer)
+    domUpdates.highlightCurrentPlayer(game.currentRound.currentPlayer);
+    domUpdates.disableCategories();
   })
 
   $('#main-board__display').click((e) => {
@@ -99,9 +100,16 @@ $(document).ready(() => {
 
   $('#submit-button__wager').click(() => {
     wager = $('#player-wager__input').val()
-    domUpdates.wagerSubmit()
+  
+    if(!game.currentRound.checkPlayerWager(wager)) {
+      domUpdates.disableGuessInputButton();
+      $('.player-wager__input').val('');
+      $('#daily-double-wager__display').text('Wager more than score! Try another wager.');
+    } else {
+      $('.player-wager__input').val('');
+      domUpdates.wagerSubmit();
+    }  
   })
-
 
   $('#submit-button__guess').click(() => {
 
