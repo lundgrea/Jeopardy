@@ -4,6 +4,7 @@
     <title>Jeopardy!</title>
   </head>
   <body>
+    <button class="reset-game-button__container hvr-pulse"><img src="https://image.flaticon.com/icons/svg/32/32303.svg" class="reset-game-button__img"></button>
     <main>
       <section class="splash-screen__welcome" id="welcome-message">
           <img class="splash-screen__logo" alt="jeopardy logo" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Jeopardy%21_logo.svg">
@@ -98,23 +99,30 @@
               <button class="submit-button button-styled hvr-grow" id="submit-button__guess">Submit Guess</button>
             </article>
           </div>
-          <div class="final-round final-round__container" id="final-round__container">
-            <article class="final-round final-round__display" id="final-round__display">
-              <h1 class="final-round final-round-wager__display">What Will You Wager?</h1>
-              <input class="final-round player-wager__input" id="player1-wager__input" type="input">
-              <h1 class="final-round final-round-wager__display">What Will You Wager?</h1>
-              <input class="final-round player-wager__input" id="player2-wager__input" type="input">
-              <h1 class="final-round final-round-wager__display" >What Will You Wager?</h1>
-              <input class="final-round player-wager__input" id="player3-wager__input" type="input">
-              <button class="final-round submit-button button-styled hvr-grow" id="submit-button__wager1">Submit Wager</button>
-              <button class="final-round submit-button button-styled hvr-grow" id="submit-button__wager2">Submit Wager</button>
-              <button class="final-round submit-button button-styled hvr-grow" id="submit-button__wager3">Submit Wager</button>
-              <h1 class="final-round final-round-question__display" id="final-round-question__display"></h1>
-              <input class="final-round player-guess__input" id="player-guess__input" type="input">
-              <input class="final-round player-guess__input" id="player-guess__input" type="input">
-              <input class="final-round player-guess z-guess__input" id="player-guess__input" type="input">
-              <button class="final-round submit-button button-styled hvr-grow" id="submit-button__guess">Submit Guess</button>
+          <div class="final-round__screen final-round__container" id="final-round__container">
+            <article class="final-round__screen1 final-round__display" id="final-round__display">
+                <h1 class="final-round__category" id="final-round__category">hasodhfoh</h1>
+                <h2 class="final-round__screen1 final-round-wager__display">What Will You Wager?</h2>
+                <input class="final-round__screen1 player-wager__input" id="player-final-wager__input" type="input">
+                <button class="submit-button button-styled hvr-grow" id="submit-button-final__wager1">Submit Wager
+                </button>
+                <button class="submit-button button-styled hvr-grow" id="submit-button-final__wager2">Submit Wager
+                </button>
+                <button class="submit-button button-styled hvr-grow" id="submit-button-final__wager3">Submit Wager
+                </button>
             </article>
+            <article class="final-round__screen2">
+                <h1 class="final-round-question__display"id="final-round-question__display">Question</h1>
+                <input class="player-guess__input" id="player-guess__input" type="input">
+                <button class="submit-button button-styled hvr-grow" id="submit-button-final__guess1">Submit Guess</button>
+                <button class="submit-button button-styled hvr-grow" id="submit-button-final__guess2">Submit
+                Guess</button>
+                <button class="submit-button button-styled hvr-grow" id="submit-button-final__guess3">Submit
+                Guess</button>
+            </article>
+          </div>
+          <div class="winner-card__display" id="winner-card__display">
+
           </div>
         <audio id="pop">
           <source src="https://www.myinstants.com/media/sounds/jeopardy-daily-double-sound-effect-from-youtube.mp3" type="audio/mpeg">

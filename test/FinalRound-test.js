@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-import FinalRound from '../src/FinalRound'
+import FinalRound from '../src/FinalRound';
 import domUpdates from "../src/domUpdates";
 
 
@@ -13,7 +13,7 @@ beforeEach(() => {
 
 describe('FinalRound', function() {
 
-  it('should be a function', function() {
+  it.only('should be a function', function() {
     expect(FinalRound).to.be.a('function');
   });
 
