@@ -83,7 +83,7 @@
           <div class="alert-question__container">
             <article class="alert-question__display">
               <h1 id="current-question__display">QUESTION</h1>
-              <input class="player-input guess__input" id="current-answer__input" type="input">
+              <input autocomplete="off" class="player-input guess__input" id="current-answer__input" type="input">
                <button disabled class="submit-button button-styled hvr-grow" id="submit-button">Submit Guess</button>
               <img class="correct-answer__display" src="https://image.flaticon.com/icons/svg/1941/1941620.svg"></img>
               <img class="incorrect-answer__display" src="https://image.flaticon.com/icons/svg/1941/1941639.svg"></img>
@@ -92,10 +92,10 @@
           <div class="daily-double__container" id="daily-double__container">
             <article class="daily-double__display" id="daily-double__display">
               <h1 class="daily-double-wager__display" id="daily-double-wager__display"><span id="current-player-name">, </span>What Will You Wager?</h1>
-              <input class="player-wager__input" id="player-wager__input" type="input">
+              <input autocomplete="off" class="player-wager__input" id="player-wager__input" type="input">
               <button class="submit-button button-styled hvr-grow" id="submit-button__wager">Submit Wager</button>
               <h1 class="daily-double-question__display" id="daily-double-question__display"></h1>
-              <input class="player-guess__input" id="player-guess__input" type="input" placeholder="What is:">
+              <input autocomplete="off" class="player-guess__input" id="player-guess__input" type="input" placeholder="What is:">
               <button class="submit-button button-styled hvr-grow" id="submit-button__guess">Submit Guess</button>
             </article>
           </div>
@@ -103,7 +103,7 @@
             <article class="final-round__screen1 final-round__display" id="final-round__display">
                 <h1 class="final-round__category" id="final-round__category">hasodhfoh</h1>
                 <h2 class="final-round__screen1 final-round-wager__display">What Will You Wager?</h2>
-                <input class="final-round__screen1 player-wager__input" id="player-final-wager__input" type="input">
+                <input autocomplete="off" class="final-round__screen1 player-wager__input" id="player-final-wager__input" type="input">
                 <button class="submit-button button-styled hvr-grow" id="submit-button-final__wager1">Submit Wager
                 </button>
                 <button class="submit-button button-styled hvr-grow" id="submit-button-final__wager2">Submit Wager
@@ -113,7 +113,7 @@
             </article>
             <article class="final-round__screen2">
                 <h1 class="final-round-question__display"id="final-round-question__display">Question</h1>
-                <input class="player-guess__input" id="player-guess__input" type="input">
+                <input autocomplete="off" class="player-guess__input" id="player-guess__input" type="input">
                 <button class="submit-button button-styled hvr-grow" id="submit-button-final__guess1">Submit Guess</button>
                 <button class="submit-button button-styled hvr-grow" id="submit-button-final__guess2">Submit
                 Guess</button>
@@ -122,12 +122,11 @@
             </article>
           </div>
           <div class="winner-card__display" id="winner-card__display">
-
           </div>
-        <audio id="pop">
-          <source src="https://www.myinstants.com/media/sounds/jeopardy-daily-double-sound-effect-from-youtube.mp3" type="audio/mpeg">
-        </audio>
-  </body>
+          <audio id="pop">
+            <source src="https://www.myinstants.com/media/sounds/jeopardy-daily-double-sound-effect-from-youtube.mp3" type="audio/mpeg">
+          </audio>
+    </body>
   <script src="https://unpkg.com/packery@2/dist/packery.pkgd.js"></script>
   <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
 </html>

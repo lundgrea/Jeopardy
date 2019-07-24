@@ -1,9 +1,5 @@
 import $ from 'jquery';
 import Round from '../src/Round';
-import Clue from '../src/Clue';
-// import Turn from '../src/Turn';
-import Game from '../src/Game';
-
 
 class FinalRound extends Round {
   constructor(board, players, dailyDoubleTurns) { 
@@ -27,13 +23,6 @@ class FinalRound extends Round {
     let winner = this.determineGameWinner();
     return winner;
   }    
-    
 }
   
-
-  
-
-
-
-
 export default FinalRound;
