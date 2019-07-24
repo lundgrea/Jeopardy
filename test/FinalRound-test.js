@@ -13,7 +13,7 @@ beforeEach(() => {
 
 describe('FinalRound', function() {
 
-  it.only('should be a function', function() {
+  it('should be a function', function() {
     expect(FinalRound).to.be.a('function');
   });
 

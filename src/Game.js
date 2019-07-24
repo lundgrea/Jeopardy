@@ -13,7 +13,7 @@ class Game {
     this.currentRound = {};
     this.roundTracker = 0;
     this.players = [];
-    // this.winner = null;
+    this.winner = null;
     this.boards = boards
     this.dailyDoubleTurns = []
     this.questionsArray = [];

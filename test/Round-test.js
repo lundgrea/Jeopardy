@@ -37,7 +37,6 @@ describe('Round', function() {
 
   it('should be able to begin the turn', function() {
     round.beginTurn();
-    expect(round.currentTurn).to.be.a('object')
     expect(round.turnTracker).to.equal(1);
   });
 
@@ -52,7 +51,7 @@ describe('Round', function() {
 
   it('should update scores', function() {
     round.updateScores(100);
-    expect(domUpdates.populatePlayerDashboard).to.have.been.called(5);
+    expect(domUpdates.populatePlayerDashboard).to.have.been.called(4);
   });
 
 
