@@ -35,12 +35,12 @@ The test results will output to the terminal.
  - Alyssa Lundgren [@lundgrea] (https://github.com/lundgrea)
 
 ## Game Play Gif
-![jeopardy demonstration of game play gif](src/images/Jeopardy-short.gif)
+![jeopardy demonstration of game play gif](../src/images/Jeopardy-short.gif)
 
 ## Screenshots 
-![](src/images/WelcomeScreen.png)
-![](src/images/SplashScreen.png)
-![](src/images/MainBoard-2.png)
-![](src/images/ClueBoard.png)
+![](../src/images/WelcomeScreen.png)
+![](../src/images/SplashScreen.png)
+![](../src/images/MainBoard-2.png)
+![](../src/images/ClueBoard.png)
 
 
