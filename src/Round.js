@@ -1,9 +1,5 @@
-import Clue from '../src/Clue';
-// import Turn from '../src/Turn';
-import Game from '../src/Game';
+
 import domUpdates from './domUpdates';
-// import FinalRound from '../src/FinalRound';
-import $ from 'jquery';
 
 class Round {
   constructor(board, players, dailyDoubleTurns) {
@@ -16,7 +12,6 @@ class Round {
     this.answer = '';
     this.dailyDoubleTurns = dailyDoubleTurns;
   }
- 
  
   changePlayer() {
     if (this.currentPlayer < 2) {
@@ -31,7 +26,7 @@ class Round {
       this.endRound();
       this.turnTracker = 0;
     } else {
-      this.turnTracker ++
+      this.turnTracker ++;
     }
   }
 
@@ -46,18 +41,14 @@ class Round {
   updateScores(pointValue) {
     this.players[this.currentPlayer].score += parseInt(pointValue);
     if (this.players[this.currentPlayer].score < 0) {
-      this.players[this.currentPlayer].score = 0
+      this.players[this.currentPlayer].score = 0;
     }
     domUpdates.populatePlayerDashboard(this.players);
     this.changePlayer(this.currentPlayer);
   }
 
   evaluateGuess(guess) {
-    return (guess.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase() === this.answer.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()) ? true : false;
-  }
-  
-  evaluateTestGuess(guess, answer) {
-    return (guess.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase() === answer.replace(/[\s\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()) ? true : false;
+    return (guess.replace(/[\s.,-/#!$%^&*;:{}=\-_`~()]/g,"").toLowerCase() === this.answer.replace(/[\s.,-/#!$%^&*;:{}=\-_`~()]/g, "").toLowerCase()) ? true : false;
   }
 
   checkPlayerWager(wager) {

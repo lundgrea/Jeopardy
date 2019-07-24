@@ -1,13 +1,10 @@
-import chai from 'chai';
 const expect = chai.expect;
-
-
+import chai from 'chai';
 import Clue from '../src/Clue';
 import data from '../src/data';
-import domUpdates from "../src/domUpdates";
 
 
-var clue
+var clue;
 
 beforeEach(() => {
   clue = new Clue(data)
@@ -20,19 +17,18 @@ describe('Clue', function() {
     expect(Clue).to.be.a('function');
   });
 
-  it('should be an instance of Clue', function() {
+  it.only('should be an instance of Clue', function() {
     expect(clue).to.be.an.instanceof(Clue);
   });
 
-  it('should be able to shuffle the array of category ids', function() {
+  it.only('should be able to shuffle the array of category ids', function() {
 
     let randomArray = clue.shuffleArray()
-    
     expect(randomArray.length).to.equal(10);
     expect(randomArray.sort()).to.eql(clue.roundCategories.sort());
   });
 
-  it("should be able to find a category based on the randomized array and never repeat a category for an enitre game", function() {
+  it.only("should be able to find a category based on the randomized array and never repeat a category for an enitre game", function() {
     let categories = clue.getCategory();
 
     expect(categories.length).to.equal(4);

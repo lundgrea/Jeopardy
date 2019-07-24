@@ -1,13 +1,11 @@
 class Clue {
-  constructor(data) {
-    this.data = data.data;
+  constructor(api) {
+    this.data = api.data;
     this.roundCategories = [];
   }
   shuffleArray() {
     let idArray = Object.values(this.data.categories).sort(
-      () => Math.random() - 0.5
-    );
-
+      () => Math.random() - 0.5);
     this.roundCategories = idArray
     return idArray
   }
@@ -23,9 +21,9 @@ class Clue {
             categoryId: id
           })
         }
-      })
+      });
       return acc
-    }, [])
+    }, []);
   }
   
   getRoundOneClues() {
@@ -35,11 +33,11 @@ class Clue {
         if (el.categoryId === category.categoryId) {
           acc.push(el);
         }
-      })
+      });
       return acc
-    }, [])
+    }, []);
 
-    let boardObjects = []
+    let boardObjects = [];
     categoryIds.forEach(category => {
       let questionArray = [
         this.getQuestion(clues, 100, category.categoryId),
@@ -50,20 +48,19 @@ class Clue {
       boardObjects.push({
         category: category.category,
         clues: questionArray.flat()
-      })
-    })
+      });
+    });
     return boardObjects
   }
 
   getQuestion(cluesArray, value, id) {
-    
-    let cluePointArray = cluesArray.filter(clue => clue.pointValue === value && clue.categoryId === id)
-    return cluePointArray.splice(0, 1)
+    let cluePointArray = cluesArray.filter(clue => clue.pointValue === value && clue.categoryId === id);
+    return cluePointArray.splice(0, 1);
   }
 
   getRoundTwoClues() {
-    let mutatedArray = this.roundCategories
-    let roundClues = mutatedArray.splice(0, 4)
+    let mutatedArray = this.roundCategories;
+    let roundClues = mutatedArray.splice(0, 4);
     let categoryNames = Object.keys(this.data.categories);
     let test = roundClues.reduce((acc, id) => {
       categoryNames.forEach((el, index) => {
@@ -100,7 +97,6 @@ class Clue {
       });
     });
     return boardObjects;
-
   }
 
   getRoundThreeClue() {
@@ -109,7 +105,7 @@ class Clue {
     let categoryNames = Object.keys(this.data.categories);
     let test = roundClues.reduce((acc, id) => {
       categoryNames.forEach((el, index) => {
-        if (index + 1 == id) {
+        if (index + 1 === id) {
           acc.push({
             category: el,
             categoryId: id
@@ -130,9 +126,7 @@ class Clue {
     
     let boardObjects = [];
     test.forEach(category => {
-      let questionArray = [
-        this.getQuestion(clues, 400, category.categoryId)
-      ];
+      let questionArray = [this.getQuestion(clues, 400, category.categoryId)];
       boardObjects.push({
         category: category.category,
         clues: questionArray.flat()
