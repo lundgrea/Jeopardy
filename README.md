@@ -30,7 +30,7 @@ The test results will output to the terminal.
 
 ## Developers
 
- - Christopher Lane [@CLLane] (https://github.com/CLLane)
- - Jon O'Drobinak [@Triplemanus] (https://github.com/Triplemanus)
- - Alyssa Lundgren [@lundgrea] (https://github.com/lundgrea)
+ - Christopher Lane [@CLLane](https://github.com/CLLane)
+ - Jon O'Drobinak [@Triplemanus](https://github.com/Triplemanus)
+ - Alyssa Lundgren [@lundgrea](https://github.com/lundgrea)
 
