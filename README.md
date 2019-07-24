@@ -34,11 +34,3 @@ The test results will output to the terminal.
  - Jon O'Drobinak [@Triplemanus] (https://github.com/Triplemanus)
  - Alyssa Lundgren [@lundgrea] (https://github.com/lundgrea)
 
-## Screenshots 
-![](file:///Users/alyssalundgren/turing/mod_2/projects/jeopardy/src/images/SplashScreen.png)
-![](/src/images/WelcomeScreen.png)
-![](/src/images/SplashScreen.png)
-![](/src/images/MainBoard-2.png)
-![](/src/images/ClueBoard.png)
-
-
