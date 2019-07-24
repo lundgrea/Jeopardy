@@ -79,26 +79,6 @@ describe("Game", function() {
     expect(game.player3).to.be.an.instanceof(Player);
   });
 
-  // it("should be able to generate new rounds", function() {
-  //   game.startGame(["Jon", "Chris", "Alyssa"]);
-  //   expect(game.roundTracker).to.equal(1);
-  //   game.generateRound();
-  //   expect(game.roundTracker).to.equal(2);
-  //   game.generateRound();
-  //   expect(game.roundTracker).to.equal(3);
-  // });
-
-
-  // it("should not create more than three rounds", function() {
-  //   game.startGame(["Jon", "Chris", "Alyssa"]);
-  //   expect(game.roundTracker).to.equal(1);
-  //   game.generateRound();
-  //   expect(game.roundTracker).to.equal(2);
-  //   game.generateRound();
-  //   expect(game.roundTracker).to.equal(3);
-  //   game.generateRound();
-  //   expect(game.roundTracker).to.equal(3);
-  // });
 
   it("should create three new Players from the player input fields", function() {
     game.generatePlayers(["Jon", "Chris", "Alyssa"]);

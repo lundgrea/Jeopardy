@@ -28,7 +28,8 @@ class Round {
 
   beginTurn() {
     if (this.turnTracker === 16) {
-      this.endRound()
+      this.endRound();
+      this.turnTracker = 0;
     } else {
       this.turnTracker ++
     }

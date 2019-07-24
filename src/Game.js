@@ -11,9 +11,9 @@ import domUpdates from './domUpdates.js';
 class Game {
   constructor(boards) {
     this.currentRound = {};
-    this.roundTracker = 2;
+    this.roundTracker = 0;
     this.players = [];
-    // this.winner = null;
+    this.winner = null;
     this.boards = boards
     this.dailyDoubleTurns = []
     this.questionsArray = [];
@@ -25,6 +25,7 @@ class Game {
       this.currentRound = new Round(this.boards[this.roundTracker], this.players, this.dailyDoubleTurns);
       domUpdates.populateGameBoard(this.currentRound.board)
       this.roundTracker ++;
+      domUpdates.highlightCurrentPlayer(this.currentRound.currentPlayer);
       this.currentRound.beginTurn();
       return
     }

@@ -121,8 +121,6 @@ let domUpdates = {
     $('#daily-double-question__display').text(question)
     $('#current-question__display').text(question);
   },
-
-
   
   dailyDoubleTurnActions(clickedItem) {  
     $(`#${clickedItem}`).css({
@@ -149,6 +147,8 @@ let domUpdates = {
     $('#daily-double-wager__display').delay(4100).fadeIn(4500)
     $('#player-wager__input').delay(4300).fadeIn(4500)
     $('#submit-button__wager').delay(4500).fadeIn(4500)
+
+    
   },
 
   wagerSubmit() {
@@ -239,7 +239,6 @@ let domUpdates = {
       
       return
     }
-
     $(`#submit-button-final__guess${num}`).fadeOut(700)
     $(`#submit-button-final__guess${next}`).delay(700).fadeIn(2000)
     $('#player-final-wager__input').val('')
