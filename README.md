@@ -34,3 +34,12 @@ The test results will output to the terminal.
  - Jon O'Drobinak [@Triplemanus](https://github.com/Triplemanus)
  - Alyssa Lundgren [@lundgrea](https://github.com/lundgrea)
 
+## Screenshots
+![](src/images/WelcomeScreen.png)
+![](src/images/SplashScreen.png)
+![](src/images/MainBoard.png)
+![](src/images/ClueBoard.png)
+
+
+
+
