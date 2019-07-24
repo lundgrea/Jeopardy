@@ -6,7 +6,7 @@ Our version of America's Favorite Game Show features:
 - Gameplay implemented using JavaScript classes, subclasses, objects and array prototype methods
 - A full testing suite demonstrating the app's test driven development
 
-The game allows three contestants to enter their names, select categories and point values from the gameboard, and answer questions one-by-one accumulating or squandering away their hard earned prize money. The infamous Daily Double and Final Jeopardy make their apperance within the program as instances of extended subclasses of the traditional Turn and Round classes respectively. The entire applicaiton is packaged using WebPack, tested with Mocha and Chai, and styled with SCSS.   
+The game allows three contestants to enter their names, select categories and point values from the gameboard, and answer questions one-by-one accumulating or squandering away their hard earned prize money. The infamous Daily Double and Final Jeopardy make their apperance within the program as instances of extended subclasses of the traditional Turn and Round classes respectively. The entire application is packaged using WebPack, tested with Mocha and Chai, and styled with SCSS.   
 
 ## Setup
 
@@ -34,5 +34,13 @@ The test results will output to the terminal.
  - Jon O'Drobinak [@Triplemanus] (https://github.com/Triplemanus)
  - Alyssa Lundgren [@lundgrea] (https://github.com/lundgrea)
 
+## Game Play Gif
+![jeopardy demonstration of game play gif](images/Jeopardy-short.gif)
+
 ## Screenshots 
-![](images/need)
+![](images/WelcomeScreen.png)
+![](images/SplashScreen.png)
+![](images/MainBoard-2.png)
+![](images/ClueBoard.png)
+
+
