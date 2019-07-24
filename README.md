@@ -1,4 +1,4 @@
-# Jeopardy
+# Jeopardy!
 
 Our version of America's Favorite Game Show features: 
 
