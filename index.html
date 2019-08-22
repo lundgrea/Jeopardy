@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Jeopardy!</title>
+  </head>
+  <body>
+    <button class="reset-game-button__container hvr-pulse"><img src="https://image.flaticon.com/icons/svg/32/32303.svg" class="reset-game-button__img"></button>
+    <main>
+      <section class="splash-screen__welcome" id="welcome-message">
+          <img class="splash-screen__logo" alt="jeopardy logo" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Jeopardy%21_logo.svg">
+      </section>
+      <section class="splash-screen__inputs" >
+        <article class="input splash-input__field" id="user-name__inputs">
+          <p class="splash-screen__header">Enter Contestant Names</p>
+        </article>
+      </section>
+      <section class="puzzle-table__display" id="puzzle-table__display">
+        <div class="main-board__display" id="main-board__display">
+              <section class="board-column__section">
+                <article class="column-header__category" id="column0-row0__category">
+                </article>
+                <article id="column0-row1__clue" class="column-row__display hvr-grow hvr-trim" data-index="00">
+                </article>
+                <article id="column0-row2__clue" class="column-row__display hvr-grow hvr-trim" data-index="01">
+                </article>
+                <article id="column0-row3__clue" class="column-row__display hvr-grow hvr-trim" data-index="02">
+                </article>
+                <article id="column0-row4__clue" class="column-row__display hvr-grow hvr-trim" data-index="03">
+                </article>
+              </section class="board-column__section">
+              <section class="board-column__section">
+                <article class="column-header__category" id="column1-row0__category">
+                </article>
+                <article id="column1-row1__clue" class="column-row__display hvr-grow hvr-trim" data-index="10">
+                </article>
+                <article id="column1-row2__clue" class="column-row__display hvr-grow hvr-trim" data-index="11">
+                </article>
+                <article id="column1-row3__clue" class="column-row__display hvr-grow hvr-trim" data-index="12">
+                </article>
+                <article id="column1-row4__clue" class="column-row__display hvr-grow hvr-trim" data-index="13">
+                </article>
+              </section class="board-column__section">
+              <section class="board-column__section">
+                <article class="column-header__category" id="column2-row0__category">
+                </article>
+                <article id="column2-row1__clue" class="column-row__display hvr-grow hvr-trim" data-index="20">
+                </article>
+                <article id="column2-row2__clue" class="column-row__display hvr-grow hvr-trim" data-index="21">
+                </article>
+                <article id="column2-row3__clue" class="column-row__display hvr-grow hvr-trim" data-index="22">
+                </article>
+                <article id="column2-row4__clue" class="column-row__display hvr-grow hvr-trim" data-index="23">
+                </article>
+              </section class="board-column__section">
+              <section class="board-column__section">
+                <article class="column-header__category" id="column3-row0__category">
+                </article>
+                <article id="column3-row1__clue" class="column-row__display hvr-grow hvr-trim" data-index="30">
+                </article>
+                <article id="column3-row2__clue" class="column-row__display hvr-grow hvr-trim" data-index="31">
+                </article>
+                <article id="column3-row3__clue" class="column-row__display hvr-grow hvr-trim" data-index="32">
+                </article>
+                <article id="column3-row4__clue" class="column-row__display hvr-grow hvr-trim" data-index="33">
+                </article>
+              </section class="board-column__section">
+            </div>
+              <section class="score-cards__display" id="main-scorecard__display">
+                <article id="js-player-card-0" class="player-scorecard hvr-buzz">
+                  <h2 id="js-player1-name">Player1</h2>
+                  <h2>$<span id="player-1-score"> 0 </span></h2>
+                </article>
+                <article id="js-player-card-1" class="player-scorecard hvr-buzz">
+                  <h2 id="js-player2-name">Player2</h2>
+                  <h2>$<span id="player-2-score"> 0 </span></h2>
+                </article>
+                <article id="js-player-card-2" class="player-scorecard hvr-buzz">
+                  <h2 id="js-player3-name">Player3</p>
+                  <h2>$<span id="player-3-score"> 0 </span></h2>
+                </article>
+              </section>
+          </main>
+          <div class="alert-question__container">
+            <article class="alert-question__display">
+              <h1 id="current-question__display">QUESTION</h1>
+              <input autocomplete="off" class="player-input guess__input" id="current-answer__input" type="input">
+               <button disabled class="submit-button button-styled hvr-grow" id="submit-button">Submit Guess</button>
+              <img class="correct-answer__display" src="https://image.flaticon.com/icons/svg/1941/1941620.svg"></img>
+              <img class="incorrect-answer__display" src="https://image.flaticon.com/icons/svg/1941/1941639.svg"></img>
+            </article>
+          </div>
+          <div class="daily-double__container" id="daily-double__container">
+            <article class="daily-double__display" id="daily-double__display">
+              <h1 class="daily-double-wager__display" id="daily-double-wager__display"><span id="current-player-name">, </span>What Will You Wager?</h1>
+              <input autocomplete="off" class="player-wager__input" id="player-wager__input" type="input">
+              <button class="submit-button button-styled hvr-grow" id="submit-button__wager">Submit Wager</button>
+              <h1 class="daily-double-question__display" id="daily-double-question__display"></h1>
+              <input autocomplete="off" class="player-guess__input" id="player-guess__input" type="input" placeholder="What is:">
+              <button class="submit-button button-styled hvr-grow" id="submit-button__guess">Submit Guess</button>
+            </article>
+          </div>
+          <div class="final-round__screen final-round__container" id="final-round__container">
+            <article class="final-round__screen1 final-round__display" id="final-round__display">
+                <h1 class="final-round__category" id="final-round__category">hasodhfoh</h1>
+                <h2 class="final-round__screen1 final-round-wager__display">What Will You Wager?</h2>
+                <input autocomplete="off" class="final-round__screen1 player-wager__input" id="player-final-wager__input" type="input">
+                <button class="submit-button button-styled hvr-grow" id="submit-button-final__wager1">Submit Wager
+                </button>
+                <button class="submit-button button-styled hvr-grow" id="submit-button-final__wager2">Submit Wager
+                </button>
+                <button class="submit-button button-styled hvr-grow" id="submit-button-final__wager3">Submit Wager
+                </button>
+            </article>
+            <article class="final-round__screen2">
+                <h1 class="final-round-question__display"id="final-round-question__display">Question</h1>
+                <input autocomplete="off" class="player-guess__input" id="player-guess__input" type="input">
+                <button class="submit-button button-styled hvr-grow" id="submit-button-final__guess1">Submit Guess</button>
+                <button class="submit-button button-styled hvr-grow" id="submit-button-final__guess2">Submit
+                Guess</button>
+                <button class="submit-button button-styled hvr-grow" id="submit-button-final__guess3">Submit
+                Guess</button>
+            </article>
+          </div>
+          <div class="winner-card__display" id="winner-card__display">
+          </div>
+          <audio id="pop">
+            <source src="https://www.myinstants.com/media/sounds/jeopardy-daily-double-sound-effect-from-youtube.mp3" type="audio/mpeg">
+          </audio>
+    <script type="text/javascript" src="main.bundle.js"></script></body>
+  <script src="https://unpkg.com/packery@2/dist/packery.pkgd.js"></script>
+  <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
+</html>
