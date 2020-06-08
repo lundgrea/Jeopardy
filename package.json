@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "hover.css": "^2.3.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "packery": "^2.1.2"
   }
 }
